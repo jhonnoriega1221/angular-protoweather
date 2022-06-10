@@ -1,1 +1,1 @@
-<app-location-selector></app-location-selector>
+<app-nolocation-warning (emitGetLocation)="getLocation()" [title]=warningInfo.title [isSearchingLocation]=isSearchingLocation [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>

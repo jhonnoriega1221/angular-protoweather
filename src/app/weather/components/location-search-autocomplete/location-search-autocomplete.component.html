@@ -1,0 +1,10 @@
+<mat-form-field class="form-field" appearance="outline">
+    <mat-label>Ubicación</mat-label>
+    <input (input)="getSearchPlaces()" [(ngModel)]="input" type="text" matInput [matAutocomplete]="autoPlace">
+
+</mat-form-field>
+<mat-autocomplete (optionSelected)=selectPlace($event) #autoPlace="matAutocomplete">
+    <mat-option *ngFor="let place of places; let i = index" [value]=i>
+        {{place.display_name}}
+    </mat-option>
+</mat-autocomplete>

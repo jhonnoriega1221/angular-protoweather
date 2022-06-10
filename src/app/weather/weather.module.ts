@@ -1,36 +1,48 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { WeatherLayoutComponent } from './layouts/weather-layout/weather-layout.component';
 import { WeatherNavbarComponent } from './components/weather-navbar/weather-navbar.component';
 import { WeatherNavButtonComponent } from './components/weather-nav-button/weather-nav-button.component';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherHomePageComponent } from './pages/weather-home-page/weather-home-page.component';
-import { LocationSelectorComponent } from './components/location-selector/location-selector.component';
 import { HeaderInfoComponent } from './components/header-info/header-info.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { SetlocationPageComponent } from './pages/setlocation-page/setlocation-page.component';
+import { LocationSearchAutocompleteComponent } from './components/location-search-autocomplete/location-search-autocomplete.component';
+import { NolocationWarningComponent } from './components/nolocation-warning/nolocation-warning.component';
+import { NolocationButtonsComponent } from './components/nolocation-buttons/nolocation-buttons.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
     WeatherHomePageComponent,
-    LocationSelectorComponent,
     HeaderInfoComponent,
     WeatherLayoutComponent,
     WeatherNavButtonComponent,
     WeatherNavbarComponent,
-    SetlocationPageComponent
+    SetlocationPageComponent,
+    LocationSearchAutocompleteComponent,
+    NolocationWarningComponent,
+    NolocationButtonsComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MatButtonModule,
     WeatherRoutingModule,
     MatIconModule,
-    MatRippleModule
+    MatRippleModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatInputModule,
+    MatAutocompleteModule
   ]
 })
 export class WeatherModule { }

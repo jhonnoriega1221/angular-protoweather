@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="top">
+        <img class="illustration" [src]=imageURL alt="">
+        <h4 class="title">{{title}}</h4>
+        <p class="text">{{message}}</p>
+    </div>
+    <div class="bottom" *ngIf="!isSearchingLocation">
+        <button class="mat-body-2" mat-flat-button color="primary" (click)="getLocation()">Detectar mi ubicación</button>
+        <p class="or-text">o</p>
+        <button mat-stroked-button>Seleccionar una ubicacion manualmente</button>
+    </div>
+    <div *ngIf="isSearchingLocation" class="searching-location">
+        <mat-progress-spinner diameter="40" class="progress" color="primary" mode="indeterminate"></mat-progress-spinner>
+        <p>Buscando ubicación</p>
+    </div>
+</div>
+
+<app-location-search-autocomplete></app-location-search-autocomplete>
