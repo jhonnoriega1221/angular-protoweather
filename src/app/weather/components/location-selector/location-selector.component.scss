@@ -1,0 +1,43 @@
+
+.wrapper, .top, .bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    padding: 56px 12px;
+    box-sizing: border-box;
+    height: 100%;
+    justify-content: space-evenly;
+    max-width: 425px;
+    margin: 0 auto;
+    
+}
+
+.illustration{
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto 32px auto;
+}
+
+.text, .or-text, .title{
+    text-align: center;
+}
+
+.title{
+    margin: 0;
+}
+
+.text{
+    margin-bottom: 32px;
+}
+
+.or-text{
+    margin: 6px 0;
+}
+
+
+

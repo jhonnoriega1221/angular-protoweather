@@ -1,0 +1,9 @@
+<div class="wrapper mat-card">
+  <app-weather-nav-button
+    class="nav-button"
+    *ngFor="let navbarItem of navbarItems"
+    [text]=navbarItem.text
+    [icon]=navbarItem.icon
+    [url]=navbarItem.url>
+  </app-weather-nav-button>
+</div>
