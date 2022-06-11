@@ -24,11 +24,12 @@ export class LocationSearchAutocompleteComponent implements OnInit {
   getSearchPlaces(): void {
     this.places = [];
     this.locationSelected.emit(false);
+    clearTimeout(this.searchPlaceInterval);
     if (this.input === '') {
       this.isSearching = false;
     } else {
       this.isSearching = true;
-      clearTimeout(this.searchPlaceInterval);
+      
       this.searchPlaceInterval = setTimeout(() => {
         this.placeService.search(this.input).subscribe(
           {

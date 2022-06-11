@@ -1,4 +1,33 @@
 <div class="background" [ngStyle]="{'background-image': 'url('+ actualBackground.backgroundURL+')'}">
-    <span class="place-name">Cartagena de indias</span>
-    <p [style]="{'color': actualBackground.textColor}" class="temperature mat-display-4">19°C</p>
+    <div class="top-content">
+        <div [style]="{'color': actualBackground.textColor}" class="place-name">
+            <mat-icon class="icon-small">pin_drop</mat-icon>
+            <span>{{'Cartagena de indias' | uppercase}}</span>
+        </div>
+        <div [style]="{'color': actualBackground.textColor}" class="temperature">
+                <p>19°</p>
+                <span>C</span>
+        </div>
+        <div class="weather-status">
+           <!-- <img class="weather-icon" src="../../../../assets/weather-sun.svg" alt=""> -->
+
+            <p [style]="{'color': actualBackground.textColor}">Clear sky</p>
+        </div>
+    </div>
+    <div class="bottom-content">
+        <div class="bottom-info-item">
+            <span class="info-value">78%</span>
+            <span class="info-name">Humedad</span>
+        </div>
+        <div class="separator"></div>
+        <div class="bottom-info-item">
+            <span class="info-value">4 km</span>
+            <span class="info-name">Visibilidad</span>
+        </div>
+        <div class="separator"></div>
+        <div class="bottom-info-item">
+            <span class="info-value">Low 0</span>
+            <span class="info-name">Índice UV</span>
+        </div>
+    </div>
 </div>
