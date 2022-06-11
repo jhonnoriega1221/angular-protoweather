@@ -14,7 +14,7 @@ export class ActualWeatherBackgroundComponent implements OnInit {
 
   @Input() weatherCode:number = 0;
   private backgrounds:backgroundWeatherCode[] = [
-    { weatherCode: 0, backgroundURL: '../../../../../../assets/background-placeholder.jpg' }
+    { weatherCode: 0, backgroundURL: '../../../../../../assets/background-placeholder-2.jpg' }
   ]
 
   public backgroundURL:string = '';

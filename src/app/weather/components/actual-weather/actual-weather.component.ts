@@ -1,4 +1,5 @@
 //https://icons8.com/icon/set/weather/color
+// [ngStyle]="{'background-image': 'url('+ actualBackground.backgroundURL+')'}"
 import { Component, OnInit, Input } from '@angular/core';
 
 interface backgroundWeatherCode{
