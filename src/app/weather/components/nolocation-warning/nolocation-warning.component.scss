@@ -8,13 +8,9 @@
 }
 
 .wrapper {
-    padding: 56px 12px;
     box-sizing: border-box;
-    height: 100%;
-    justify-content: space-evenly;
     max-width: 425px;
     margin: 0 auto;
-    
 }
 
 .illustration{
@@ -33,15 +29,4 @@
 
 .text{
     margin-bottom: 32px;
-}
-
-.or-text{
-    margin: 6px 0;
-}
-
-.searching-location, .progress{
-    margin: 0 auto;
-    p{
-        text-align: center;
-    }
 }

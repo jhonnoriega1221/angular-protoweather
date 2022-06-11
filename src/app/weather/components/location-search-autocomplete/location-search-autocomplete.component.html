@@ -4,6 +4,9 @@
 
 </mat-form-field>
 <mat-autocomplete (optionSelected)=selectPlace($event) #autoPlace="matAutocomplete">
+    <mat-option *ngIf="isSearching">
+        <mat-spinner style="margin: 0 auto" diameter="30" color="primary"></mat-spinner>
+    </mat-option>
     <mat-option *ngFor="let place of places; let i = index" [value]=i>
         {{place.display_name}}
     </mat-option>

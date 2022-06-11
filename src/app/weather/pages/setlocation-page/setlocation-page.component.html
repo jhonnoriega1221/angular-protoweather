@@ -1,1 +1,4 @@
-<app-nolocation-warning (emitGetLocation)="getLocation()" [title]=warningInfo.title [isSearchingLocation]=isSearchingLocation [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
+<div class="wrapper">
+    <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
+    <app-nolocation-buttons (errorLocation)="showLocationErrorMessage($event)" (locationFound)="goToHome()" ></app-nolocation-buttons>
+</div>

@@ -19,6 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { SetlocationAutocompleteDialogComponent } from './components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     SetlocationPageComponent,
     LocationSearchAutocompleteComponent,
     NolocationWarningComponent,
-    NolocationButtonsComponent
+    NolocationButtonsComponent,
+    SetlocationAutocompleteDialogComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule
   ]
 })
 export class WeatherModule { }

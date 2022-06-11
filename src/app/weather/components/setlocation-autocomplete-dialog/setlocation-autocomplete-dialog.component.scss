@@ -1,0 +1,13 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.dialog-bottom{
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    justify-content: flex-end;
+}

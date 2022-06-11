@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nolocation-warning',
@@ -10,16 +10,12 @@ export class NolocationWarningComponent implements OnInit {
   @Input() imageURL:string = '';
   @Input() title:string = '';
   @Input() message:string = '';
-  @Input() isSearchingLocation:boolean = false;
-  @Output() emitGetLocation: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public getLocation(){
-    this.emitGetLocation.emit();
-  }
+
 
 }

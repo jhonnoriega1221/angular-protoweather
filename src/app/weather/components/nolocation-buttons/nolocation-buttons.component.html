@@ -1,0 +1,10 @@
+<div class="wrapper" *ngIf="!isSearchingLocation">
+    <button class="mat-body-2" mat-flat-button color="primary" (click)="getLocation()">Detectar mi ubicación</button>
+    <p class="or-text">o</p>
+    <button mat-stroked-button (click)="openSetLocationDialog()">Seleccionar una ubicacion manualmente</button>
+</div>
+
+<div *ngIf="isSearchingLocation" class="wrapper">
+    <mat-progress-spinner diameter="40" class="progress" color="primary" mode="indeterminate"></mat-progress-spinner>
+    <p class="mat-body-2">Buscando ubicación</p>
+</div>

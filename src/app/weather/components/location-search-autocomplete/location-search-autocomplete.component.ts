@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { Place } from '../../models/place';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -11,8 +11,10 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 export class LocationSearchAutocompleteComponent implements OnInit {
 
   public input: string = '';
+  public isSearching:boolean = false;
   public places: Place[] = [];
   private searchPlaceInterval: any = 0;
+  @Output() locationSelected: EventEmitter<any> = new EventEmitter();
 
   constructor(private placeService: PlaceService) { }
 
@@ -20,25 +22,32 @@ export class LocationSearchAutocompleteComponent implements OnInit {
   }
 
   getSearchPlaces(): void {
+    this.places = [];
+    this.locationSelected.emit(false);
     if (this.input === '') {
-      this.places = [];
+      this.isSearching = false;
     } else {
+      this.isSearching = true;
       clearTimeout(this.searchPlaceInterval);
       this.searchPlaceInterval = setTimeout(() => {
         this.placeService.search(this.input).subscribe(
           {
             next: (v) => { this.places = v },
-            error: (e) => { },
-            complete: () => { }
+            error: (e) => {
+              console.log(e);
+              this.isSearching = false;
+            },
+            complete: () => { this.isSearching = false }
           }
         )
-      }, 500);
+      }, 400);
     }
   }
 
   selectPlace(e: MatAutocompleteSelectedEvent) {
     const place:Place = this.places[e.option.value];
-    this.placeService.setDefaultPlace(place.lat, place.lon, place.display_name);
+    this.input = place.display_name;
+    this.locationSelected.emit(place);
   }
 
 }

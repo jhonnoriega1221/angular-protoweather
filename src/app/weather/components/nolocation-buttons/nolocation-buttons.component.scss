@@ -6,5 +6,10 @@
 .wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+    align-items: center;
+    height: 103px;
+
+    button{
+        width: 100%;
+    }
 }
