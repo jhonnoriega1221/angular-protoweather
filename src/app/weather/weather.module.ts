@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SetlocationAutocompleteDialogComponent } from './components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
+import { ActualWeatherBackgroundComponent } from './components/actual-weather-background/actual-weather-background.component';
+import { ActualWeatherComponent } from './components/actual-weather/actual-weather.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { SetlocationAutocompleteDialogComponent } from './components/setlocation
     LocationSearchAutocompleteComponent,
     NolocationWarningComponent,
     NolocationButtonsComponent,
-    SetlocationAutocompleteDialogComponent
+    SetlocationAutocompleteDialogComponent,
+    ActualWeatherBackgroundComponent,
+    ActualWeatherComponent
   ],
   imports: [
     CommonModule,

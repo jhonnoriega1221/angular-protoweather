@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherHomePageComponent implements OnInit {
 
+  public weatherCode:number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
