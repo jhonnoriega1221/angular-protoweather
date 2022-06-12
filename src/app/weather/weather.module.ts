@@ -28,7 +28,11 @@ import { WrapperHeaderComponent } from './components/wrapper-header/wrapper-head
 import { WeatherSunsetInfoComponent } from './components/weather-sunset-info/weather-sunset-info.component';
 import { WindInfoComponent } from './components/wind-info/wind-info.component';
 import { WeatherWeekInfoComponent } from './components/weather-week-info/weather-week-info.component';
-import { MatDividerModule } from '@angular/material/divider'
+import { MatDividerModule } from '@angular/material/divider';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component'
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { MatDividerModule } from '@angular/material/divider'
     WrapperHeaderComponent,
     WeatherSunsetInfoComponent,
     WindInfoComponent,
-    WeatherWeekInfoComponent
+    WeatherWeekInfoComponent,
+    SearchPageComponent,
+    FavoritesPageComponent,
+    SettingsPageComponent,
+    ForecastPageComponent
   ],
   imports: [
     CommonModule,

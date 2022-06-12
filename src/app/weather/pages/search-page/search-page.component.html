@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <h2>Buscar</h2>
+    <app-location-search-autocomplete (locationSelected)="searchLocation($event)"></app-location-search-autocomplete>
+    <p class="mat-caption">Búsquedas recientes</p>
+</div>
+<ul class="list mat-card">
+    <a [routerLink]="['/forecast/cartagena']" mat-ripple class="list-item mat-body-2 mat-app-background">
+        Cartagena
+    </a>
+    <mat-divider class="separator"></mat-divider>
+</ul>
