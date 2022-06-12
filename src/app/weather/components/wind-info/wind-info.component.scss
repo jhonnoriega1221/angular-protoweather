@@ -1,0 +1,22 @@
+.wrapper{
+    padding: 0 12px;
+
+    .mat-card{
+        padding: 12px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        gap: 6px;
+        border-radius: 12px;
+            .wind-direction{
+                width: 52px;
+            }
+
+            p{
+                margin: 0;
+            }
+        
+    }
+}

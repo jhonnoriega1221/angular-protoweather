@@ -1,0 +1,26 @@
+.wrapper{
+    padding: 0 12px;
+
+
+    .mat-card{
+        padding: 12px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        border-radius: 12px;
+        .sun-section{
+            display: flex;
+            width: 100%;
+            gap: 6px;
+            .sun-image{
+                width: 52px;
+            }
+
+            p{
+                margin: 0;
+            }
+        }
+    }
+}

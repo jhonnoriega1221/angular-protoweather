@@ -1,0 +1,36 @@
+.wrapper{
+    padding: 0 12px 64px 12px;
+
+    .list{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 12px 0;
+        border-radius: 12px;
+        box-sizing: border-box;
+        margin: 0;
+        .list-item{
+            display: flex;
+            align-items: center;
+            height: 68px;
+            gap: 6px;
+            padding: 0 12px;
+
+            p{
+                margin: 0;
+            }
+
+            .day-wrapper{
+                width: 100%;
+            }
+            .weather-code-icon{
+                width: 52px;
+            }
+
+        }
+
+        .separator:last-child {
+            display:none;
+          }
+    }
+}

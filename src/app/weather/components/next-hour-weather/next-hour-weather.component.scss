@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    gap: 12px;
+    overflow: auto;
+
+    padding: 0 12px;
+
+
+
+    .forecast-list-item{
+        min-width: 88px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        align-items: center;
+        height: 160px;
+        justify-content: center;
+
+        p{
+            margin: 0;
+        }
+
+        .weather-icon {
+            width: 46px;
+            margin: 16px 0;
+        }
+    }
+}

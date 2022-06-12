@@ -1,1 +1,10 @@
-<p>next-hour-weather works!</p>
+<div style="margin-top: -68px">
+    <app-wrapper-header text="Siguientes horas"></app-wrapper-header>
+    <div class="wrapper">
+        <div *ngFor="let hourly of hourlyForecast" class="forecast-list-item mat-card">
+            <p class="time mat-body-2">{{hourly.time}}</p>
+            <img class="weather-icon" src="../../../../assets/weather-sun.svg">
+            <p class="weather mat-">{{hourly.weather}}ºC</p>
+        </div>
+    </div>
+</div>

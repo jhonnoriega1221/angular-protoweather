@@ -23,7 +23,12 @@ import { SetlocationAutocompleteDialogComponent } from './components/setlocation
 import { ActualWeatherBackgroundComponent } from './components/actual-weather-background/actual-weather-background.component';
 import { ActualWeatherComponent } from './components/actual-weather/actual-weather.component';
 import { NextHourWeatherComponent } from './components/next-hour-weather/next-hour-weather.component';
-
+import { ActualWeatherInfoComponent } from './components/actual-weather-info/actual-weather-info.component';
+import { WrapperHeaderComponent } from './components/wrapper-header/wrapper-header.component';
+import { WeatherSunsetInfoComponent } from './components/weather-sunset-info/weather-sunset-info.component';
+import { WindInfoComponent } from './components/wind-info/wind-info.component';
+import { WeatherWeekInfoComponent } from './components/weather-week-info/weather-week-info.component';
+import { MatDividerModule } from '@angular/material/divider'
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { NextHourWeatherComponent } from './components/next-hour-weather/next-ho
     SetlocationAutocompleteDialogComponent,
     ActualWeatherBackgroundComponent,
     ActualWeatherComponent,
-    NextHourWeatherComponent
+    NextHourWeatherComponent,
+    ActualWeatherInfoComponent,
+    WrapperHeaderComponent,
+    WeatherSunsetInfoComponent,
+    WindInfoComponent,
+    WeatherWeekInfoComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +62,8 @@ import { NextHourWeatherComponent } from './components/next-hour-weather/next-ho
     MatDialogModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ]
 })
 export class WeatherModule { }
