@@ -21,12 +21,16 @@ export class PlaceService {
     return this.http.get<Place>(`${this.apiURL}reverse?format=jsonv2&zoom=10&lat=${lat}&lon=${lon}`)
   }
   
-  public setDefaultPlace(lat:string, lon:string, name:string){
+  public setDefaultPlace(lat:string, lon:string, name:string):void{
     const place = {
-      name: name,
+      display_name: name,
       lat: lat,
       lon: lon
     }
     localStorage.setItem("defloc", JSON.stringify(place));
+  }
+
+  public getDefaultPlace():Place{
+    return JSON.parse(localStorage.getItem('defloc') || '');
   }
 }

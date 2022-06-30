@@ -3,8 +3,8 @@
     <div class="wrapper">
         <div *ngFor="let hourly of hourlyForecast" class="forecast-list-item mat-card">
             <p class="time mat-body-2">{{hourly.time}}</p>
-            <img class="weather-icon" src="../../../../assets/weather-sun.svg">
-            <p class="weather mat-">{{hourly.weather}}ºC</p>
+            <img class="weather-icon" [src]=hourly.iconURL>
+            <p class="weather">{{hourly.temperature | number:'1.0-0'}}ºC</p>
         </div>
     </div>
 </div>

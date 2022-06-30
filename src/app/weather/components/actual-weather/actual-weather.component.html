@@ -1,33 +1,33 @@
-<app-actual-weather-background></app-actual-weather-background>
-<div class="background">
+<app-actual-weather-background [backgroundURL]="weatherCodeData.backgroundURL"></app-actual-weather-background>
+<div class="wrapper">
     <div class="top-content">
-        <div [style]="{'color': actualBackground.textColor}" class="place-name">
+        <div [style]="{'color': weatherCodeData.textColor}" class="place-name">
             <mat-icon class="icon-small">pin_drop</mat-icon>
-            <span>{{'Cartagena de indias' | uppercase}}</span>
+            <span>{{place | uppercase}}</span>
         </div>
-        <div [style]="{'color': actualBackground.textColor}" class="temperature">
-                <p>19°</p>
+        <div [style]="{'color': weatherCodeData.textColor}" class="temperature">
+                <p>{{temperature | number:'1.0-0'}}°</p>
                 <span>C</span>
         </div>
         <div class="weather-status">
            <!-- <img class="weather-icon" src="../../../../assets/weather-sun.svg" alt=""> -->
 
-            <p [style]="{'color': actualBackground.textColor}">Clear sky</p>
+            <p [style]="{'color': weatherCodeData.textColor}">{{weatherCodeData.description}}</p>
         </div>
     </div>
     <div class="bottom-content">
         <div class="bottom-info-item">
-            <span class="info-value">78%</span>
+            <span class="info-value">{{humidity}}%</span>
             <span class="info-name">Humedad</span>
         </div>
         <div class="separator"></div>
         <div class="bottom-info-item">
-            <span class="info-value">4 km</span>
-            <span class="info-name">Visibilidad</span>
+            <span class="info-value">{{precipitation}} mm</span>
+            <span class="info-name">Precipitación</span>
         </div>
         <div class="separator"></div>
         <div class="bottom-info-item">
-            <span class="info-value">Low 0</span>
+            <span class="info-value">{{radiation}} W/m²</span>
             <span class="info-name">Índice UV</span>
         </div>
     </div>

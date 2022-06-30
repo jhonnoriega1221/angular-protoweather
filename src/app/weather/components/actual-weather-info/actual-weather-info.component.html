@@ -1,11 +1,11 @@
 <app-wrapper-header text="Información adicional"></app-wrapper-header>
 <div class="wrapper">
     <div class="info-item-card mat-card">
-        <p class="text mat-h2">1,011 mbar</p>
+        <p class="text mat-h2">{{weatherPressure}} hPa</p>
         <p class="title mat-body-2">Presión</p>
     </div>
     <div class="info-item-card mat-card">
-        <p class="text mat-h2">25ºc</p>
+        <p class="text mat-h2">{{weatherDewpoint | number:'1.0-0'}}ºc</p>
         <p class="title mat-body-2">Punto de rocío</p>
     </div>
 </div>

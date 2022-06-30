@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-actual-weather-info',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actual-weather-info.component.scss']
 })
 export class ActualWeatherInfoComponent implements OnInit {
+
+  @Input() weatherPressure:number = 0;
+  @Input() weatherDewpoint:number = 0;
 
   constructor() { }
 

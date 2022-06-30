@@ -1,6 +1,24 @@
-<app-actual-weather [weatherCode]=weatherCode></app-actual-weather>
-<app-next-hour-weather></app-next-hour-weather>
-<app-actual-weather-info></app-actual-weather-info>
+<app-actual-weather
+    *ngIf="!isLoading"
+    [weatherCode]="forecastData.hourly.weathercode[actualHourIndex]"
+    [place]="placeName"
+    [temperature]="forecastData.hourly.temperature_2m[actualHourIndex]"
+    [humidity]="forecastData.hourly.relativehumidity_2m[actualHourIndex]"
+    [precipitation]="forecastData.hourly.precipitation[actualHourIndex]"
+    [radiation]="forecastData.hourly.shortwave_radiation[actualHourIndex]">
+</app-actual-weather>
+<app-next-hour-weather 
+    *ngIf="!isLoading"
+    [actualHourIndex]="actualHourIndex"
+    [temperatures]="forecastData.hourly.temperature_2m"
+    [weatherTimes]="forecastData.hourly.time"
+    [weatherCodes]="forecastData.hourly.weathercode">
+</app-next-hour-weather>
+<app-actual-weather-info
+    *ngIf="!isLoading"
+    [weatherPressure]="forecastData.hourly.surface_pressure[actualHourIndex]"
+    [weatherDewpoint]="forecastData.hourly.dewpoint_2m[actualHourIndex]">
+</app-actual-weather-info>
 <app-weather-sunset-info></app-weather-sunset-info>
 <app-wind-info></app-wind-info>
 <app-weather-week-info></app-weather-week-info>

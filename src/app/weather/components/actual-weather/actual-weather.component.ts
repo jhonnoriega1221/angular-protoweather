@@ -1,12 +1,8 @@
 //https://icons8.com/icon/set/weather/color
 // [ngStyle]="{'background-image': 'url('+ actualBackground.backgroundURL+')'}"
 import { Component, OnInit, Input } from '@angular/core';
-
-interface backgroundWeatherCode{
-  weatherCode:number;
-  backgroundURL:string;
-  textColor:'black' | 'white';
-}
+import { WeatherCode } from '../../models/weatherCode';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-actual-weather',
@@ -16,22 +12,23 @@ interface backgroundWeatherCode{
 export class ActualWeatherComponent implements OnInit {
 
   @Input() weatherCode:number = 0;
-  private backgrounds:backgroundWeatherCode[] = [
-    { weatherCode: 0, backgroundURL: '../../../../../../assets/background-placeholder-2.jpg', textColor:'white' }
-  ]
+  @Input() place:string = '';
+  @Input() temperature:number = 0;
+  @Input() humidity:number = 0;
+  @Input() precipitation:number = 0;
+  @Input() radiation:number = 0;
 
-  public actualBackground:backgroundWeatherCode = {
-    weatherCode: 0, backgroundURL: '', textColor: 'black'
+  public weatherCodeData:WeatherCode = {
+    backgroundURL: '',
+    description: '',
+    iconURL: '',
+    textColor: 'black',
+    weatherCode: 0
   };
 
-  constructor() { }
+  constructor( private weatherService:WeatherService ) { }
 
   ngOnInit(): void {
-    this.setWeatherBackground(this.weatherCode);
+    this.weatherCodeData = this.weatherService.getWeatherCodeData(this.weatherCode);
   }
-
-  private setWeatherBackground(weatherCode:number){
-    this.actualBackground = this.backgrounds[weatherCode];
-  }
-
 }

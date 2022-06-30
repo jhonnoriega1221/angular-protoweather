@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { WeatherService } from '../../services/weather.service';
 
 interface Hourly{
   time:string;
-  weather:number;
+  temperature:number;
+  iconURL:string;
 }
 
 @Component({
@@ -11,22 +13,32 @@ interface Hourly{
   styleUrls: ['./next-hour-weather.component.scss']
 })
 export class NextHourWeatherComponent implements OnInit {
+  
+  @Input() actualHourIndex:number = 0;
+  @Input() temperatures:number[] = [];
+  @Input() weatherTimes:string[] = [];
+  @Input() weatherCodes:number[] = [];
 
-  public hourlyForecast:Hourly[] = [
-    { time: '00:00', weather:  12},
-    { time: '02:00', weather:  14},
-    { time: '04:00', weather:  15},
-    { time: '06:00', weather:  18},
-    { time: '08:00', weather:  20},
-    { time: '10:00', weather:  23},
-    { time: '12:00', weather:  23},
-    { time: '14:00', weather:  24},
-    { time: '16:00', weather:  26}
-  ]
+  public hourlyForecast:Hourly[] = [];
 
-  constructor() { }
+  constructor( private weatherService:WeatherService ) { }
 
   ngOnInit(): void {
+    this.setHourForecast(this.actualHourIndex);
+  }
+
+  private setHourForecast(actualHourIndex:number){
+    const lastHourIndex = actualHourIndex + 24
+    for(let i = actualHourIndex + 1; i <= lastHourIndex; i++){
+
+      const newHourlyForecast = {
+        time: this.weatherTimes[i].slice(11),
+        temperature: this.temperatures[i],
+        iconURL: this.weatherService.getWeatherCodeData(this.weatherCodes[i]).iconURL
+      }
+
+      this.hourlyForecast.push(newHourlyForecast)
+    }
   }
 
 }

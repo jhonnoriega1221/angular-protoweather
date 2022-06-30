@@ -7,7 +7,6 @@ import { WeatherNavbarComponent } from './components/weather-navbar/weather-navb
 import { WeatherNavButtonComponent } from './components/weather-nav-button/weather-nav-button.component';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherHomePageComponent } from './pages/weather-home-page/weather-home-page.component';
-import { HeaderInfoComponent } from './components/header-info/header-info.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
@@ -17,8 +16,8 @@ import { NolocationWarningComponent } from './components/nolocation-warning/nolo
 import { NolocationButtonsComponent } from './components/nolocation-buttons/nolocation-buttons.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { SetlocationAutocompleteDialogComponent } from './components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ActualWeatherBackgroundComponent } from './components/actual-weather-background/actual-weather-background.component';
 import { ActualWeatherComponent } from './components/actual-weather/actual-weather.component';
@@ -32,12 +31,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
-import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component'
+import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 
 @NgModule({
   declarations: [
     WeatherHomePageComponent,
-    HeaderInfoComponent,
     WeatherLayoutComponent,
     WeatherNavButtonComponent,
     WeatherNavbarComponent,

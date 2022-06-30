@@ -1,5 +1,6 @@
-.background{
+.wrapper{
     height: 100vh;
+    min-height: 390px;
     background-size: cover;
     background-position: center;
     padding: 24px 12px 56px 12px;
@@ -15,7 +16,7 @@
 
 .icon-small{
     height: 20px;
-    width: 20px;
+    min-width: 20px;
     font-size: 20px;
 }
 
