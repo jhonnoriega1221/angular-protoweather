@@ -1,50 +1,16 @@
 <app-wrapper-header text="Esta semana"></app-wrapper-header>
 <div class="wrapper">
     <ul class="list mat-card">
+        <div *ngFor="let forecastDay of forecastDays; let lastItem = last;">
         <li class="list-item">
             <div class="day-wrapper">
-                <p>Hoy</p>
-                <p class="mat-body-2">Junio 11</p>
+                <p>{{forecastDay.weekDayName}}</p>
+                <p class="mat-body-2">{{forecastDay.weekDayDate}}</p>
             </div>
-            <p class="temperature mat-h2">21ºc</p>
-            <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
+            <p class="temperature mat-h2">{{forecastDay.maxTemperature | number:'1.0-0'}}ºc</p>
+            <img class="weather-code-icon" [src]=forecastDay.weatherCodeIconURL alt="">
         </li>
-        <mat-divider class="separator"></mat-divider>
-        <li class="list-item">
-            <div class="day-wrapper">
-                <p>Hoy</p>
-                <p class="mat-body-2">Junio 11</p>
-            </div>
-            <p class="temperature mat-h2">21ºc</p>
-            <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-        </li>
-        <mat-divider class="separator"></mat-divider>
-        <li class="list-item">
-            <div class="day-wrapper">
-                <p>Hoy</p>
-                <p class="mat-body-2">Junio 11</p>
-            </div>
-            <p class="temperature mat-h2">21ºc</p>
-            <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-        </li>
-        <mat-divider class="separator"></mat-divider>
-        <li class="list-item">
-            <div class="day-wrapper">
-                <p>Hoy</p>
-                <p class="mat-body-2">Junio 11</p>
-            </div>
-            <p class="temperature mat-h2">21ºc</p>
-            <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-        </li>
-        <mat-divider class="separator"></mat-divider>
-        <li class="list-item">
-            <div class="day-wrapper">
-                <p>Hoy</p>
-                <p class="mat-body-2">Junio 11</p>
-            </div>
-            <p class="temperature mat-h2">21ºc</p>
-            <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-        </li>
-        <mat-divider class="separator"></mat-divider>
+        <mat-divider *ngIf="!lastItem" class="separator"></mat-divider>
+        </div>
     </ul>
 </div>

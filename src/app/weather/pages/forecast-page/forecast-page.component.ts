@@ -75,7 +75,7 @@ export class ForecastPageComponent implements OnInit {
       {
         next: (v) => {
           function toIsoString(date:Date) {
-            var pad = function (num:number) {
+            const pad = function (num:number) {
               return (num < 10 ? '0' : '') + num;
             };
 

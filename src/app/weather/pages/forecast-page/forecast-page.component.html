@@ -19,6 +19,19 @@
     [weatherPressure]="forecastData.hourly.surface_pressure[actualHourIndex]"
     [weatherDewpoint]="forecastData.hourly.dewpoint_2m[actualHourIndex]">
 </app-actual-weather-info>
-<app-weather-sunset-info></app-weather-sunset-info>
-<app-wind-info></app-wind-info>
-<app-weather-week-info></app-weather-week-info>
+<app-weather-sunset-info
+    *ngIf="!isLoading"
+    [sunsetTime]="forecastData.daily.sunset[0]"
+    [sunriseTime]="forecastData.daily.sunrise[0]">
+</app-weather-sunset-info>
+<app-wind-info
+    *ngIf="!isLoading"
+    [windDirectionAngle]="forecastData.hourly.winddirection_10m[actualHourIndex]"
+    [windSpeed]="forecastData.hourly.windspeed_10m[actualHourIndex]">
+</app-wind-info>
+<app-weather-week-info
+    *ngIf="!isLoading"
+    [weekDays]="forecastData.daily.time"
+    [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
+    [weekWeatherCode]="forecastData.daily.weathercode">
+</app-weather-week-info>
