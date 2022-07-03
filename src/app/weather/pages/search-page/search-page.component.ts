@@ -15,6 +15,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   public searchLocation(place:Place){
+    console.log(place)
     this.routerService.navigate(['/forecast/',place.place_id ])
   }
 

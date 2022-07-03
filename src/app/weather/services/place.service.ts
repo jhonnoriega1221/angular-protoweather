@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 import { Place } from '../models/place';
+import { PlaceDetails } from '../models/place-details';
+
 
 
 @Injectable({
@@ -17,8 +19,12 @@ export class PlaceService {
     return this.http.get<Place[]>(`${this.apiURL}search.php?format=jsonv2&q=${query}`);
   }
 
-  public getPlace(lat:number, lon:number):Observable <Place>{
+  public getPlace(lat:number, lon:number):Observable <Place> {
     return this.http.get<Place>(`${this.apiURL}reverse?format=jsonv2&zoom=10&lat=${lat}&lon=${lon}`)
+  }
+
+  public getPlaceById(placeID:number):Observable<PlaceDetails>{
+    return this.http.get<PlaceDetails>(`${this.apiURL}details.php?place_id=${placeID}&addressdetails=1&hierarchy=0&group_hierarchy=1&format=json`);
   }
   
   public setDefaultPlace(lat:string, lon:string, name:string):void{
@@ -30,7 +36,12 @@ export class PlaceService {
     localStorage.setItem("defloc", JSON.stringify(place));
   }
 
-  public getDefaultPlace():Place{
-    return JSON.parse(localStorage.getItem('defloc') || '');
+  public getDefaultPlace():Place|undefined{
+    if(localStorage.getItem('defloc') != undefined){
+      return JSON.parse(localStorage.getItem('defloc') || '');
+    }
+    else{
+      return undefined;
+    }  
   }
 }

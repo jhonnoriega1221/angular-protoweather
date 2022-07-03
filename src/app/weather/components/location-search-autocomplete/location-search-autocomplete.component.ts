@@ -23,7 +23,6 @@ export class LocationSearchAutocompleteComponent implements OnInit {
 
   getSearchPlaces(): void {
     this.places = [];
-    this.locationSelected.emit(false);
     clearTimeout(this.searchPlaceInterval);
     if (this.input === '') {
       this.isSearching = false;
