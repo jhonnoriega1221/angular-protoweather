@@ -3,6 +3,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherCode } from '../../models/weatherCode';
 import { WeatherService } from '../../services/weather.service';
+import { PlaceService } from '../../services/place.service';
 
 @Component({
   selector: 'app-actual-weather',
@@ -11,12 +12,18 @@ import { WeatherService } from '../../services/weather.service';
 })
 export class ActualWeatherComponent implements OnInit {
 
+  isFavorite:boolean = false;
+  favoriteIconStatus:'star'|'star_outline' = 'star';
+
   @Input() weatherCode:number = 0;
   @Input() place:string = '';
   @Input() temperature:number = 0;
   @Input() humidity:number = 0;
   @Input() precipitation:number = 0;
   @Input() radiation:number = 0;
+
+  @Input() placeCode:string = '';
+  @Input() isDefaultLocation:boolean = false;
 
   public weatherCodeData:WeatherCode = {
     backgroundURL: '',
@@ -26,9 +33,26 @@ export class ActualWeatherComponent implements OnInit {
     weatherCode: 0
   };
 
-  constructor( private weatherService:WeatherService ) { }
+  constructor( private weatherService:WeatherService, private placeService:PlaceService ) { }
 
   ngOnInit(): void {
+    if(!this.isDefaultLocation){
+      this.checkIsFavorite();
+    }
     this.weatherCodeData = this.weatherService.getWeatherCodeData(this.weatherCode);
+  }
+
+  checkIsFavorite():void{
+    this.isFavorite = this.placeService.getFavoritePlace(this.placeCode) ? true : false;
+    this.favoriteIconStatus = this.isFavorite? 'star': 'star_outline';
+  }
+
+  toggleFavorite():void{
+    if(!this.isFavorite){
+      this.placeService.saveFavoritePlace({placeId: this.placeCode, name: this.place});
+    } else {
+      this.placeService.deleteFavoritePlace({placeId: this.placeCode, name: this.place});
+    }
+    this.checkIsFavorite();
   }
 }

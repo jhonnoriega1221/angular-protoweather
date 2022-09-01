@@ -73,9 +73,11 @@ export class ForecastPageComponent implements OnInit {
   };
   public actualHourIndex: number = 0;
   public placeName: string = '';
+  public placeCode:string = '';
 
   public isLoading: boolean = true;
   public isDefaultLocationSet: boolean = false;
+  public isDefaultLocation:boolean = true;
   public isError: boolean = false;
 
   public warningInfo = {
@@ -143,6 +145,8 @@ export class ForecastPageComponent implements OnInit {
   public setLocationData() {
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != undefined) {
+        this.placeCode = params['id'];
+        this.isDefaultLocation = false;
         this.isDefaultLocationSet = true;
         
         this.placeService.getPlaceById(params['id']).subscribe({

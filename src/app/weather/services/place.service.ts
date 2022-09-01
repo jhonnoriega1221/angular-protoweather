@@ -4,7 +4,10 @@ import { Observable, lastValueFrom } from 'rxjs';
 import { Place } from '../models/place';
 import { PlaceDetails } from '../models/place-details';
 
-
+interface FavoritePlace{
+  placeId:string;
+  name:string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +46,48 @@ export class PlaceService {
     else{
       return undefined;
     }  
+  }
+
+  public saveFavoritePlace(favoritePlace:FavoritePlace):void{
+    let favPlaces = [];
+    if(localStorage.getItem('favplaces') != undefined){
+      favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
+    }
+
+    favPlaces.push(favoritePlace);
+
+    localStorage.setItem("favplaces", JSON.stringify(favPlaces));
+
+  }
+
+  public getFavoritePlace(placeId:string):FavoritePlace|undefined{
+    let favPlaces:FavoritePlace[] = [];
+
+    if(localStorage.getItem('favplaces') != undefined){
+      favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
+    }
+
+    return favPlaces.find(place => place.placeId === placeId);
+
+  }
+
+  public deleteFavoritePlace(favoritePlace:FavoritePlace):void{
+    let favPlaces:FavoritePlace[] = [];
+
+    if(localStorage.getItem('favplaces') != undefined){
+      favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
+    }
+
+    console.log(favPlaces)
+    console.log(favoritePlace)
+
+    const placeIndex = favPlaces.findIndex(place => {
+      return place === favoritePlace
+    });
+
+    favPlaces.splice(placeIndex, 1);
+
+    localStorage.setItem("favplaces", JSON.stringify(favPlaces));
+
   }
 }

@@ -1,11 +1,15 @@
 <div class="wrapper" *ngIf="!isLoading && !isError">
-    <app-actual-weather
+    <div class="left-side">
+        <app-actual-weather
         [weatherCode]="forecastData.hourly.weathercode[actualHourIndex]"
         [place]="placeName"
         [temperature]="forecastData.hourly.temperature_2m[actualHourIndex]"
         [humidity]="forecastData.hourly.relativehumidity_2m[actualHourIndex]"
         [precipitation]="forecastData.hourly.precipitation[actualHourIndex]"
-        [radiation]="forecastData.hourly.shortwave_radiation[actualHourIndex]">
+        [radiation]="forecastData.hourly.shortwave_radiation[actualHourIndex]"
+        [placeCode]="placeCode"
+        [isDefaultLocation]="isDefaultLocation">
+        
     </app-actual-weather>
     <app-next-hour-weather 
         [actualHourIndex]="actualHourIndex"
@@ -25,11 +29,16 @@
         [windDirectionAngle]="forecastData.hourly.winddirection_10m[actualHourIndex]"
         [windSpeed]="forecastData.hourly.windspeed_10m[actualHourIndex]">
     </app-wind-info>
-    <app-weather-week-info
+    </div>
+    <div class="right-side">
+        <app-weather-week-info
         [weekDays]="forecastData.daily.time"
         [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
         [weekWeatherCode]="forecastData.daily.weathercode">
     </app-weather-week-info>
+    </div>
+
+
 </div>
 <div class="no-default-location" *ngIf="isError">
     <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
