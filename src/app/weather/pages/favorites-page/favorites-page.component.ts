@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoritePlace } from '../../favorite-place';
+import { PlaceService } from '../../services/place.service';
 
 @Component({
   selector: 'app-favorites-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor( private placeService:PlaceService) { }
 
   ngOnInit(): void {
+    this.getFavoritePlaces();
+  }
+
+  public favoritePlaces:FavoritePlace[] = [];
+
+  private getFavoritePlaces():void{
+    this.favoritePlaces = this.placeService.getFavoritePlaces();
   }
 
 }

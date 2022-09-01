@@ -16,9 +16,9 @@
 
     <p class="caption mat-caption">Lugares favoritos</p>
     <ul class="list">
-        <a mat-ripple class="place-card mat-card">
+        <a mat-ripple class="place-card mat-card" *ngFor="let favoritePlace of favoritePlaces" [routerLink]="['/forecast/', favoritePlace.placeId]">
             <div class="place-name-weather-code-icon">
-                <p class="place-name mat-h2">Cartagena</p>
+                <p class="place-name mat-h2">{{favoritePlace.name}}</p>
                 <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
             </div>
             <div class="weather-code-name-temperature">

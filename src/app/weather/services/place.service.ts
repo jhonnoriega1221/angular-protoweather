@@ -3,11 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { Place } from '../models/place';
 import { PlaceDetails } from '../models/place-details';
+import { FavoritePlace } from '../favorite-place';
 
-interface FavoritePlace{
-  placeId:string;
-  name:string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -78,16 +75,24 @@ export class PlaceService {
       favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
     }
 
-    console.log(favPlaces)
-    console.log(favoritePlace)
-
     const placeIndex = favPlaces.findIndex(place => {
-      return place === favoritePlace
+      return place.placeId === favoritePlace.placeId;
     });
 
+    console.log(placeIndex);
     favPlaces.splice(placeIndex, 1);
 
     localStorage.setItem("favplaces", JSON.stringify(favPlaces));
 
+  }
+
+  public getFavoritePlaces():FavoritePlace[]{
+    let favPlaces:FavoritePlace[] = [];
+
+    if(localStorage.getItem('favplaces') != undefined){
+      favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
+    }
+
+    return favPlaces;
   }
 }
