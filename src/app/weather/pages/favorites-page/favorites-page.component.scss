@@ -5,6 +5,18 @@
         margin: 0;
     }
 
+    .default-places-title{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 6px;
+
+    }
+
+    .no-default-location {
+        margin-bottom: 12px;
+    }
+
     .caption{
         margin-bottom: 12px;
     }
@@ -45,6 +57,7 @@
 
             .weather-code-icon {
                 width: 90px;
+                display: none;
             }
 
             .weather-code-name {

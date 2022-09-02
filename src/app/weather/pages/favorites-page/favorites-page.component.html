@@ -1,10 +1,16 @@
 <div class="wrapper">
     <h2>Favoritos</h2>
-    <p class="caption mat-caption">Lugar predeterminado</p>
-    <ul class="list">
-        <a mat-ripple class="place-card mat-card">
+    <div class="default-places-title">
+        <p class="default-places-caption mat-caption">Lugar predeterminado</p>
+        <button mat-button color="primary" *ngIf="defaultPlaceName">
+            <mat-icon>edit</mat-icon>
+            Modificar
+        </button>
+    </div>
+    <ul class="list" *ngIf="defaultPlaceName">
+        <a mat-ripple class="place-card mat-card" routerLink="/">
             <div class="place-name-weather-code-icon">
-                <p class="place-name mat-h2">Cartagena</p>
+                <p class="place-name mat-h2">{{defaultPlaceName}}</p>
                 <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
             </div>
             <div class="weather-code-name-temperature">
@@ -13,9 +19,14 @@
             </div>
         </a>
     </ul>
+    <div class="no-default-location" *ngIf="!defaultPlaceName">
+        <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
+        <app-nolocation-buttons (errorLocation)="showLocationErrorMessage($event)" (locationFound)="reloadDefaultPlace()"></app-nolocation-buttons>
+    </div>
+
 
     <p class="caption mat-caption">Lugares favoritos</p>
-    <ul class="list">
+    <ul class="list" *ngIf="favoritePlaces">
         <a mat-ripple class="place-card mat-card" *ngFor="let favoritePlace of favoritePlaces" [routerLink]="['/forecast/', favoritePlace.placeId]">
             <div class="place-name-weather-code-icon">
                 <p class="place-name mat-h2">{{favoritePlace.name}}</p>
@@ -27,4 +38,7 @@
             </div>
         </a>
     </ul>
+    <div class="no-default-location" *ngIf="favoritePlaces.length == 0">
+        <app-nolocation-warning [title]=emptyFavorites.title [message]=emptyFavorites.message [imageURL]=emptyFavorites.imageURL></app-nolocation-warning>
+    </div>
 </div>
