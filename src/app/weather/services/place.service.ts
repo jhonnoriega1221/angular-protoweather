@@ -79,7 +79,6 @@ export class PlaceService {
       return place.placeId === favoritePlace.placeId;
     });
 
-    console.log(placeIndex);
     favPlaces.splice(placeIndex, 1);
 
     localStorage.setItem("favplaces", JSON.stringify(favPlaces));
@@ -95,4 +94,52 @@ export class PlaceService {
 
     return favPlaces;
   }
+
+  public saveHistoryPlace(historyPlace:FavoritePlace):void{
+    let historyPlaces = [];
+    if(localStorage.getItem('searchhistory') != undefined){
+      historyPlaces = JSON.parse(localStorage.getItem('searchhistory') || '');
+    }
+
+    historyPlaces.unshift(historyPlace);
+
+    localStorage.setItem("searchhistory", JSON.stringify(historyPlaces));
+
+  }
+
+  public deleteHistoryPlaces():void{
+    let historyPlaces:FavoritePlace[] = [];
+
+    localStorage.setItem("searchhistory", JSON.stringify(historyPlaces));
+
+  }
+
+  public deleteHistoryPlace(historyPlace:FavoritePlace):void{
+    let historyPlaces:FavoritePlace[] = [];
+
+    if(localStorage.getItem('searchhistory') != undefined){
+      historyPlaces = JSON.parse(localStorage.getItem('searchhistory') || '');
+    }
+
+    const placeIndex = historyPlaces.findIndex(place => {
+      return place.placeId === historyPlace.placeId;
+    });
+
+    historyPlaces.splice(placeIndex, 1);
+
+    localStorage.setItem("searchhistory", JSON.stringify(historyPlaces));
+
+  }
+
+  public getHistoryPlaces():FavoritePlace[]{
+    let historyPlaces:FavoritePlace[] = [];
+
+    if(localStorage.getItem('searchhistory') != undefined){
+      return JSON.parse(localStorage.getItem('searchhistory') || '');
+    }
+    else{
+      return historyPlaces;
+    }  
+  }
+  
 }

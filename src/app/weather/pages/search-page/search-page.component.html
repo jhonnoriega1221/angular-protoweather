@@ -1,11 +1,24 @@
 <div class="wrapper">
     <h2>Buscar</h2>
     <app-location-search-autocomplete (locationSelected)="searchLocation($event)"></app-location-search-autocomplete>
-    <p class="mat-caption">Búsquedas recientes</p>
 </div>
-<ul class="list mat-card">
-    <a [routerLink]="['/forecast/cartagena']" mat-ripple class="list-item mat-body-2 mat-app-background">
-        Cartagena
-    </a>
-    <mat-divider class="separator"></mat-divider>
-</ul>
+<div class="recent-searchs" *ngIf="!(historySearch.length == 0)">
+    <p class="recent-title mat-caption">Búsquedas recientes</p>
+    <ul class="list mat-card">
+        <div class="list-item-wrapper mat-app-background" mat-ripple *ngFor="let historySearchItem of historySearch">
+            <a [routerLink]="['/forecast/cartagena']" class="list-item mat-body-2 mat-app-background" [routerLink]="['/forecast/', historySearchItem.placeId]" >
+                {{historySearchItem.name}}
+            </a>
+            <button mat-icon-button (click)="deleteHistoryItem(historySearchItem)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+
+        <mat-divider class="separator"></mat-divider>
+    </ul>
+</div>
+
+<div class="no-search-history" *ngIf="historySearch.length == 0">
+    <app-nolocation-warning [title]=emptyHistory.title [message]=emptyHistory.message [imageURL]=emptyHistory.imageURL></app-nolocation-warning>
+</div>
+
