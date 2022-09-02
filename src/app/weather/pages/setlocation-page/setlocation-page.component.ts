@@ -36,7 +36,10 @@ export class SetlocationPageComponent implements OnInit {
   }
 
   public goToHome() {
-    this.routerService.navigate(['/']);
+    localStorage.setItem('ft', 'false');
+    setTimeout(() => {
+      this.routerService.navigate(['/']);
+    }, 1000);
   }
 
 }

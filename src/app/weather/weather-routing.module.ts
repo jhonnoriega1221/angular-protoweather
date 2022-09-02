@@ -6,6 +6,7 @@ import { WeatherHomePageComponent } from './pages/weather-home-page/weather-home
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
+import { FirstTimeGuard } from './guards/first-time.guard';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
       { path: 'favorites', component: FavoritesPageComponent },
       { path: 'forecast/:id', component: ForecastPageComponent }
 
-    ] },
+    ], canActivateChild: [FirstTimeGuard] },
     { path: 'setlocation', component: SetlocationPageComponent}
 ];
 

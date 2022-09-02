@@ -9,5 +9,12 @@ import { Title } from '@angular/platform-browser';
 export class AppComponent {
   constructor( private titleService:Title){
     titleService.setTitle('ProtoWeather');
+    this.setFirstTime(localStorage.getItem('ft'));
+  }
+
+  private setFirstTime(firstTime: string | null){
+    if(firstTime === null || firstTime === undefined ){
+      localStorage.setItem('ft', 'true');
+    }
   }
 }

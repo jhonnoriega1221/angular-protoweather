@@ -36,6 +36,7 @@ export class SetlocationAutocompleteDialogComponent implements OnInit {
 
   public setDefaultPlace(){
     this.placeService.setDefaultPlace(this.placeSelected.lat, this.placeSelected.lon, this.placeSelected.display_name)
+    localStorage.setItem('ft', 'false');
     this.routerService.navigate(['/']);
     this.dialogRef.close();
   }
