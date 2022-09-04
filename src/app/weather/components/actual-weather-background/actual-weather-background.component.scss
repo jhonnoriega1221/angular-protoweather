@@ -4,5 +4,15 @@
     object-fit: cover;
     object-position: center;
     position: fixed;
+    z-index: -2;
+}
+
+.background-color{
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(100px);
+    position: fixed;
     z-index: -1;
+    opacity: 0%;
+    background-color: rgb(255 255 255 / 60%);
 }
