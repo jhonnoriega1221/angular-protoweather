@@ -40,6 +40,13 @@
 
 
 </div>
+<div class="loading" *ngIf="isLoading">
+    <div class="loading-icon-text">
+        <img class="loading-icon" src="../../../../assets/loading-forecast.svg" alt="">
+        <p class="loading-text">Obteniendo pronostico</p>
+    </div>
+    <div class="black-screen"></div>
+</div>
 <div class="no-default-location" *ngIf="isError">
     <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
     <app-nolocation-buttons *ngIf="!isDefaultLocationSet" (errorLocation)="showLocationErrorMessage($event)" (locationFound)="reloadHome()"></app-nolocation-buttons>

@@ -20,8 +20,8 @@ export class ActualWeatherBackgroundComponent implements OnInit {
   onWindowScroll(e:any) {
     const scrollHeigth = 391;
     let actualScroll = window.scrollY;
-    let actualOpacity = (100*actualScroll)/scrollHeigth;
-      document.getElementById('background-opacity')?.style.setProperty('opacity',actualOpacity+'%');
+    let actualOpacity = actualScroll/scrollHeigth;
+      document.getElementById('background-opacity')?.style.setProperty('opacity',actualOpacity+'');
     
   }
 }
