@@ -2,28 +2,28 @@
     {
         "weatherCode": 0,
         "description": "Clear sky",
-        "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
+        "backgroundURL": "../../../../../../assets/weather_backgrounds/0-clear.sky.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/0-clear-sky.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 1,
         "description": "Mainly clear",
-        "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
+        "backgroundURL": "../../../../../../assets/weather_backgrounds/1-mainly-clear.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/1-mainly-clear.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 2,
         "description": "Partly cloud",
-        "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
+        "backgroundURL": "../../../../../../assets/weather_backgrounds/2-partly-cloud.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/2-partly-cloud.svg",
-        "textColor": "white"
+        "textColor": "black"
     },
     {
         "weatherCode": 3,
         "description": "Overcast",
-        "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
+        "backgroundURL": "../../../../../../assets/weather_backgrounds/3-overcast.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/3-overcast.svg",
         "textColor": "white"
     },
