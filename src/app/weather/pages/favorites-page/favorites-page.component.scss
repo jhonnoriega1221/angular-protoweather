@@ -21,10 +21,26 @@
         margin-bottom: 12px;
     }
 
+    .default-place-card{
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        text-decoration: none;
+        height: 50px;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+
     .list {
         list-style-type: none;
         padding: 0;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         flex-direction: column;
         gap: 12px;
         margin: 0 0 24px 0;
@@ -70,8 +86,19 @@
             .temperature {
                 width: 42px;
             }
+        }
 
-            
+        .add-place-card {
+            border-radius: 12px;
+            color: rgb(0 0 0 / 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 46px;
+            background-color: transparent;
+            box-shadow: none;
+            border: dashed 1px rgb(0 0 0 / 25%);
+            cursor: pointer;
         }
     }
 }
