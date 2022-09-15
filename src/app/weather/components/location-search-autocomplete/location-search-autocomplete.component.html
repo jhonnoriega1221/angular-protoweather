@@ -1,8 +1,5 @@
-<mat-form-field class="form-field" appearance="outline">
-    <mat-label>Ubicación</mat-label>
-    <input (input)="getSearchPlaces()" [(ngModel)]="input" type="text" matInput [matAutocomplete]="autoPlace">
+<input class="search-input" placeholder="Buscar ciudades" (input)="getSearchPlaces()" [(ngModel)]="input" type="search" [matAutocomplete]="autoPlace">
 
-</mat-form-field>
 <mat-autocomplete (optionSelected)=selectPlace($event) #autoPlace="matAutocomplete">
     <mat-option *ngIf="isSearching">
         <mat-spinner style="margin: 0 auto" diameter="30" color="primary"></mat-spinner>

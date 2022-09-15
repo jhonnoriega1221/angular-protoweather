@@ -2,10 +2,7 @@
     <h2>Favoritos</h2>
     <div class="default-places-title">
         <p class="default-places-caption mat-caption">Lugar predeterminado</p>
-        <button mat-button color="primary" *ngIf="defaultPlaceName">
-            <mat-icon>edit</mat-icon>
-            Modificar
-        </button>
+        
     </div>
     <ul class="list" *ngIf="defaultPlaceName">
         <a mat-ripple class="place-card mat-card" routerLink="/">
