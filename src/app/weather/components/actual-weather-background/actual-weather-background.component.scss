@@ -30,3 +30,15 @@
         opacity: 1;
     }
 }
+
+@media (min-width: 600px) {
+    .background{
+
+        width: 425px;
+        margin: 0 auto;
+    }
+
+    #background-opacity{
+        width: 425px;
+    }
+}
