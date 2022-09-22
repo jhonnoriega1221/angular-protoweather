@@ -32,6 +32,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ForecastPageComponent } from './pages/forecast-page/forecast-page.compo
     SearchPageComponent,
     FavoritesPageComponent,
     SettingsPageComponent,
-    ForecastPageComponent
+    ForecastPageComponent,
+    AboutPageComponent
   ],
   imports: [
     CommonModule,

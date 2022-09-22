@@ -17,6 +17,7 @@ export class WeatherNavbarComponent implements OnInit {
     { text: 'Inicio', icon: 'home', url: '/' },
     { text: 'Buscar', icon: 'search', url: '/search' },
     { text: 'Favoritos', icon: 'favorites', url: '/favorites' },
+    { text: 'Acerca De', icon: 'info', url: '/about' },
   ]
 
   constructor() { }
