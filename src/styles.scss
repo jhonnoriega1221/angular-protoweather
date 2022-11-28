@@ -17,6 +17,19 @@
 //    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
 @include mat.all-legacy-component-typographies();
 @include mat.legacy-core();
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -45,21 +58,30 @@ $angular-protoweather-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --angular-protoweather-primary: #0ACEFF;
+  --angular-protoweather-primary: #0061A5;
+  --angular-protoweather-on-primary: #F2F7FA;
+  --angular-protoweather-primary-container: #D2E4FF;
+  --angular-protoweather-on-primary-container: #001C37;
+  --angular-protoweather-on-primary-container-alt: #788799;
+
+  --angular-protoweather-background: #FDFBFF;
+  --angular-protoweather-on-background: #001B3D;
+
+  --angular-protoweather-surface-1: #F0F3FA;
+  --angular-protoweather-on-surface-1: #001B3D;
+  --angular-protoweather-surface-2: #E9EFF8;
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Poppins", "Helvetica Neue", sans-serif; }
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .app-background{
-  background-color: #ebfbff;
+  background-color: var(--angular-protoweather-background);
 }
 
 .app-card{
-  background-color: rgba(255, 255, 255, 0.50);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  
+  background-color: var(--angular-protoweather-surface-1);
 }

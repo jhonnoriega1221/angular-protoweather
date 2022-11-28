@@ -1,37 +1,34 @@
-<app-actual-weather-background [backgroundURL]="weatherCodeData.backgroundURL"></app-actual-weather-background>
 <div class="wrapper">
-    <div class="top-content">
-        <div [style]="{'color': weatherCodeData.textColor}" class="place-name">
+    <div class="place-name">
+        <div class="place-name-container">
             <mat-icon class="icon-small">pin_drop</mat-icon>
-            <span>{{place | uppercase}}</span>
-            <button *ngIf="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
-                <mat-icon>{{favoriteIconStatus}}</mat-icon>
-            </button>
+            <span>{{place}}</span>
         </div>
-        <div [style]="{'color': weatherCodeData.textColor}" class="temperature">
-                <p>{{temperature | number:'1.0-0'}}°</p>
-                <span>C</span>
+        <button mat-icon-button (click)="toggleFavorite()">
+            <mat-icon>{{favoriteIconStatus}}</mat-icon>
+        </button>
+    </div>
+    <div class="temperature-status">
+        <div class="temperature">
+            <p>{{temperature | number:'1.0-0'}}</p>
+            <span>°c</span>
         </div>
         <div class="weather-status">
-           <!-- <img class="weather-icon" src="../../../../assets/weather-sun.svg" alt=""> -->
-
-            <p [style]="{'color': weatherCodeData.textColor}">{{weatherCodeData.description}}</p>
+            <p>{{weatherCodeData.description}}</p>
         </div>
     </div>
     <div class="bottom-content">
         <div class="bottom-info-item">
+            <mat-icon class="icon-small">square</mat-icon>
             <span class="info-value">{{humidity}}%</span>
-            <span class="info-name">Humedad</span>
         </div>
-        <div class="separator"></div>
         <div class="bottom-info-item">
+            <mat-icon class="icon-small">square</mat-icon>
             <span class="info-value">{{precipitation}} mm</span>
-            <span class="info-name">Precipitación</span>
         </div>
-        <div class="separator"></div>
         <div class="bottom-info-item">
+            <mat-icon class="icon-small">square</mat-icon>
             <span class="info-value">{{radiation}} W/m²</span>
-            <span class="info-name">Índice UV</span>
         </div>
     </div>
 </div>
