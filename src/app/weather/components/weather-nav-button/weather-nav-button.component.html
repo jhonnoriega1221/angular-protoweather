@@ -1,11 +1,10 @@
 <a 
     [routerLink]=url 
-    class="wrapper mat-app-background"
-    matRipple
-    [matRippleUnbounded]="true"
-    [matRippleCentered]="true"
+    class="wrapper"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{exact: true}">
-        <mat-icon class="icon">{{icon}}</mat-icon>
-        <span class="text mat-body-2">{{text}}</span>
+        <div class="icon-container" routerLinkActive="icon-container-active" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon class="icon">{{icon}}</mat-icon>
+        </div>
+        <span class="text" routerLinkActive="text-active" [routerLinkActiveOptions]="{exact: true}">{{text}}</span>
 </a>
