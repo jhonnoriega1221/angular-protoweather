@@ -1,5 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+interface WindInfo {
+  icon:string;
+  direction:string;
+  speed:string;
+}
+
 @Component({
   selector: 'app-wind-info',
   templateUrl: './wind-info.component.html',
@@ -11,30 +17,34 @@ export class WindInfoComponent implements OnInit {
   @Input() windSpeed:number = 0;
 
   public windDirection:string = '';
+  public windInfo!:WindInfo;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.setWindDirection(this.windDirectionAngle);
+
+    this.windInfo = {
+      icon: 'square', direction: this.setWindDirection(this.windDirectionAngle), speed: this.windSpeed + " km/h"
+    }
   }
 
-  setWindDirection(windDirectionAngle:number){
+  setWindDirection(windDirectionAngle:number):string{
     if(windDirectionAngle >= 340 && windDirectionAngle <= 20){
-      this.windDirection = "Este";
+      return "Este";
     } else if (windDirectionAngle > 20 && windDirectionAngle <= 70){
-      this.windDirection = "Noreste";
+      return "Noreste";
     } else if (windDirectionAngle > 70 && windDirectionAngle <= 110){
-      this.windDirection = "Norte";
+      return "Norte";
     } else if (windDirectionAngle > 110 && windDirectionAngle <= 150){
-      this.windDirection = "Noroeste";
+      return "Noroeste";
     } else if (windDirectionAngle > 150 && windDirectionAngle <= 190){
-      this.windDirection = "Oeste";
+      return "Oeste";
     } else if (windDirectionAngle > 190 && windDirectionAngle <= 250){
-      this.windDirection = "Suroeste";
+      return "Suroeste";
     } else if (windDirectionAngle > 250 && windDirectionAngle <= 310){
-      this.windDirection = "Sur";
+      return "Sur";
     } else {
-      this.windDirection = "Sureste";
+      return "Sureste";
     }
   }
 

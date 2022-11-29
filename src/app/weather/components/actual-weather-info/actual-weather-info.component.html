@@ -1,11 +1,6 @@
-<app-wrapper-header text="Información adicional"></app-wrapper-header>
+<app-wrapper-header text="Visión general de hoy"></app-wrapper-header>
 <div class="wrapper">
-    <div class="info-item-card app-card">
-        <p class="text mat-h2">{{weatherPressure}} hPa</p>
-        <p class="title mat-body-2">Presión</p>
-    </div>
-    <div class="info-item-card app-card">
-        <p class="text mat-h2">{{weatherDewpoint | number:'1.0-0'}}ºc</p>
-        <p class="title mat-body-2">Punto de rocío</p>
+    <div class="info-item-card app-card" *ngFor="let actualWeatherCard of actualWeatherCards">
+        <app-card-info [icon]="actualWeatherCard.icon" [title]="actualWeatherCard.title" [text]="actualWeatherCard.text" ></app-card-info>
     </div>
 </div>

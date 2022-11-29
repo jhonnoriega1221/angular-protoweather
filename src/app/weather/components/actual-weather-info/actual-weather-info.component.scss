@@ -5,16 +5,11 @@
 
     .info-item-card{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         border-radius: 12px;
-        height: 80px;
-        justify-content: center;
+        height: 96px;
+        padding: 24px 12px;
+        box-sizing: border-box;
 
-        p{
-            margin: 0;
-        }
     }
 
 }

@@ -1,5 +1,5 @@
 .wrapper{
-    padding: 0 12px 64px 12px;
+    padding: 0 12px;
 
     .list{
         display: flex;
@@ -9,10 +9,12 @@
         border-radius: 12px;
         box-sizing: border-box;
         margin: 0;
+        gap: 18px;
+        
         .list-item{
             display: flex;
             align-items: center;
-            height: 68px;
+            height: 50px;
             gap: 6px;
             padding: 0 12px;
 
@@ -20,11 +22,27 @@
                 margin: 0;
             }
 
+
             .day-wrapper{
                 width: 100%;
+
+                .forecast-week-day{
+                    color: var(--angular-protoweather-on-primary-container);
+                }
+
+                .forecast-date{
+                    font-size: 12px;
+                    color: var(--angular-protoweather-on-primary-container-alt);
+                }
             }
             .weather-code-icon{
                 width: 52px;
+            }
+
+            .temperature{
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--angular-protoweather-on-primary-container);
             }
 
         }

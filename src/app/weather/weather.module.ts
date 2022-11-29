@@ -34,6 +34,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     WeatherHomePageComponent,
@@ -71,7 +73,8 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     MatInputModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    SharedModule
   ]
 })
 export class WeatherModule { }
