@@ -9,3 +9,12 @@
 .nav-button{
     width: 100%;
 }
+
+@media (min-width: 600px){
+    .wrapper{
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 24px;
+        padding: 24px 0;
+    }
+}

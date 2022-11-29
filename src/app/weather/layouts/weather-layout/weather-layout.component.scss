@@ -7,8 +7,10 @@
     height: 71px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px){
     .navbar{
-        width: 425px;
+        height: 100%;
+        width: 88px;
+        left: 0;
     }
 }

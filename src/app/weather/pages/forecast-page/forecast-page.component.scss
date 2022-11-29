@@ -40,8 +40,8 @@
     z-index: -2;
 }
 
-@media (min-width: 600px) {
-    .black-screen {
-        width: 425px;
+@media (min-width: 600px){
+    .wrapper{
+        padding: 18px 0 12px 88px;
     }
 }
