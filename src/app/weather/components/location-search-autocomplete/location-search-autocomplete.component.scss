@@ -4,10 +4,15 @@
     border: none;
     border-radius: 16px;
     font-size: 16px;
-    background: rgba(0, 0, 0, 0.05) url(../../../../assets/search-icon.svg) no-repeat 12px center;
+    background: var(--angular-protoweather-surface-1) url(../../../../assets/search-icon.svg) no-repeat 12px center;
     padding: 12px 12px 9px 42px;
     background-size: 24px;
-    margin-bottom: 42px;
+    margin-bottom: 12px;
+    color: var(--angular-protoweather-on-primary-container);
+}
+
+.search-input::placeholder{
+    color: var(--angular-protoweather-on-primary-container-alt);
 }
 
 .search-input:focus{

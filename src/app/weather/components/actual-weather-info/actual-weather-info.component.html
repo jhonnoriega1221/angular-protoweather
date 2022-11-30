@@ -1,6 +1,6 @@
 <app-wrapper-header text="Visión general de hoy"></app-wrapper-header>
 <div class="wrapper">
     <div class="info-item-card app-card" *ngFor="let actualWeatherCard of actualWeatherCards">
-        <app-card-info [icon]="actualWeatherCard.icon" [title]="actualWeatherCard.title" [text]="actualWeatherCard.text" ></app-card-info>
+        <app-card-info [showIcon]="!isSmallScreen" [icon]="actualWeatherCard.icon" [title]="actualWeatherCard.title" [text]="actualWeatherCard.text" ></app-card-info>
     </div>
 </div>

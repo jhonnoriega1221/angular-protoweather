@@ -1,5 +1,7 @@
 .wrapper{
     padding: 18px 0 83px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .no-default-location{
@@ -40,8 +42,36 @@
     z-index: -2;
 }
 
+.left-side{
+    width: 100%;
+    min-width: 320px;
+}
+
+.right-side{
+    max-width: 360px;
+    min-width: 320px;
+}
+
+.forecast-info-grid{
+    display: block;
+}
+
 @media (min-width: 600px){
     .wrapper{
         padding: 18px 0 12px 88px;
+    }
+
+}
+
+@media (min-width: 824px){
+    .wrapper{
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1182px){
+    .forecast-info-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

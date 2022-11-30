@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { PlaceService } from '../../services/place.service';
 import { Forecast } from '../../models/forecast-response';
@@ -79,6 +79,8 @@ export class ForecastPageComponent implements OnInit {
   public isDefaultLocationSet: boolean = false;
   public isDefaultLocation:boolean = true;
   public isError: boolean = false;
+  public isMobile:boolean = this.setIsMobile(window.innerWidth);
+  public isOneColumn:boolean = this.setIsOneColumn(window.innerWidth);
 
   public warningInfo = {
     title: 'No se encontró ninguna ubicación por defecto',
@@ -91,6 +93,21 @@ export class ForecastPageComponent implements OnInit {
   ngOnInit(): void {
     this.setLocationData();
     
+  }
+
+  private setIsMobile(innerWidth:number):boolean {
+    return innerWidth < 600 ;
+  }
+
+  private setIsOneColumn(innerWidth:number):boolean {
+    return innerWidth < 825 ;
+  }
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    const innerWidth:number = event.target.innerWidth;
+    this.isMobile = this.setIsMobile(innerWidth);
+    this.isOneColumn = this.setIsOneColumn(innerWidth);
   }
 
   private setActualHourIndex(): void {

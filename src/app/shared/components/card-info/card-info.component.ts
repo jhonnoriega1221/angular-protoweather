@@ -10,5 +10,6 @@ export class CardInfoComponent {
   @Input() icon:string = '';
   @Input() title:string = '';
   @Input() text:string|number = '';
+  @Input() showIcon:boolean = true;
 
 }

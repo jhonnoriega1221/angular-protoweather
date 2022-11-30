@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Place } from '../../models/place';
 import { Router } from '@angular/router';
 import { PlaceService } from '../../services/place.service';
@@ -10,6 +10,8 @@ import { FavoritePlace } from '../../favorite-place';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
+
+  @Input() isMobile:boolean = true;
 
   public historySearch:FavoritePlace[] = [];
 

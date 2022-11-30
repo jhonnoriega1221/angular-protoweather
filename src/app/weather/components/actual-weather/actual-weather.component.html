@@ -4,7 +4,7 @@
             <mat-icon class="icon-small">pin_drop</mat-icon>
             <span>{{place}}</span>
         </div>
-        <button *ng-if="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
+        <button *ngIf="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
             <mat-icon>{{favoriteIconStatus}}</mat-icon>
         </button>
     </div>

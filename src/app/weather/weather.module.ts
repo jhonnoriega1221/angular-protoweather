@@ -7,7 +7,7 @@ import { WeatherNavbarComponent } from './components/weather-navbar/weather-navb
 import { WeatherNavButtonComponent } from './components/weather-nav-button/weather-nav-button.component';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherHomePageComponent } from './pages/weather-home-page/weather-home-page.component';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { SetlocationPageComponent } from './pages/setlocation-page/setlocation-page.component';

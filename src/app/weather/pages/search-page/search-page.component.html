@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <h2>Buscar</h2>
+    <h2 *ngIf="isMobile">Buscar</h2>
     <app-location-search-autocomplete (locationSelected)="searchLocation($event)"></app-location-search-autocomplete>
 </div>
-<div class="recent-searchs" *ngIf="!(historySearch.length == 0)">
+<div  class="recent-searchs" *ngIf="!(historySearch.length == 0) && isMobile">
     <p class="recent-title mat-caption">Búsquedas recientes</p>
     <ul class="list mat-card">
         <div class="list-item-wrapper mat-app-background" mat-ripple *ngFor="let historySearchItem of historySearch">
@@ -18,7 +18,7 @@
     </ul>
 </div>
 
-<div class="no-search-history" *ngIf="historySearch.length == 0">
+<div class="no-search-history" *ngIf="historySearch.length == 0 && isMobile">
     <app-nolocation-warning [title]=emptyHistory.title [message]=emptyHistory.message [imageURL]=emptyHistory.imageURL></app-nolocation-warning>
 </div>
 
