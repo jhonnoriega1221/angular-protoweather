@@ -4,6 +4,7 @@
     *ngFor="let navbarItem of navbarItems"
     [text]=navbarItem.text
     [icon]=navbarItem.icon
-    [url]=navbarItem.url>
+    [url]=navbarItem.url
+    [ngClass]="navbarItem.text === 'Buscar' ? 'hidden-in-desktop' : null">
   </app-weather-nav-button>
 </div>

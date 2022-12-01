@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 
 interface NavbarItem {
   text:string;
@@ -15,7 +15,7 @@ export class WeatherNavbarComponent implements OnInit {
 
   public navbarItems:NavbarItem[] = [
     { text: 'Inicio', icon: 'home', url: '/' },
-    { text: 'Buscar', icon: 'search', url: '/search' },
+    { text: 'Buscar', icon: 'search', url: '/search'},
     { text: 'Favoritos', icon: 'favorites', url: '/favorites' },
     { text: 'Acerca De', icon: 'info', url: '/about' },
   ]

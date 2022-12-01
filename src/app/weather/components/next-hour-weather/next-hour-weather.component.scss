@@ -2,7 +2,6 @@
     display: flex;
     gap: 12px;
     overflow: auto;
-
     padding: 0 12px;
 
     .time{
@@ -34,5 +33,15 @@
             width: 46px;
             margin: 6px 0;
         }
+    }
+}
+
+.section-title{
+    display: none;
+}
+
+@media (min-width:824px){
+    .section-title{
+        display: block;
     }
 }

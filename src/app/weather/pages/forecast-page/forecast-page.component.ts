@@ -11,6 +11,11 @@ interface Message {
   imageURL: string;
 }
 
+interface ActualDay{
+  weekDay:string;
+  date:string;
+}
+
 @Component({
   selector: 'app-forecast-page',
   templateUrl: './forecast-page.component.html',
@@ -71,6 +76,11 @@ export class ForecastPageComponent implements OnInit {
     },
     longitude: 0
   };
+
+  public actualDay:ActualDay = {
+    weekDay: this.getWeekDayName(),
+    date: this.getDateFormat()
+  }
   public actualHourIndex: number = 0;
   public placeName: string = '';
   public placeCode:string = '';
@@ -157,6 +167,63 @@ export class ForecastPageComponent implements OnInit {
     this.isDefaultLocationSet = true;
     this.isLoading = true;
     this.ngOnInit();
+  }
+
+  private getWeekDayName():string {
+    const date = new Date();
+    switch (date.getDay()) {
+      case 0:
+        return 'Domingo';
+      case 1:
+        return 'Lunes';
+      case 2:
+        return 'Martes';
+      case 3:
+        return 'Miercoles';
+      case 4:
+        return 'Jueves';
+      case 5:
+        return 'Viernes';
+      default:
+        return 'Sabado';
+      
+    }
+  }
+
+  private getDateFormat():string{
+    const date = new Date();
+    
+
+    function getTextMonth(month : number) {
+      switch (month) {
+        case 0:
+          return 'Enero';
+        case 1:
+          return 'Febrero';
+        case 2:
+          return 'Marzo';
+        case 3:
+          return 'Abril';
+        case 4:
+          return 'Mayo';
+        case 5:
+          return 'Junio';
+        case 6:
+          return 'Julio';
+        case 7:
+          return 'Agosto';
+        case 8:
+          return 'Septiembre';
+        case 9:
+          return 'Octubre';
+        case 10:
+          return 'Noviembre';
+        default:
+          return 'Diciembre';
+      }
+    }
+
+    return date.getDate() + " de " + getTextMonth(date.getMonth()) + " de " + date.getFullYear();
   }
 
   public setLocationData() {

@@ -10,6 +10,7 @@ export class WeatherNavButtonComponent implements OnInit {
   @Input() text:string = '';
   @Input() icon:string = '';
   @Input() url:string = '';
+  @Input() isHidden:boolean = false;
 
   constructor() { }
 
