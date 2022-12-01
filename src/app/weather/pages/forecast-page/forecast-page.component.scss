@@ -69,9 +69,19 @@
     }
 }
 
-@media (min-width: 1182px){
+@media (min-width: 1183px){
     .forecast-info-grid{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sunset-info{
+        grid-area: 1/2/3/2;
+    }
+}
+
+@media (min-width: 1880px){
+    .forecast-info-grid{
+        grid-template-columns: repeat(3, 1fr);
     }
 }

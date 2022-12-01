@@ -17,7 +17,7 @@
             <app-actual-weather-info [weatherPressure]="forecastData.hourly.surface_pressure[actualHourIndex]"
                 [weatherDewpoint]="forecastData.hourly.dewpoint_2m[actualHourIndex]">
             </app-actual-weather-info>
-            <app-weather-sunset-info [sunsetTime]="forecastData.daily.sunset[0]"
+            <app-weather-sunset-info class="sunset-info" [sunsetTime]="forecastData.daily.sunset[0]"
                 [sunriseTime]="forecastData.daily.sunrise[0]">
             </app-weather-sunset-info>
             <app-wind-info [windDirectionAngle]="forecastData.hourly.winddirection_10m[actualHourIndex]"
