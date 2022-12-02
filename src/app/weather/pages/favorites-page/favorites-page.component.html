@@ -1,39 +1,29 @@
 <div class="wrapper">
-    <h2>Favoritos</h2>
+    <h2 class="page-title">Favoritos</h2>
     <div class="default-places-title">
-        <p class="default-places-caption mat-caption">Lugar predeterminado</p>
-        
+        <p class="place-subtitle-caption">Lugar predeterminado</p>
     </div>
-        <a mat-ripple class="default-place-card mat-card" routerLink="/">
-            <div class="place-name-weather-code-icon">
-                <p class="place-name mat-h2">{{defaultPlaceName}}</p>
-                <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-            </div>
-            <div class="weather-code-name-temperature">
-                <p class="weather-code-name">Sky clear</p>
-                <p class="temperature">35ºC</p>
-            </div>
-        </a>
+        <app-favorite-place-card
+            [isDefaultPlace]="true"
+            placeId=""
+            [name]="defaultPlaceName"
+            class="favorite-card"
+        ></app-favorite-place-card>
+
     <div class="no-default-location" *ngIf="!defaultPlaceName">
         <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
         <app-nolocation-buttons (errorLocation)="showLocationErrorMessage($event)" (locationFound)="reloadDefaultPlace()"></app-nolocation-buttons>
     </div>
 
-
-    <p class="caption mat-caption">Lugares favoritos</p>
+    <p class="place-subtitle-caption">Lugares favoritos</p>
     <ul class="list" *ngIf="favoritePlaces">
-        <a mat-ripple class="place-card mat-card" *ngFor="let favoritePlace of favoritePlaces" [routerLink]="['/forecast/', favoritePlace.placeId]">
-            <div class="place-name-weather-code-icon">
-                <p class="place-name mat-h2">{{favoritePlace.name}}</p>
-                <img class="weather-code-icon" src="../../../../assets/weather-sun.svg" alt="">
-            </div>
-            <div class="weather-code-name-temperature">
-                <p class="weather-code-name">Sky clear</p>
-                <p class="temperature">35ºC</p>
-            </div>
-        </a>
+        <app-favorite-place-card *ngFor="let favoritePlace of favoritePlaces"
+            [isDefaultPlace]="false"
+            [placeId]="favoritePlace.placeId"
+            [name]="favoritePlace.name"
+        ></app-favorite-place-card>
         <!--
-        <button mat-ripple class="add-place-card mat-card">
+        <button mat-ripple class="add-place-card">
             <mat-icon>
                 add
             </mat-icon>

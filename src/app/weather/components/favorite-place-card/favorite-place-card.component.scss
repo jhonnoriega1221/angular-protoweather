@@ -1,0 +1,63 @@
+.place-card {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    text-decoration: none;
+    height: 117px;
+    background-color: var(--angular-protoweather-surface-1);
+    display: block;
+
+    .place-name {
+        overflow: hidden;
+        height: 30px;
+        font-size: 20px;
+        color: var(--angular-protoweather-on-primary-container);
+        font-weight: 600;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .card-info {
+
+        display: flex;
+
+        .weather-code-temperature {
+            width: 100%;
+
+            .weather-code-name {
+                overflow: hidden;
+                color: var(--angular-protoweather-on-primary-container);
+                height: 21px;
+                font-size: 14px;
+                margin: 0;
+                overflow-wrap: anywhere;
+            }
+
+            .temperature {
+                color: var(--angular-protoweather-on-primary-container);
+                font-size: 20px;
+                font-weight: 600;
+                margin: 14px 0 0 0;
+                height: 30px;
+                overflow: hidden;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        .weather-code-icon-extended {
+            width: 32px;
+            object-fit: cover;
+        }
+
+    }
+
+
+
+}
+
+@media(min-width: 600px) {
+    .place-card {
+        max-width: 336px;
+    }
+}

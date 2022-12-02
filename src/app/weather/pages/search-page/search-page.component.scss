@@ -1,9 +1,9 @@
 .wrapper{
-    padding: 18px 0 83px 0;
+    margin: 18px 0 83px 0;
 }
 
 .recent-title{
-    padding: 0 12px;
+    padding: 6px 12px;
     font-size: 12px;
     color: var(--angular-protoweather-on-primary-container-alt);
 }
@@ -55,7 +55,12 @@
 
 @media (min-width: 600px){
     .wrapper{
-        padding: 18px 0 12px 88px;
+        margin: 18px 12px 12px 12px;
+    }
+
+    .title-searchbar{
+        padding: 0px;
+        box-sizing: border-box;
     }
 
 }

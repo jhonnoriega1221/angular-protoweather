@@ -1,0 +1,10 @@
+<a mat-ripple class="place-card" [routerLink]="url">
+    <p class="place-name">{{name}}</p>
+    <div class="card-info">
+        <div class="weather-code-temperature">
+            <p class="weather-code-name">Sky clear</p>
+            <p class="temperature">35ºC</p>
+        </div>
+        <img [ngClass]="isExtendedCard ? 'weather-code-icon-extended' : '.weather-code-icon-detached'" src="../../../../assets/weather_code_icons/3-overcast.svg" alt="">
+    </div>
+</a>

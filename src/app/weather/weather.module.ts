@@ -35,6 +35,7 @@ import { ForecastPageComponent } from './pages/forecast-page/forecast-page.compo
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { FavoritePlaceCardComponent } from './components/favorite-place-card/favorite-place-card.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SharedModule } from '../shared/shared.module';
     FavoritesPageComponent,
     SettingsPageComponent,
     ForecastPageComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    FavoritePlaceCardComponent
   ],
   imports: [
     CommonModule,

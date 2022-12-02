@@ -1,20 +1,28 @@
 .wrapper {
-    padding: 12px 12px 56px 12px;
+    margin: 12px 12px 71px 12px;
 
     p {
         margin: 0;
     }
 
+    .place-subtitle-caption{
+        color: var(--angular-protoweather-on-primary-container);
+        margin-bottom: 12px;
+    }
+
     .default-places-title{
         display: flex;
         align-items: center;
-        gap: 4px;
-        margin-bottom: 6px;
 
     }
 
     .no-default-location {
         margin-bottom: 12px;
+    }
+
+    .favorite-card{
+        margin-bottom: 24px;
+        display: block;
     }
 
     .caption{
@@ -41,52 +49,8 @@
         padding: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        flex-direction: column;
         gap: 12px;
         margin: 0 0 24px 0;
-
-        .place-card {
-            overflow: hidden;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 12px;
-            box-sizing: border-box;
-            border-radius: 12px;
-            text-decoration: none;
-            height: 50px;
-            gap: 6px;
-
-            div {
-                display: flex;
-                justify-content: space-between;
-                gap: 6px;
-            }
-
-            .place-name {
-                overflow: hidden;
-                width: 100%;
-                max-height: 64px;
-                text-overflow: ellipsis;
-            }
-
-            .weather-code-icon {
-                width: 90px;
-                display: none;
-            }
-
-            .weather-code-name {
-                width: 100%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .temperature {
-                width: 42px;
-            }
-        }
 
         .add-place-card {
             border-radius: 12px;
@@ -99,6 +63,21 @@
             box-shadow: none;
             border: dashed 1px rgb(0 0 0 / 25%);
             cursor: pointer;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .wrapper{
+        margin: 12px 12px 12px 100px;
+    }
+}
+
+@media (min-width: 813px){
+    .wrapper{
+        .list{
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }
