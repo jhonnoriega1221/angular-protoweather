@@ -1,13 +1,20 @@
 .wrapper{
-    padding: 12px 12px 0px 12px;
+    padding: 18px 0 83px 0;
 }
 
 .recent-title{
     padding: 0 12px;
+    font-size: 12px;
+    color: var(--angular-protoweather-on-primary-container-alt);
 }
 
+.title-searchbar{
+    padding: 0 12px;
+    box-sizing: border-box;
+}
 .list-item-wrapper{
     display: flex;
+    align-items: center;
 }
 
 .list{
@@ -18,13 +25,17 @@
     width: 100%;
 
     .list-item{
-        padding: 16px 16px;
+        padding: 14px 0;
         width: 100%;
         display: block;
         box-sizing: border-box;
         text-decoration: none;
-        height: 45px;
+        height: 48px;
         overflow: hidden;
+        color: var(--angular-protoweather-on-primary-container);
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
         p{
             margin: 0;
@@ -32,7 +43,19 @@
 
     }
 
+    .recent-icon{
+        color: var(--angular-protoweather-on-primary-container);
+        padding: 0 12px;
+    }
+
     .separator:last-child {
         display:none;
       }
+}
+
+@media (min-width: 600px){
+    .wrapper{
+        padding: 18px 0 12px 88px;
+    }
+
 }

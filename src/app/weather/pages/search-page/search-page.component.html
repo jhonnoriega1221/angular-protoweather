@@ -1,24 +1,29 @@
 <div class="wrapper">
-    <h2 *ngIf="isMobile">Buscar</h2>
-    <app-location-search-autocomplete (locationSelected)="searchLocation($event)"></app-location-search-autocomplete>
-</div>
-<div  class="recent-searchs" *ngIf="!(historySearch.length == 0) && isMobile">
-    <p class="recent-title mat-caption">Búsquedas recientes</p>
-    <ul class="list mat-card">
-        <div class="list-item-wrapper mat-app-background" mat-ripple *ngFor="let historySearchItem of historySearch">
-            <a [routerLink]="['/forecast/cartagena']" class="list-item mat-body-2 mat-app-background" [routerLink]="['/forecast/', historySearchItem.placeId]" >
-                {{historySearchItem.name}}
-            </a>
-            <button mat-icon-button (click)="deleteHistoryItem(historySearchItem)">
-                <mat-icon>close</mat-icon>
-            </button>
-        </div>
-
-        <mat-divider class="separator"></mat-divider>
-    </ul>
-</div>
-
-<div class="no-search-history" *ngIf="historySearch.length == 0 && isMobile">
-    <app-nolocation-warning [title]=emptyHistory.title [message]=emptyHistory.message [imageURL]=emptyHistory.imageURL></app-nolocation-warning>
+    <div class="title-searchbar">
+        <h2 class="page-title" *ngIf="isMobile">Buscar</h2>
+        <app-location-search-autocomplete class="search-bar" (locationSelected)="searchLocation($event)"></app-location-search-autocomplete>
+    </div>
+    
+    <div class="recent-searches" *ngIf="!(historySearch.length == 0) && isMobile">
+        <p class="recent-title">Búsquedas recientes</p>
+        <ul class="list">
+            <div class="list-item-wrapper" mat-ripple *ngFor="let historySearchItem of historySearch">
+                <mat-icon class="recent-icon">square</mat-icon>
+                <a [routerLink]="['/forecast/cartagena']" class="list-item" [routerLink]="['/forecast/', historySearchItem.placeId]" >
+                    {{historySearchItem.name}}
+                </a>
+                <button mat-icon-button (click)="deleteHistoryItem(historySearchItem)">
+                    <mat-icon class="icon">close</mat-icon>
+                </button>
+            </div>
+    
+            <mat-divider class="separator"></mat-divider>
+        </ul>
+    </div>
+    
+    <div class="no-search-history" *ngIf="historySearch.length == 0 && isMobile">
+        <app-nolocation-warning [title]=emptyHistory.title [message]=emptyHistory.message [imageURL]=emptyHistory.imageURL></app-nolocation-warning>
+    </div>
+    
 </div>
 
