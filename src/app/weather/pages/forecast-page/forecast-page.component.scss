@@ -18,6 +18,12 @@
     min-width: 320px;
 }
 
+.search-bar{
+    padding: 0 12px;
+    box-sizing: border-box;
+    display: block;
+}
+
 .primary-btn{
     background-color: var(--angular-protoweather-primary);
     color: var(--angular-protoweather-on-primary);

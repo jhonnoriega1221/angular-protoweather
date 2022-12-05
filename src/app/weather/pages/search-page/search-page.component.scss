@@ -1,5 +1,6 @@
 .wrapper{
     padding: 12px 0 83px 0;
+    box-sizing: border-box;
 }
 
 .recent-title{
@@ -55,12 +56,7 @@
 
 @media (min-width: 600px){
     .wrapper{
-        padding: 12px 12px 12px 12px;
-    }
-
-    .title-searchbar{
-        padding: 0px;
-        box-sizing: border-box;
+        padding: 12px 0 0 88px;
     }
 
 }

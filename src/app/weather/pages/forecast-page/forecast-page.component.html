@@ -1,9 +1,8 @@
-<div class="wrapper" >
+<div class="wrapper">
     <div class="left-side">
-        <app-search-page *ngIf="!isMobile" [isMobile]="isMobile"></app-search-page>
+        <app-location-search-autocomplete class="search-bar" (locationSelected)="goToSelectedLocation($event)" *ngIf="!isMobile"></app-location-search-autocomplete>
         <div *ngIf="!isError">
-            <app-actual-weather
-                *skeleton="isLoading; height:'272px'; repeat: 1; width: '95%';"
+            <app-actual-weather *skeleton="isLoading; height:'272px'; repeat: 1; width: '95%';"
                 [weatherCode]="forecastData.hourly.weathercode[actualHourIndex]" [place]="placeName"
                 [temperature]="forecastData.hourly.temperature_2m[actualHourIndex]"
                 [humidity]="forecastData.hourly.relativehumidity_2m[actualHourIndex]"
@@ -12,36 +11,27 @@
                 [isDefaultLocation]="isDefaultLocation">
             </app-actual-weather>
             <div class="forecast-info-grid">
-                <ng-container
-                    *ngIf="isOneColumn">
-                    <app-next-hour-weather
-                        *skeleton="isLoading; height:'159px'; repeat: 1; width: '95%';"
-                        [actualHourIndex]="actualHourIndex"
-                        [temperatures]="forecastData.hourly.temperature_2m" [weatherTimes]="forecastData.hourly.time"
-                        [weatherCodes]="forecastData.hourly.weathercode">
+                <ng-container *ngIf="isOneColumn">
+                    <app-next-hour-weather *skeleton="isLoading; height:'159px'; repeat: 1; width: '95%';"
+                        [actualHourIndex]="actualHourIndex" [temperatures]="forecastData.hourly.temperature_2m"
+                        [weatherTimes]="forecastData.hourly.time" [weatherCodes]="forecastData.hourly.weathercode">
                     </app-next-hour-weather>
                 </ng-container>
 
-                <app-actual-weather-info
-                    *skeleton="isLoading; height:'129px'; repeat: 1; width: '95%';"
+                <app-actual-weather-info *skeleton="isLoading; height:'129px'; repeat: 1; width: '95%';"
                     [weatherPressure]="forecastData.hourly.surface_pressure[actualHourIndex]"
                     [weatherDewpoint]="forecastData.hourly.dewpoint_2m[actualHourIndex]">
                 </app-actual-weather-info>
-                <app-weather-sunset-info
-                    class="sunset-info"
+                <app-weather-sunset-info class="sunset-info"
                     *skeleton="isLoading; height:'129px'; repeat: 2; width: '95%';"
-                    [sunsetTime]="forecastData.daily.sunset[0]"
-                    [sunriseTime]="forecastData.daily.sunrise[0]">
+                    [sunsetTime]="forecastData.daily.sunset[0]" [sunriseTime]="forecastData.daily.sunrise[0]">
                 </app-weather-sunset-info>
-                <app-wind-info
-                    *skeleton="isLoading; height:'129px'; repeat: 1; width: '95%';"
+                <app-wind-info *skeleton="isLoading; height:'129px'; repeat: 1; width: '95%';"
                     [windDirectionAngle]="forecastData.hourly.winddirection_10m[actualHourIndex]"
                     [windSpeed]="forecastData.hourly.windspeed_10m[actualHourIndex]">
                 </app-wind-info>
-                <ng-container
-                    *ngIf="isOneColumn">
-                    <app-weather-week-info
-                        *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
+                <ng-container *ngIf="isOneColumn">
+                    <app-weather-week-info *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
                         [weekDays]="forecastData.daily.time"
                         [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
                         [weekWeatherCode]="forecastData.daily.weathercode">
@@ -56,15 +46,12 @@
             <p>{{actualDay.date}}</p>
         </div>
         <div *ngIf="!isError">
-            <app-next-hour-weather
-                *skeleton="isLoading; height:'159px'; repeat: 1; width: '95%';"
+            <app-next-hour-weather *skeleton="isLoading; height:'159px'; repeat: 1; width: '95%';"
                 [actualHourIndex]="actualHourIndex" [temperatures]="forecastData.hourly.temperature_2m"
                 [weatherTimes]="forecastData.hourly.time" [weatherCodes]="forecastData.hourly.weathercode">
             </app-next-hour-weather>
-            <app-weather-week-info
-                *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
-                [weekDays]="forecastData.daily.time"
-                [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
+            <app-weather-week-info *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
+                [weekDays]="forecastData.daily.time" [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
                 [weekWeatherCode]="forecastData.daily.weathercode">
             </app-weather-week-info>
         </div>
@@ -72,16 +59,11 @@
 </div>
 
 <div class="error-state" *ngIf="isError">
-    <app-nolocation-warning 
-        style="margin-bottom:12px; display:block" 
-        [title]=warningInfo.title 
-        [message]=warningInfo.message 
-        [imageURL]=warningInfo.imageURL>
+    <app-nolocation-warning style="margin-bottom:12px; display:block" [title]=warningInfo.title
+        [message]=warningInfo.message [imageURL]=warningInfo.imageURL>
     </app-nolocation-warning>
-    <app-nolocation-buttons 
-        *ngIf="isDefaultLocation && !isDefaultLocationSet; else apiErrorButton"
-        (errorLocation)="showLocationErrorMessage($event)"
-        (locationFound)="reloadHome()">
+    <app-nolocation-buttons *ngIf="isDefaultLocation && !isDefaultLocationSet; else apiErrorButton"
+        (errorLocation)="showLocationErrorMessage($event)" (locationFound)="reloadHome()">
     </app-nolocation-buttons>
     <ng-template #apiErrorButton>
         <button (click)="reloadHome()" *ngIf="isError" class="primary-btn">Intentar de nuevo</button>

@@ -269,4 +269,14 @@ export class ForecastPageComponent implements OnInit {
       }
     });
   }
+
+  public goToSelectedLocation(place:Place) {
+    this.placeService.saveHistoryPlace({name: place.display_name, placeId:''+place.place_id})
+    if(this.isDefaultLocation){
+      this.router.navigate(['/forecast/',place.place_id ]);
+      return;
+    }
+    this.reloadHome();
+    
+  }
 }
