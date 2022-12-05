@@ -1,5 +1,5 @@
 <div class="wrapper">
     <img class="illustration" [src]=imageURL alt="">
     <h4 class="title">{{title}}</h4>
-    <p class="text">{{message}}</p>
+    <p *ngIf="message" class="text">{{message}}</p>
 </div>

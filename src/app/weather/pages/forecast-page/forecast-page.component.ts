@@ -89,12 +89,12 @@ export class ForecastPageComponent implements OnInit {
   public isDefaultLocationSet: boolean = false;
   public isDefaultLocation:boolean = true;
   public isError: boolean = false;
-  public isMobile:boolean = this.setIsMobile(window.innerWidth);
-  public isOneColumn:boolean = this.setIsOneColumn(window.innerWidth);
+  public isMobile:boolean = this.getIsMobile(window.innerWidth);
+  public isOneColumn:boolean = this.getIsOneColumn(window.innerWidth);
 
   public warningInfo = {
-    title: 'No se encontró ninguna ubicación por defecto',
-    message: 'ProtoWeather necesita una ubicación por defecto para mostrar el pronostico en la pagina de inicio',
+    title: 'Establece una ubicación por defecto para mostrarla aquí',
+    message: '',
     imageURL: "../../../../assets/location-error.svg"
   }
 
@@ -102,22 +102,21 @@ export class ForecastPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLocationData();
-    
   }
 
-  private setIsMobile(innerWidth:number):boolean {
+  private getIsMobile(innerWidth:number):boolean {
     return innerWidth < 600 ;
   }
 
-  private setIsOneColumn(innerWidth:number):boolean {
+  private getIsOneColumn(innerWidth:number):boolean {
     return innerWidth < 825 ;
   }
   
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     const innerWidth:number = event.target.innerWidth;
-    this.isMobile = this.setIsMobile(innerWidth);
-    this.isOneColumn = this.setIsOneColumn(innerWidth);
+    this.isMobile = this.getIsMobile(innerWidth);
+    this.isOneColumn = this.getIsOneColumn(innerWidth);
   }
 
   private setActualHourIndex(): void {
@@ -154,7 +153,7 @@ export class ForecastPageComponent implements OnInit {
     }
   }
 
-  public setWarningInfoError() {
+  private setWarningInfoError() {
     this.warningInfo = {
       title: "Oops",
       message: "Hubo un error al intentar obtener la ubicación",
@@ -231,7 +230,6 @@ export class ForecastPageComponent implements OnInit {
       if (params['id'] != undefined) {
         this.placeCode = params['id'];
         this.isDefaultLocation = false;
-        this.isDefaultLocationSet = true;
         
         this.placeService.getPlaceById(params['id']).subscribe({
           next: (v) => {
@@ -266,6 +264,7 @@ export class ForecastPageComponent implements OnInit {
         } else {
           this.isLoading = false;
           this.isError = true;
+          this.isDefaultLocationSet = false;
         }
       }
     });

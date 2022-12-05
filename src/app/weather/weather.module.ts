@@ -36,6 +36,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { FavoritePlaceCardComponent } from './components/favorite-place-card/favorite-place-card.component';
+import { NoLocationHomeWarningComponent } from './components/no-location-home-warning/no-location-home-warning.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FavoritePlaceCardComponent } from './components/favorite-place-card/fav
     SettingsPageComponent,
     ForecastPageComponent,
     AboutPageComponent,
-    FavoritePlaceCardComponent
+    FavoritePlaceCardComponent,
+    NoLocationHomeWarningComponent
   ],
   imports: [
     CommonModule,
