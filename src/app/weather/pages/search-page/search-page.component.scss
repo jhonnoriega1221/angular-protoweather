@@ -25,6 +25,17 @@
     padding: 0;
     width: 100%;
 
+    .icon-button{
+        background-color: transparent;
+        border: none;
+
+        .icon{
+            margin: 12px;
+            font-size: 20px;
+            width: 12px;
+        }
+    }
+
     .list-item{
         padding: 14px 0;
         width: 100%;
