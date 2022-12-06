@@ -24,7 +24,7 @@ export class WindInfoComponent implements OnInit {
   ngOnInit(): void {
 
     this.windInfo = {
-      icon: 'square', direction: this.setWindDirection(this.windDirectionAngle), speed: this.windSpeed + " km/h"
+      icon: 'wind', direction: this.setWindDirection(this.windDirectionAngle), speed: this.windSpeed + " km/h"
     }
   }
 

@@ -7,7 +7,6 @@ import { WeatherNavbarComponent } from './components/weather-navbar/weather-navb
 import { WeatherNavButtonComponent } from './components/weather-nav-button/weather-nav-button.component';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherHomePageComponent } from './pages/weather-home-page/weather-home-page.component';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { SetlocationPageComponent } from './pages/setlocation-page/setlocation-page.component';
@@ -16,7 +15,6 @@ import { NolocationWarningComponent } from './components/nolocation-warning/nolo
 import { NolocationButtonsComponent } from './components/nolocation-buttons/nolocation-buttons.component';
 import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
 import { SetlocationAutocompleteDialogComponent } from './components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ActualWeatherBackgroundComponent } from './components/actual-weather-background/actual-weather-background.component';
@@ -27,7 +25,6 @@ import { WrapperHeaderComponent } from './components/wrapper-header/wrapper-head
 import { WeatherSunsetInfoComponent } from './components/weather-sunset-info/weather-sunset-info.component';
 import { WindInfoComponent } from './components/wind-info/wind-info.component';
 import { WeatherWeekInfoComponent } from './components/weather-week-info/weather-week-info.component';
-import { MatDividerModule } from '@angular/material/divider';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
@@ -68,16 +65,13 @@ import { NoLocationHomeWarningComponent } from './components/no-location-home-wa
   imports: [
     CommonModule,
     FormsModule,
-    MatButtonModule,
     WeatherRoutingModule,
     MatIconModule,
     MatRippleModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatInputModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MatDividerModule,
     SharedModule
   ]
 })

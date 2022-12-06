@@ -26,8 +26,8 @@ export class WeatherSunsetInfoComponent implements OnInit {
     this.setSunsetTime(this.sunsetTime);
 
     this.sunsetWeatherCards = [
-      { icon: 'square', title: 'Amanecer', text: this.sunriseTime, sideText: 'Hace 12 Horas'}, 
-      { icon: 'square', title: 'Atardecer', text: this.sunsetTime, sideText: 'En 12 Horas'}
+      { icon: 'sun', title: 'Amanecer', text: this.sunriseTime, sideText: 'Hace 12 Horas'}, 
+      { icon: 'moon', title: 'Atardecer', text: this.sunsetTime, sideText: 'En 12 Horas'}
     ]
   }
 

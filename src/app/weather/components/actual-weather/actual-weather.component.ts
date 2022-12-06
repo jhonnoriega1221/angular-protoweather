@@ -13,7 +13,7 @@ import { PlaceService } from '../../services/place.service';
 export class ActualWeatherComponent implements OnInit {
 
   isFavorite:boolean = false;
-  favoriteIconStatus:'star'|'star_outline' = 'star';
+  favoriteIconStatus:'fa-solid fa-star'|'fa-regular fa-star' = 'fa-solid fa-star';
 
   @Input() weatherCode:number = 0;
   @Input() place:string = '';
@@ -44,7 +44,7 @@ export class ActualWeatherComponent implements OnInit {
 
   checkIsFavorite():void{
     this.isFavorite = this.placeService.getFavoritePlace(this.placeCode) ? true : false;
-    this.favoriteIconStatus = this.isFavorite? 'star': 'star_outline';
+    this.favoriteIconStatus = this.isFavorite? 'fa-solid fa-star': 'fa-regular fa-star';
   }
 
   toggleFavorite():void{

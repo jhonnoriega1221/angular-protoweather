@@ -19,8 +19,8 @@ export class ActualWeatherInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.actualWeatherCards = [
-      { icon: 'square', title: 'Presión', text: this.weatherPressure + ' hPa'}, 
-      { icon: 'square', title: 'Punto de rocío', text: this.weatherDewpoint + ' ºc'}
+      { icon: 'prescription-bottle', title: 'Presión', text: this.weatherPressure + ' hPa'}, 
+      { icon: 'temperature-low', title: 'Punto de rocío', text: this.weatherDewpoint + ' ºc'}
     ]
   }
 

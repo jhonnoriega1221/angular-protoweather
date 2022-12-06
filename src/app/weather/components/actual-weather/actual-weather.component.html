@@ -1,11 +1,11 @@
 <div class="wrapper">
     <div class="place-name">
         <div class="place-name-container">
-            <mat-icon class="icon-small">pin_drop</mat-icon>
+            <i class="icon-small fa-solid fa-map-marker-alt"></i>
             <span>{{place}}</span>
         </div>
-        <button *ngIf="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
-            <mat-icon>{{favoriteIconStatus}}</mat-icon>
+        <button class="icon-favorite-button" *ngIf="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
+            <i class="favorite-button-icon" [ngClass]="favoriteIconStatus"></i>
         </button>
     </div>
     <div class="temperature-status">
@@ -19,15 +19,15 @@
     </div>
     <div class="bottom-content">
         <div class="bottom-info-item">
-            <mat-icon class="icon-small">square</mat-icon>
+            <i class="icon-small fa-solid fa-air-freshener"></i>
             <span class="info-value">{{humidity}}%</span>
         </div>
         <div class="bottom-info-item">
-            <mat-icon class="icon-small">square</mat-icon>
+            <i class="icon-small fa-solid fa-cloud-rain"></i>
             <span class="info-value">{{precipitation}} mm</span>
         </div>
         <div class="bottom-info-item">
-            <mat-icon class="icon-small">square</mat-icon>
+            <i class="icon-small fa-solid fa-radiation-alt"></i>
             <span class="info-value">{{radiation}} W/m²</span>
         </div>
     </div>

@@ -4,7 +4,7 @@
     routerLinkActive="active"
     [routerLinkActiveOptions]="{exact: true}">
         <div class="icon-container" routerLinkActive="icon-container-active" [routerLinkActiveOptions]="{exact: true}">
-            <mat-icon class="icon">{{icon}}</mat-icon>
+            <i class="icon fa-solid" [ngClass]="'fa-'+icon"></i>
         </div>
         <span class="text" routerLinkActive="text-active" [routerLinkActiveOptions]="{exact: true}">{{text}}</span>
 </a>

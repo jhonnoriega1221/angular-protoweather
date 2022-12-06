@@ -21,6 +21,19 @@
     min-width: 16px;
 }
 
+.icon-favorite-button{
+    background-color: transparent;
+    border: none;
+    color: #11365E;
+    padding: 0 12px;
+}
+
+.favorite-button-icon{
+    font-size: 18px;
+    width: 18px;
+    min-width: 18px;
+}
+
 .place-name{
     display: flex;
     align-items: center;
