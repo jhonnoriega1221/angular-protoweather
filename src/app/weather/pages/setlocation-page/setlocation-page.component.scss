@@ -1,9 +1,36 @@
 .wrapper{
+    background-color: var(--angular-protoweather-surface-1);
+    height: 100vh;
+}
+
+.card{
     padding: 12px;
     display: flex;
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
-    justify-content: space-evenly;
-    overflow: hidden;
+    justify-content: space-around;
+    background-color: var(--angular-protoweather-background);
+}
+
+.location-buttons{
+    margin-bottom: 100px;
+}
+
+@media(min-width: 600px){
+    .card {
+        position: relative;
+        background-color: var(--angular-protoweather-background);
+        top: 50%;
+        width: 570px;
+        margin: auto;
+        max-height: 500px;
+        border-radius: 12px;
+        transform: translate(0px, -50%);
+        padding: 12px 100px;
+    }
+
+    .location-buttons{
+        margin-bottom: 0;
+    }
 }

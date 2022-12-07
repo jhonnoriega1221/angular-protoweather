@@ -15,8 +15,8 @@ interface Message {
 export class SetlocationPageComponent implements OnInit {
 
   public warningInfo = {
-    title: '¡Bienvenido a ProtoWeather!',
-    message: 'ProtoWeather necesita una ubicación para mostrar el pronostico en la pagina de inicio',
+    title: '',
+    message: '¿Como quieres indicar tu ubicación por defecto?',
     imageURL: "../../../../assets/location-1.svg"
   }
   private nextUrl:null|string = '/';

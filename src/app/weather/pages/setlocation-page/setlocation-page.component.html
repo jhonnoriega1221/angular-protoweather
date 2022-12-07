@@ -1,4 +1,6 @@
 <div class="wrapper">
-    <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
-    <app-nolocation-buttons (errorLocation)="showLocationErrorMessage($event)" (locationFound)="goToHome()" ></app-nolocation-buttons>
+    <div class="card">
+        <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
+        <app-nolocation-buttons class="location-buttons" (errorLocation)="showLocationErrorMessage($event)" (locationFound)="goToHome()" ></app-nolocation-buttons>
+    </div>
 </div>
