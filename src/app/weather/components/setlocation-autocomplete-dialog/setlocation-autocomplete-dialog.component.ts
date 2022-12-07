@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Place } from '../../models/place';
-import {MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA} from '@angular/material/legacy-dialog';
+import { MatDialogRef} from '@angular/material/dialog';
 import { PlaceService } from '../../services/place.service';
 import { Router } from '@angular/router';
 
@@ -9,21 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './setlocation-autocomplete-dialog.component.html',
   styleUrls: ['./setlocation-autocomplete-dialog.component.scss']
 })
-export class SetlocationAutocompleteDialogComponent implements OnInit {
+export class SetlocationAutocompleteDialogComponent {
 
-  private placeSelected:Place = {
-    place_id: 0,
-    lat: '',
-    lon: '',
-    display_name: ''
-  };
+  public placeSelected?:Place;
 
   public isDisabledSelectButton:boolean = true;
 
-  constructor(public dialogRef: MatDialogRef<SetlocationAutocompleteDialogComponent>, private placeService:PlaceService, private routerService:Router) { }
-
-  ngOnInit(): void {
-  }
+  constructor(public dialogRef: MatDialogRef<SetlocationAutocompleteDialogComponent>) { }
 
   public getLocationSelected(place:Place){
     if(place){
@@ -32,13 +24,6 @@ export class SetlocationAutocompleteDialogComponent implements OnInit {
     } else {
       this.isDisabledSelectButton = true;
     }
-  }
-
-  public setDefaultPlace(){
-    this.placeService.setDefaultPlace(this.placeSelected.lat, this.placeSelected.lon, this.placeSelected.display_name)
-    localStorage.setItem('ft', 'false');
-    this.routerService.navigate(['/']);
-    this.dialogRef.close();
   }
 
   public closeDialog(): void {

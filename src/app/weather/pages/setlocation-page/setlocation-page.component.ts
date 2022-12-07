@@ -38,7 +38,7 @@ export class SetlocationPageComponent implements OnInit {
   public goToHome() {
     localStorage.setItem('ft', 'false');
     setTimeout(() => {
-      this.routerService.navigate(['/']);
+      this.routerService.navigate(['/favorites']);
     }, 1000);
   }
 

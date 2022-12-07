@@ -65,9 +65,25 @@
       }
 }
 
+.empty-state{
+    width: 100%;
+    padding: 114px 12px 71px 12px;
+    top: 50%;
+    box-sizing: border-box;
+    transform: translate(0%, -50%);
+    position: absolute;
+}
+
 @media (min-width: 600px){
     .wrapper{
         padding: 12px 0 0 88px;
+    }
+
+    .empty-state {
+        max-width: 450px;
+        padding: 114px 0 0 88px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
 }

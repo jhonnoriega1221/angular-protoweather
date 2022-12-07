@@ -4,16 +4,12 @@
         <p class="place-subtitle-caption">Lugar predeterminado</p>
     </div>
         <app-favorite-place-card
+            *ngIf="defaultPlaceName"
             [isDefaultPlace]="true"
             placeId=""
             [name]="defaultPlaceName"
             class="favorite-card"
         ></app-favorite-place-card>
-
-    <div class="no-default-location" *ngIf="!defaultPlaceName">
-        <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
-        <app-nolocation-buttons (errorLocation)="showLocationErrorMessage($event)" (locationFound)="reloadDefaultPlace()"></app-nolocation-buttons>
-    </div>
 
     <p class="place-subtitle-caption">Lugares favoritos</p>
     <ul class="list" *ngIf="favoritePlaces">
@@ -22,12 +18,6 @@
             [placeId]="favoritePlace.placeId"
             [name]="favoritePlace.name"
         ></app-favorite-place-card>
-        <!--
-        <button mat-ripple class="add-place-card">
-            <mat-icon>
-                add
-            </mat-icon>
-        </button>-->
     </ul>
     <div class="no-default-location" *ngIf="favoritePlaces.length == 0">
         <app-nolocation-warning [title]=emptyFavorites.title [message]=emptyFavorites.message [imageURL]=emptyFavorites.imageURL></app-nolocation-warning>

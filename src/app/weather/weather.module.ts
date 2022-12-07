@@ -14,7 +14,7 @@ import { LocationSearchAutocompleteComponent } from './components/location-searc
 import { NolocationWarningComponent } from './components/nolocation-warning/nolocation-warning.component';
 import { NolocationButtonsComponent } from './components/nolocation-buttons/nolocation-buttons.component';
 import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
 import { SetlocationAutocompleteDialogComponent } from './components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ActualWeatherBackgroundComponent } from './components/actual-weather-background/actual-weather-background.component';

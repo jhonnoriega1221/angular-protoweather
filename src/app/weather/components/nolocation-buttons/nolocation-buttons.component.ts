@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
-import {MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef} from '@angular/material/legacy-dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
+import { Place } from '../../models/place';
 @Component({
   selector: 'app-nolocation-buttons',
   templateUrl: './nolocation-buttons.component.html',
@@ -52,7 +53,7 @@ export class NolocationButtonsComponent implements OnInit {
   }
 
   public openSetLocationDialog(){
-    this.dialog.open(SetlocationAutocompleteDialogComponent,  {
+    const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
       maxWidth: '100vw',
       maxHeight: '100vh',
       height: '100%',
@@ -60,13 +61,12 @@ export class NolocationButtonsComponent implements OnInit {
       disableClose: true,
       enterAnimationDuration: '0ms'
     })
-  }
-}
 
-@Component({
-  selector: 'app-set-location-search-dialog',
-  templateUrl: 'set-location-search-dialog.html',
-})
-export class SetLocationSearchDialog {
-  constructor(public dialogRef: MatDialogRef<SetLocationSearchDialog>) {}
+    dialogRef.afterClosed().subscribe( result => {
+      this.placeService.setDefaultPlace(result.lat, result.lon, result.display_name)
+      this.locationFound.emit();
+    })
+  }
+
+
 }

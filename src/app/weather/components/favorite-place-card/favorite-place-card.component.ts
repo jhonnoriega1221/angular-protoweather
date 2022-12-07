@@ -10,7 +10,6 @@ export class FavoritePlaceCardComponent implements OnInit {
   @Input() name:string | undefined = '';
   @Input() placeId:string = '';
   @Input() isDefaultPlace:boolean = false;
-  @Input() isExtendedCard:boolean = true;
 
   public url:string[] = [];
 

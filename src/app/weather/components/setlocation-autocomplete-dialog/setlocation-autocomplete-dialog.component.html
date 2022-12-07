@@ -5,6 +5,6 @@
 </div>
 <div class="dialog-bottom">
     <button mat-button (click)="closeDialog()">Cancelar</button>
-    <button [disabled]="isDisabledSelectButton" mat-flat-button color="primary" (click)="setDefaultPlace()">Seleccionar</button>
+    <button [mat-dialog-close]="placeSelected" [disabled]="isDisabledSelectButton" mat-flat-button color="primary">Seleccionar</button>
   </div>
 </div>

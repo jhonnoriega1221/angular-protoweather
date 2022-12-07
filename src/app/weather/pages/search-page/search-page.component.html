@@ -19,7 +19,7 @@
         </ul>
     </div>
     
-    <div class="no-search-history" *ngIf="historySearch.length == 0">
+    <div class="empty-state" *ngIf="historySearch.length == 0">
         <app-nolocation-warning [title]=emptyHistory.title [message]=emptyHistory.message [imageURL]=emptyHistory.imageURL></app-nolocation-warning>
     </div>
     

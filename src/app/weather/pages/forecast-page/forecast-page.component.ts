@@ -95,7 +95,7 @@ export class ForecastPageComponent implements OnInit {
   public warningInfo = {
     title: 'Establece una ubicación por defecto para mostrarla aquí',
     message: '',
-    imageURL: "../../../../assets/location-error.svg"
+    imageURL: "../../../../assets/location-1.svg"
   }
 
   constructor(private weatherService: WeatherService, private placeService: PlaceService, private activatedRoute: ActivatedRoute, private router:Router) { }
