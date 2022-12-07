@@ -34,6 +34,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { FavoritePlaceCardComponent } from './components/favorite-place-card/favorite-place-card.component';
 import { NoLocationHomeWarningComponent } from './components/no-location-home-warning/no-location-home-warning.component';
+import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-card/add-favorite-place-card.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NoLocationHomeWarningComponent } from './components/no-location-home-wa
     ForecastPageComponent,
     AboutPageComponent,
     FavoritePlaceCardComponent,
-    NoLocationHomeWarningComponent
+    NoLocationHomeWarningComponent,
+    AddFavoritePlaceCardComponent
   ],
   imports: [
     CommonModule,

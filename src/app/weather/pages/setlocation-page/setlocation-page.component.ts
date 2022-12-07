@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaceService } from '../../services/place.service';
-import { Place } from '../../models/place';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 interface Message {
   title: string;
@@ -21,10 +19,14 @@ export class SetlocationPageComponent implements OnInit {
     message: 'ProtoWeather necesita una ubicación para mostrar el pronostico en la pagina de inicio',
     imageURL: "../../../../assets/location-1.svg"
   }
+  private nextUrl:null|string = '/';
 
-  constructor(private placeService: PlaceService, private routerService: Router) { }
+  constructor(private routerService: Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.nextUrl = params['nextUrl'] ? params['nextUrl'] : '/';
+      })
   }
   
   public showLocationErrorMessage(message: Message) {
@@ -38,7 +40,7 @@ export class SetlocationPageComponent implements OnInit {
   public goToHome() {
     localStorage.setItem('ft', 'false');
     setTimeout(() => {
-      this.routerService.navigate(['/']);
+      this.routerService.navigate([this.nextUrl]);
     }, 1000);
   }
 

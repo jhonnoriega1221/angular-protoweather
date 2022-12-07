@@ -1,0 +1,19 @@
+.add-place-card{
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--angular-protoweather-on-primary-container);
+    font-size: 26px;
+    border: 2px dashed var(--angular-protoweather-on-primary-container);
+    height: 117px;
+    background-color: var(--angular-protoweather-background);
+    display: block;
+}
+
+@media(min-width: 813px) {
+    .add-place-card {
+        width: 336px;
+    }
+}

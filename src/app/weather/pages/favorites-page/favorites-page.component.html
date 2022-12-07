@@ -11,15 +11,16 @@
             class="favorite-card"
         ></app-favorite-place-card>
 
+        <app-add-favorite-place-card *ngIf="!defaultPlaceName" #addDefaultPlace (click)="setDefaultLocation()" class="favorite-card">
+        </app-add-favorite-place-card>
+
     <p class="place-subtitle-caption">Lugares favoritos</p>
-    <ul class="list" *ngIf="favoritePlaces">
+    <ul class="list">
+        <app-add-favorite-place-card (click)="addFavoritePlace()"></app-add-favorite-place-card>
         <app-favorite-place-card *ngFor="let favoritePlace of favoritePlaces"
             [isDefaultPlace]="false"
             [placeId]="favoritePlace.placeId"
             [name]="favoritePlace.name"
         ></app-favorite-place-card>
     </ul>
-    <div class="no-default-location" *ngIf="favoritePlaces.length == 0">
-        <app-nolocation-warning [title]=emptyFavorites.title [message]=emptyFavorites.message [imageURL]=emptyFavorites.imageURL></app-nolocation-warning>
-    </div>
 </div>
