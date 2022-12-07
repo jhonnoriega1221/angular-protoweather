@@ -13,6 +13,11 @@
     padding: 0 12px;
     box-sizing: border-box;
 }
+
+.search-bar{
+    z-index: 1;
+    position: relative;
+}
 .list-item-wrapper{
     display: flex;
     align-items: center;
