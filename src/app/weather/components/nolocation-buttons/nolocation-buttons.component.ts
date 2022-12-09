@@ -1,18 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
-import { Place } from '../../models/place';
+
 @Component({
   selector: 'app-nolocation-buttons',
   templateUrl: './nolocation-buttons.component.html',
   styleUrls: ['./nolocation-buttons.component.scss']
 })
-export class NolocationButtonsComponent implements OnInit {
+export class NolocationButtonsComponent {
 
   public isSearchingLocation:boolean = false;
   @Output() errorLocation: EventEmitter<any> = new EventEmitter();
   @Output() locationFound: EventEmitter<any> = new EventEmitter();
+  private isMobile = this.setIsMobile(window.innerWidth);
 
   private errorMessage = {
     title: 'No se pudo encontrar su ubicación',
@@ -22,7 +23,10 @@ export class NolocationButtonsComponent implements OnInit {
 
   constructor( private placeService:PlaceService, public dialog:MatDialog ) { }
 
-  ngOnInit(): void {
+
+  private setIsMobile(innerWidth: number): boolean {
+    const isMobile = innerWidth <= 600 ? true : false
+    return isMobile;
   }
 
   public getLocation():void{
@@ -53,18 +57,22 @@ export class NolocationButtonsComponent implements OnInit {
   }
 
   public openSetLocationDialog(){
+    this.isMobile = this.setIsMobile(window.innerWidth);
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
-      maxWidth: '100vw',
+      width: this.isMobile ? '100vw' : '450px',
+      height: this.isMobile ? '100vh' : '80vh',
+      maxWidth: this.isMobile ? '100vw' : '450px',
       maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
+      minHeight: '200px',
       disableClose: true,
       enterAnimationDuration: '0ms'
     })
 
     dialogRef.afterClosed().subscribe( result => {
-      this.placeService.setDefaultPlace(result.lat, result.lon, result.display_name)
-      this.locationFound.emit();
+        if(result){
+        this.placeService.setDefaultPlace(result.lat, result.lon, result.display_name)
+        this.locationFound.emit();
+        }
     })
   }
 

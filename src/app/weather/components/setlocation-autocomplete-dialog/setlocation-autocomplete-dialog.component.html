@@ -1,10 +1,10 @@
 <div class="wrapper">
-    <div class="dialog-top">
-<h4>Seleccionar ubicación predeterminada</h4>
-<app-location-search-autocomplete (locationSelected)="getLocationSelected($event)"></app-location-search-autocomplete>
-</div>
-<div class="dialog-bottom">
-    <button mat-button (click)="closeDialog()">Cancelar</button>
-    <button [mat-dialog-close]="placeSelected" [disabled]="isDisabledSelectButton" mat-flat-button color="primary">Seleccionar</button>
+  <div class="dialog-top">
+  <h4>Seleccionar ubicación predeterminada</h4>
+  <app-location-search-autocomplete (locationSelected)="getLocationSelected($event)"></app-location-search-autocomplete>
+  </div>
+  <div class="dialog-buttons">
+    <button class="dialog-button primary-btn outlined-btn" (click)="closeDialog()">Cancelar</button>
+    <button class="dialog-button primary-btn filled-btn" [mat-dialog-close]="placeSelected" [disabled]="isDisabledSelectButton">Seleccionar</button>
   </div>
 </div>

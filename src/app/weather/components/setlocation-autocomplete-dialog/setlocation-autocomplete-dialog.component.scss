@@ -3,11 +3,49 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
 }
 
-.dialog-bottom{
+.dialog-buttons{
     display: flex;
     width: 100%;
     gap: 6px;
     justify-content: flex-end;
+}
+
+.dialog-button{
+    width: 100%;
+}
+
+.primary-btn{
+    background-color: var(--angular-protoweather-primary);
+    color: var(--angular-protoweather-on-primary);
+    outline: none;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 12px;
+    height: 40px;
+}
+
+.filled-btn{
+    border: none;
+}
+
+.outlined-btn{
+    background-color: var(--angular-protoweather-background);
+    color: var(--angular-protoweather-on-background);
+    border: 1px solid var(--angular-protoweather-on-background);
+}
+
+
+@media (min-width: 600px) {
+    .dialog-buttons{
+        justify-content: flex-end;
+    }
+
+    .dialog-button{
+        width:  auto;
+    }
 }
