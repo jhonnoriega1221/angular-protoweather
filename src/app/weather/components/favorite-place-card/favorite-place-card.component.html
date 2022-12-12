@@ -1,13 +1,15 @@
-<a class="place-card" [routerLink]="url">
-    <p class="place-name">{{name}}</p>
-    <div class="card-info">
-        <div class="weather-code-temperature">
-            <p class="weather-code-name">Sky clear</p>
-            <p class="temperature">35ºC</p>
+<div class="wrapper">
+    <a class="place-card" [routerLink]="url">
+        <p class="place-name">{{name}}</p>
+        <div class="card-info">
+            <div class="weather-code-temperature">
+                <p class="weather-code-name">Sky clear</p>
+                <p class="temperature">35ºC</p>
+            </div>
+            <img style="display: none" class="weather-icon" src="../../../../assets/weather_code_icons/3-overcast.svg" alt="">
         </div>
-        <img style="display: none" class="weather-icon" src="../../../../assets/weather_code_icons/3-overcast.svg" alt="">
+    </a>
+    <div *ngIf="isEditMode" class="place-card delete-card-overlay">
+        <button class="delete-button" (click)="deleteActionButton()">X</button>
     </div>
-</a>
-<div class="button-container">
-    <button>X</button>
 </div>

@@ -38,12 +38,18 @@ export class PlaceService {
   }
 
   public getDefaultPlace():Place|undefined{
-    if(localStorage.getItem('defloc') != undefined){
+    if(localStorage.getItem('defloc')){
       return JSON.parse(localStorage.getItem('defloc') || '');
     }
     else{
       return undefined;
     }  
+  }
+
+  public deleteDefaultPlace():void{
+    if(localStorage.getItem('defloc')){
+      localStorage.setItem("defloc", '');
+    }
   }
 
   public saveFavoritePlace(favoritePlace:FavoritePlace):void{
@@ -69,15 +75,15 @@ export class PlaceService {
 
   }
 
-  public deleteFavoritePlace(favoritePlace:FavoritePlace):void{
+  public deleteFavoritePlace(placeId:string):void{
     let favPlaces:FavoritePlace[] = [];
 
-    if(localStorage.getItem('favplaces') != undefined){
+    if(localStorage.getItem('favplaces')){
       favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
     }
 
     const placeIndex = favPlaces.findIndex(place => {
-      return place.placeId === favoritePlace.placeId;
+      return place.placeId === placeId;
     });
 
     favPlaces.splice(placeIndex, 1);

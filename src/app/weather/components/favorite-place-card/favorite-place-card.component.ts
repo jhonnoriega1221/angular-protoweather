@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit , EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-favorite-place-card',
@@ -10,6 +10,9 @@ export class FavoritePlaceCardComponent implements OnInit {
   @Input() name:string | undefined = '';
   @Input() placeId:string = '';
   @Input() isDefaultPlace:boolean = false;
+  @Input() isEditMode:boolean = false;
+
+  @Output() deletePlace: EventEmitter<any> = new EventEmitter();
 
   public url:string[] = [];
 
@@ -19,6 +22,10 @@ export class FavoritePlaceCardComponent implements OnInit {
 
   private setRouterUrl():string[] {
     return this.isDefaultPlace ? ['/'] : ['/forecast/', this.placeId];
+  }
+
+  public deleteActionButton(){
+    this.deletePlace.emit();
   }
 
 }

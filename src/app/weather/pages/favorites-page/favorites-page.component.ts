@@ -18,6 +18,9 @@ export class FavoritesPageComponent implements OnInit {
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
   private isMobile = this.setIsMobile(window.innerWidth);
+  public isEditModeFavorites:boolean = false;
+  public isEditModeDefault:boolean = false;
+  
 
   ngOnInit(): void {
     this.defaultPlaceName = this.getDefaultPlaceName();
@@ -29,6 +32,15 @@ export class FavoritesPageComponent implements OnInit {
     return isMobile;
   }
 
+  public deleteFavoritePlace(placeId:string){
+    this.placeService.deleteFavoritePlace(placeId);
+    this.getFavoritePlaces();
+    
+    if(this.placeService.getFavoritePlaces().length === 0){
+      this.isEditModeFavorites = false;
+    }
+  }
+
   private getFavoritePlaces():void{
     this.favoritePlaces = this.placeService.getFavoritePlaces();
   }
@@ -38,9 +50,23 @@ export class FavoritesPageComponent implements OnInit {
 
     return defaultPlace?.display_name;
   }
-  
+
+  public toggleEditModeFavorites(){
+    this.isEditModeFavorites = !this.isEditModeFavorites;
+  }
+
+  public deleteDefaultPlace(){
+    this.placeService.deleteDefaultPlace();
+    this.defaultPlaceName = this.getDefaultPlaceName();
+    this.isEditModeDefault = false;
+  }
   public setDefaultLocation():void{
     this.router.navigate(['/setlocation'], {queryParams: {nextUrl:'/favorites'}});
+  }
+
+  public toggleEditModeDefault():void{
+    this.isEditModeDefault = !this.isEditModeDefault;
+
   }
 
   public addFavoritePlace():void{

@@ -51,7 +51,7 @@ export class ActualWeatherComponent implements OnInit {
     if(!this.isFavorite){
       this.placeService.saveFavoritePlace({placeId: this.placeCode, name: this.place});
     } else {
-      this.placeService.deleteFavoritePlace({placeId: this.placeCode, name: this.place});
+      this.placeService.deleteFavoritePlace(this.placeCode);
     }
     this.checkIsFavorite();
   }

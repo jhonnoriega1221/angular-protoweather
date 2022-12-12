@@ -1,3 +1,7 @@
+.wrapper{
+    height: 117px;
+}
+
 .place-card {
     width: 100%;
     padding: 12px;
@@ -51,9 +55,19 @@
         }
 
     }
+}
 
+.delete-card-overlay{
+    position: relative;
+    background-color: #c1c5cfc9;
+    top: -117px;
+    display:flex;
+    justify-content: flex-end
+}
 
-
+.delete-button{
+    width: 40px;
+    height: 40px;
 }
 
 @media(min-width: 600px) {
