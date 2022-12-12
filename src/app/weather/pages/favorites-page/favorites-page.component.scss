@@ -8,11 +8,19 @@
     .place-subtitle-caption{
         color: var(--angular-protoweather-on-primary-container);
         margin-bottom: 12px;
+        margin-right: 6px;
+    }
+
+    .edit-button{
+        color: var(--angular-protoweather-primary);
+        background-color: var(--angular-protoweather-background);
+        border: none;
+        font-size: 16px;
     }
 
     .default-places-title{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .no-default-location {

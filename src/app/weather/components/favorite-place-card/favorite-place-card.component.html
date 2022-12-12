@@ -10,6 +10,8 @@
         </div>
     </a>
     <div *ngIf="isEditMode" class="place-card delete-card-overlay">
-        <button class="delete-button" (click)="deleteActionButton()">X</button>
+        <button class="delete-button" (click)="deleteActionButton()">
+            <i class="fa-solid fa-close"></i>
+        </button>
     </div>
 </div>

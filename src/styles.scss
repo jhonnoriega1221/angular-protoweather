@@ -70,6 +70,12 @@ $angular-protoweather-theme: mat.define-light-theme((
   --angular-protoweather-surface-1: #F0F3FA;
   --angular-protoweather-on-surface-1: #001B3D;
   --angular-protoweather-surface-2: #E9EFF8;
+
+  --angular-protoweather-error: #BA1A1A;
+  --angular-protoweather-on-error: #FFFFFF;
+  --angular-protoweather-error-container: #FFDAD6;
+  --angular-protoweather-on-error-container: #410002;
+
 }
 
 html, body { height: 100%; }

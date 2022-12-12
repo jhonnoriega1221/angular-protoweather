@@ -2,7 +2,10 @@
     <h2 class="page-title">Favoritos</h2>
     <div class="default-places-title">
         <p class="place-subtitle-caption">Lugar predeterminado</p>
-        <button *ngIf="defaultPlaceName" (click)="toggleEditModeDefault()">editar</button>
+        <button class="edit-button" *ngIf="defaultPlaceName" (click)="toggleEditModeDefault()">
+            <i class="fa-solid fa-edit"></i>
+            Editar
+        </button>
     </div>
     <app-favorite-place-card  (deletePlace)="deleteDefaultPlace()" *ngIf="defaultPlaceName" [isEditMode]="isEditModeDefault" [isDefaultPlace]="true" placeId="" [name]="defaultPlaceName"
         class="favorite-card"></app-favorite-place-card>
@@ -13,7 +16,10 @@
 
     <div class="default-places-title">
         <p class="place-subtitle-caption">Lugares favoritos</p>
-        <button *ngIf="favoritePlaces.length > 0" (click)="toggleEditModeFavorites()">editar</button>
+        <button class="edit-button" *ngIf="favoritePlaces.length > 0" (click)="toggleEditModeFavorites()">
+            <i class="fa-solid fa-edit"></i>
+            Editar
+        </button>
     </div>
     <ul class="list">
         <app-add-favorite-place-card *ngIf="isEditModeFavorites" (click)="addFavoritePlace()"></app-add-favorite-place-card>
