@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'forecast/:id', component: ForecastPageComponent },
       { path: 'about', component: AboutPageComponent }
 
-    ], canActivateChild: [FirstTimeGuard] },
+    ]},
     { path: 'setlocation', component: SetlocationPageComponent}
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 interface Message {
   title: string;
@@ -21,7 +22,7 @@ export class SetlocationPageComponent implements OnInit {
   }
   private nextUrl:null|string = '/';
 
-  constructor(private routerService: Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private routerService: Router, private activatedRoute:ActivatedRoute, private locationService:Location) { }
 
   ngOnInit(): void {
       this.activatedRoute.queryParams.subscribe(params => {
@@ -42,6 +43,10 @@ export class SetlocationPageComponent implements OnInit {
     setTimeout(() => {
       this.routerService.navigate([this.nextUrl]);
     }, 1000);
+  }
+
+  public goBack(){
+    this.locationService.back();
   }
 
 }
