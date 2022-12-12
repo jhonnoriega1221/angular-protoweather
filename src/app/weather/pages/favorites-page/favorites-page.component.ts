@@ -3,6 +3,8 @@ import { FavoritePlace } from '../../favorite-place';
 import { Place } from '../../models/place';
 import { PlaceService } from '../../services/place.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { SetlocationAutocompleteDialogComponent } from '../../components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 
 @Component({
   selector: 'app-favorites-page',
@@ -11,14 +13,20 @@ import { Router } from '@angular/router';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor( private placeService:PlaceService, private router:Router) { }
+  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
+  private isMobile = this.setIsMobile(window.innerWidth);
 
   ngOnInit(): void {
     this.defaultPlaceName = this.getDefaultPlaceName();
     this.getFavoritePlaces();
+  }
+
+  private setIsMobile(innerWidth: number): boolean {
+    const isMobile = innerWidth <= 600 ? true : false
+    return isMobile;
   }
 
   private getFavoritePlaces():void{
@@ -36,7 +44,29 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public addFavoritePlace():void{
-    console.log('addPlace');
+    this.openSetLocationDialog();
+  }
+
+  private openSetLocationDialog(){
+    this.isMobile = this.setIsMobile(window.innerWidth);
+    const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
+      width: this.isMobile ? '100vw' : '450px',
+      height: this.isMobile ? '100vh' : '80vh',
+      maxWidth: this.isMobile ? '100vw' : '450px',
+      maxHeight: '100vh',
+      minHeight: '200px',
+      disableClose: true,
+      enterAnimationDuration: '0ms'
+    })
+
+    dialogRef.afterClosed().subscribe( (result:Place) => {
+      if(result){
+        const placeName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
+        console.log(placeName)
+        this.placeService.saveFavoritePlace({name: placeName, placeId: ''+result.place_id});
+      }
+      this.getFavoritePlaces();
+    });
   }
 
 }

@@ -15,12 +15,13 @@ export class PlaceService {
 
   constructor(private http:HttpClient) { }
 
-  public search(query:string):Observable <Place[]>{
-    return this.http.get<Place[]>(`${this.apiURL}search.php?format=jsonv2&q=${query}`);
+  public search(query:string|undefined):Observable <Place[]>{
+    
+    return this.http.get<Place[]>(`${this.apiURL}search.php?format=jsonv2&q=${query}&featuretype=city&addressdetails=1`);
   }
 
   public getPlace(lat:number, lon:number):Observable <Place> {
-    return this.http.get<Place>(`${this.apiURL}reverse?format=jsonv2&zoom=10&lat=${lat}&lon=${lon}`)
+    return this.http.get<Place>(`${this.apiURL}reverse?format=jsonv2&zoom=16&lat=${lat}&lon=${lon}&addressdetails=1&featuretype=city`)
   }
 
   public getPlaceById(placeID:number):Observable<PlaceDetails>{
@@ -140,6 +141,27 @@ export class PlaceService {
     else{
       return historyPlaces;
     }  
+  }
+
+  public setLocationName(cityName:string|undefined, countyName:string|undefined, townName:string|undefined, villageName:string|undefined, stateName:string|undefined, countryName:string|undefined ):string{
+    if(cityName){
+      cityName.replace('Perímetro Urbano ','')
+      return `${cityName}, ${countryName}`;
+    }
+    
+    if(townName){
+      return `${townName}, ${countryName}`;
+    }
+    
+    if(villageName){
+      return `${villageName}, ${countryName}`;
+    }
+    
+    if(countyName){
+      return `${countyName}, ${countryName}`;
+    }
+
+    return `${countryName}`;
   }
   
 }

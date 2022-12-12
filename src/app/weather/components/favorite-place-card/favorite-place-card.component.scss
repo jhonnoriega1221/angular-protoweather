@@ -61,3 +61,10 @@
         max-width: 336px;
     }
 }
+
+@media(min-width: 813px) {
+    .place-card {
+        max-width: 336px;
+        min-width: 336px;
+    }
+}

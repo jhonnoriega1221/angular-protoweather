@@ -227,7 +227,7 @@ export class ForecastPageComponent implements OnInit {
 
   public setLocationData() {
     this.activatedRoute.params.subscribe(params => {
-      if (params['id'] != undefined) {
+      if (params['id']) {
         this.placeCode = params['id'];
         this.isDefaultLocation = false;
         
@@ -235,9 +235,11 @@ export class ForecastPageComponent implements OnInit {
           next: (v) => {
             const [lat, lng] = [v.geometry.coordinates[1], v.geometry.coordinates[0]];
             this.placeService.getPlace(lat, lng).subscribe({
-              next: (v) => {
+              next: (v:Place) => {
                 this.locationData = v;
-                this.placeName = v.display_name;
+                const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
+
+                this.placeName = displayName;
               },
               error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
               complete: () => {this.setActualHourIndex()}
@@ -249,12 +251,13 @@ export class ForecastPageComponent implements OnInit {
 
       } else {
         const defaultPlace = this.placeService.getDefaultPlace();
-        if(defaultPlace != undefined){
+        if(defaultPlace){
           this.isDefaultLocationSet = true;
           this.placeService.getPlace(Number.parseFloat(defaultPlace.lat) , Number.parseFloat(defaultPlace.lon) ).subscribe({
-            next: (v) => {
+            next: (v:Place) => {
               this.locationData = v;
-              this.placeName = v.display_name;
+              const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
+              this.placeName = displayName;
             },
             error: (e) => {
               console.log(e); this.isError = true; this.setWarningInfoError();
@@ -271,12 +274,13 @@ export class ForecastPageComponent implements OnInit {
   }
 
   public goToSelectedLocation(place:Place) {
-    this.placeService.saveHistoryPlace({name: place.display_name, placeId:''+place.place_id})
+    this.placeService.saveHistoryPlace({name: place.display_name, placeId:''+place.place_id});
     if(this.isDefaultLocation){
       this.router.navigate(['/forecast/',place.place_id ]);
       return;
     }
-    this.reloadHome();
+    this.router.navigate(['/forecast/',place.place_id ]);
+    this.isLoading = true;
     
   }
 }

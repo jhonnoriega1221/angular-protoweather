@@ -2,25 +2,22 @@
     <h2 class="page-title">Favoritos</h2>
     <div class="default-places-title">
         <p class="place-subtitle-caption">Lugar predeterminado</p>
+        <button>editar</button>
     </div>
-        <app-favorite-place-card
-            *ngIf="defaultPlaceName"
-            [isDefaultPlace]="true"
-            placeId=""
-            [name]="defaultPlaceName"
-            class="favorite-card"
-        ></app-favorite-place-card>
+    <app-favorite-place-card *ngIf="defaultPlaceName" [isDefaultPlace]="true" placeId="" [name]="defaultPlaceName"
+        class="favorite-card"></app-favorite-place-card>
 
-        <app-add-favorite-place-card *ngIf="!defaultPlaceName" #addDefaultPlace (click)="setDefaultLocation()" class="favorite-card">
-        </app-add-favorite-place-card>
+    <app-add-favorite-place-card *ngIf="!defaultPlaceName" #addDefaultPlace (click)="setDefaultLocation()"
+        class="favorite-card">
+    </app-add-favorite-place-card>
 
-    <p class="place-subtitle-caption">Lugares favoritos</p>
+    <div class="default-places-title">
+        <p class="place-subtitle-caption">Lugares favoritos</p>
+        <button>editar</button>
+    </div>
     <ul class="list">
-        <app-add-favorite-place-card (click)="addFavoritePlace()"></app-add-favorite-place-card>
-        <app-favorite-place-card *ngFor="let favoritePlace of favoritePlaces"
-            [isDefaultPlace]="false"
-            [placeId]="favoritePlace.placeId"
-            [name]="favoritePlace.name"
-        ></app-favorite-place-card>
+        <app-add-favorite-place-card *ngIf="!favoritePlaces" (click)="addFavoritePlace()"></app-add-favorite-place-card>
+        <app-favorite-place-card *ngFor="let favoritePlace of favoritePlaces" [isDefaultPlace]="false"
+            [placeId]="favoritePlace.placeId" [name]="favoritePlace.name"></app-favorite-place-card>
     </ul>
 </div>

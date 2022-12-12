@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
+import { Place } from '../../models/place';
 
 @Component({
   selector: 'app-nolocation-buttons',
@@ -37,7 +38,10 @@ export class NolocationButtonsComponent {
         const latitude = position.coords.latitude;
         this.placeService.getPlace(latitude, longitude).subscribe(
           {
-            next: (v) => { this.placeService.setDefaultPlace(v.lat, v.lon, v.display_name)},
+            next: (v:Place) => {
+              const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
+              this.placeService.setDefaultPlace(v.lat, v.lon, displayName);
+            },
             error: (e) => {
               this.isSearchingLocation = false;
               this.errorLocation.emit(this.errorMessage);
@@ -68,9 +72,10 @@ export class NolocationButtonsComponent {
       enterAnimationDuration: '0ms'
     })
 
-    dialogRef.afterClosed().subscribe( result => {
+    dialogRef.afterClosed().subscribe( (result:Place) => {
         if(result){
-        this.placeService.setDefaultPlace(result.lat, result.lon, result.display_name)
+        const displayName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
+        this.placeService.setDefaultPlace(result.lat, result.lon, displayName);
         this.locationFound.emit();
         }
     })
