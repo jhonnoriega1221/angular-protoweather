@@ -76,6 +76,8 @@ $angular-protoweather-theme: mat.define-light-theme((
   --angular-protoweather-error-container: #FFDAD6;
   --angular-protoweather-on-error-container: #410002;
 
+  --angular-protoweather-invert-surface: #001b3d;
+  --angular-protoweather-invert-on-surface: #d6e3ff;
 }
 
 html, body { height: 100%; }
@@ -94,4 +96,16 @@ input, button{
 
 .app-card{
   background-color: var(--angular-protoweather-surface-1);
+}
+
+.app-snackbar{
+  background-color: var(--angular-protoweather-invert-surface);
+  color: var(--angular-protoweather-invert-on-surface);
+  margin-bottom: 76px !important;
+}
+
+@media (min-width: 600px){
+  .app-snackbar{
+    margin-bottom: 10px !important;
+  }
 }

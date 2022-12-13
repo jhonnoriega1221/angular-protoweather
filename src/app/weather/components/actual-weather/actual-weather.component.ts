@@ -4,6 +4,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { WeatherCode } from '../../models/weatherCode';
 import { WeatherService } from '../../services/weather.service';
 import { PlaceService } from '../../services/place.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-actual-weather',
@@ -33,7 +36,7 @@ export class ActualWeatherComponent implements OnInit {
     weatherCode: 0
   };
 
-  constructor( private weatherService:WeatherService, private placeService:PlaceService ) { }
+  constructor( private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
     if(!this.isDefaultLocation){
@@ -50,8 +53,32 @@ export class ActualWeatherComponent implements OnInit {
   toggleFavorite():void{
     if(!this.isFavorite){
       this.placeService.saveFavoritePlace({placeId: this.placeCode, name: this.place});
+      this.snackBar.open('Ciudad agregada a favoritos', '' ,{
+        duration: 2000,
+        horizontalPosition: 'left',
+        panelClass: 'app-snackbar'
+      });
     } else {
-      this.placeService.deleteFavoritePlace(this.placeCode);
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+          data: {
+            title: 'Eliminar favorito', 
+            dialogBodyText: '¿Desea eliminar la ciudad de favoritos?', 
+            okButtonText: 'Eliminar', 
+            cancelButtonText: 'Cancelar'
+          }
+        });
+    
+        dialogRef.afterClosed().subscribe( (result:boolean) => {
+            if(result){
+              this.placeService.deleteFavoritePlace(this.placeCode);
+              this.checkIsFavorite();
+              this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
+                duration: 2000,
+                horizontalPosition: 'left',
+                panelClass: 'app-snackbar'
+              });
+            }
+        })
     }
     this.checkIsFavorite();
   }

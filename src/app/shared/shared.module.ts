@@ -5,23 +5,26 @@ import { MatIconModule } from '@angular/material/icon';
 import { CardInfoComponent } from './components/card-info/card-info.component';
 import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
 import { SkeletonDirective } from './directives/skeleton.directive';
-
-
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     CardInfoComponent,
     SkeletonLoaderComponent,
-    SkeletonDirective
+    SkeletonDirective,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ], exports: [
     CardInfoComponent,
     SkeletonDirective,
-    SkeletonLoaderComponent
+    SkeletonLoaderComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }

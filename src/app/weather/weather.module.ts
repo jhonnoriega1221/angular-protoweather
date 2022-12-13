@@ -30,6 +30,7 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '../shared/shared.module';
 import { FavoritePlaceCardComponent } from './components/favorite-place-card/favorite-place-card.component';
@@ -74,7 +75,8 @@ import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-c
     MatDialogModule,
     MatAutocompleteModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    MatSnackBarModule
   ]
 })
 export class WeatherModule { }

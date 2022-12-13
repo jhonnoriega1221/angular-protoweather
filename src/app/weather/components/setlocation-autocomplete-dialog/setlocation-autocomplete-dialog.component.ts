@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Place } from '../../models/place';
 import { MatDialogRef} from '@angular/material/dialog';
-import { PlaceService } from '../../services/place.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setlocation-autocomplete-dialog',

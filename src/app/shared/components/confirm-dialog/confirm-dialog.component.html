@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <div class="dialog-top">
+    <h4>{{data.title}}</h4>
+    <p>{{data.dialogBodyText}}</p>
+    </div>
+    <div class="dialog-buttons">
+      <button class="dialog-button primary-btn outlined-btn" (click)="closeBtnAction()">{{data.cancelButtonText}}</button>
+      <button class="dialog-button primary-btn filled-btn" [mat-dialog-close]="true">{{data.okButtonText}}</button>
+    </div>
+  </div>

@@ -5,6 +5,8 @@ import { PlaceService } from '../../services/place.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../../components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-favorites-page',
@@ -13,7 +15,7 @@ import { SetlocationAutocompleteDialogComponent } from '../../components/setloca
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog) { }
+  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
@@ -33,12 +35,30 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public deleteFavoritePlace(placeId:string){
-    this.placeService.deleteFavoritePlace(placeId);
-    this.getFavoritePlaces();
-    
-    if(this.placeService.getFavoritePlaces().length === 0){
-      this.isEditModeFavorites = false;
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Eliminar favorito', 
+        dialogBodyText: '¿Desea eliminar la ciudad de favoritos?', 
+        okButtonText: 'Eliminar', 
+        cancelButtonText: 'Cancelar'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe( (result:boolean) => {
+        if(result){
+          this.placeService.deleteFavoritePlace(placeId);
+          this.getFavoritePlaces();
+          this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
+            duration: 2000,
+            horizontalPosition: 'left',
+            panelClass: 'app-snackbar'
+          });
+
+          if(this.placeService.getFavoritePlaces().length === 0){
+            this.isEditModeFavorites = false;
+          }
+        }
+    })
   }
 
   private getFavoritePlaces():void{
@@ -56,9 +76,28 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public deleteDefaultPlace(){
-    this.placeService.deleteDefaultPlace();
-    this.defaultPlaceName = this.getDefaultPlaceName();
-    this.isEditModeDefault = false;
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Eliminar ciudad predeterminada', 
+        dialogBodyText: '¿Desea eliminar la ciudad predeterminada?', 
+        okButtonText: 'Eliminar', 
+        cancelButtonText: 'Cancelar'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe( (result:boolean) => {
+        if(result){
+          this.placeService.deleteDefaultPlace();
+          this.defaultPlaceName = this.getDefaultPlaceName();
+          this.isEditModeDefault = false;
+          this.snackBar.open('Se eliminó la ciudad predeterminada', '' ,{
+            duration: 2000,
+            horizontalPosition: 'left',
+            panelClass: 'app-snackbar'
+          });
+        }
+    })
+    
   }
   public setDefaultLocation():void{
     this.router.navigate(['/setlocation'], {queryParams: {nextUrl:'/favorites'}});
@@ -90,8 +129,13 @@ export class FavoritesPageComponent implements OnInit {
         const placeName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
         console.log(placeName)
         this.placeService.saveFavoritePlace({name: placeName, placeId: ''+result.place_id});
+        this.snackBar.open('Ciudad agregada a favoritos', '' ,{
+          duration: 2000,
+          horizontalPosition: 'left',
+          panelClass: 'app-snackbar'
+        });
+        this.getFavoritePlaces();
       }
-      this.getFavoritePlaces();
     });
   }
 

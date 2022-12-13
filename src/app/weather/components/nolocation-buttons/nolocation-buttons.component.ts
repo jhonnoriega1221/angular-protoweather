@@ -3,6 +3,7 @@ import { PlaceService } from '../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { Place } from '../../models/place';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-nolocation-buttons',
@@ -22,7 +23,7 @@ export class NolocationButtonsComponent {
     imageURL: '../../../assets/location-error.svg'
   }
 
-  constructor( private placeService:PlaceService, public dialog:MatDialog ) { }
+  constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
 
   private setIsMobile(innerWidth: number): boolean {
@@ -39,8 +40,15 @@ export class NolocationButtonsComponent {
         this.placeService.getPlace(latitude, longitude).subscribe(
           {
             next: (v:Place) => {
+              
               const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
               this.placeService.setDefaultPlace(v.lat, v.lon, displayName);
+
+              this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
+                duration: 2000,
+                horizontalPosition: 'left',
+                panelClass: 'app-snackbar'
+              });
             },
             error: (e) => {
               this.isSearchingLocation = false;
@@ -76,6 +84,11 @@ export class NolocationButtonsComponent {
         if(result){
         const displayName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
         this.placeService.setDefaultPlace(result.lat, result.lon, displayName);
+        this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
+          duration: 2000,
+          horizontalPosition: 'left',
+          panelClass: 'app-snackbar'
+        });
         this.locationFound.emit();
         }
     })

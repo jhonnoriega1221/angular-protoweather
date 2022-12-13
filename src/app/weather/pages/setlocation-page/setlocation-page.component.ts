@@ -42,7 +42,7 @@ export class SetlocationPageComponent implements OnInit {
     localStorage.setItem('ft', 'false');
     setTimeout(() => {
       this.routerService.navigate([this.nextUrl]);
-    }, 1000);
+    }, 500);
   }
 
   public goBack(){
