@@ -1,17 +1,16 @@
-<div class="wrapper">
-    <a class="place-card" [routerLink]="url">
-        <p class="place-name">{{name}}</p>
-        <div class="card-info">
-            <div class="weather-code-temperature">
-                <p class="weather-code-name">Sky clear</p>
-                <p class="temperature">35ºC</p>
-            </div>
-            <img style="display: none" class="weather-icon" src="../../../../assets/weather_code_icons/3-overcast.svg" alt="">
+<a class="place-card" [routerLink]="isEditMode ? ['/#'] : url">
+    <p class="place-name">{{name}}</p>
+    <div class="card-info">
+        <div class="weather-code-temperature">
+            <p class="weather-code-name">Sky clear</p>
+            <p class="temperature">35ºC</p>
         </div>
-    </a>
-    <div *ngIf="isEditMode" class="place-card delete-card-overlay">
+        <img style="display: none" class="weather-icon" src="../../../../assets/weather_code_icons/3-overcast.svg" alt="">
+    </div>
+
+    <div *ngIf="isEditMode" class="delete-card-overlay">
         <button class="delete-button" (click)="deleteActionButton()">
             <i class="fa-solid fa-close"></i>
         </button>
     </div>
-</div>
+</a>

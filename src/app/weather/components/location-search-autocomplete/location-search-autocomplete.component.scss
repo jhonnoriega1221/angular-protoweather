@@ -9,12 +9,14 @@
     background-size: 24px;
     margin-bottom: 12px;
     color: var(--angular-protoweather-on-primary-container);
+    position: relative;
 }
 
 .search-input::placeholder{
     color: var(--angular-protoweather-on-primary-container-alt);
 }
 
-.search-input:focus{
+.search-input:focus {
     outline: none;
+    box-shadow: inset 0px 0px 0px 1px var(--angular-protoweather-primary);
 }

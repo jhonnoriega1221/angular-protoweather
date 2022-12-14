@@ -3,8 +3,7 @@
     class="wrapper"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{exact: true}">
-        <div class="icon-container" routerLinkActive="icon-container-active" [routerLinkActiveOptions]="{exact: true}">
-            <i class="icon fa-solid" [ngClass]="'fa-'+icon"></i>
-        </div>
+        <div routerLinkActive="icon-container-active" [routerLinkActiveOptions]="{exact: true}"></div>
+        <i class="icon fa-solid" [ngClass]="'fa-'+icon" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"></i>
         <span class="text" routerLinkActive="text-active" [routerLinkActiveOptions]="{exact: true}">{{text}}</span>
 </a>

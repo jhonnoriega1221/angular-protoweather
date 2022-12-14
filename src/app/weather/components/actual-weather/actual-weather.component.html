@@ -4,7 +4,7 @@
             <i class="icon-small fa-solid fa-map-marker-alt"></i>
             <span>{{place}}</span>
         </div>
-        <button class="icon-favorite-button" *ngIf="!isDefaultLocation" mat-icon-button (click)="toggleFavorite()">
+        <button class="icon-favorite-button" *ngIf="!isDefaultLocation" (click)="toggleFavorite()">
             <i class="favorite-button-icon" [ngClass]="favoriteIconStatus"></i>
         </button>
     </div>

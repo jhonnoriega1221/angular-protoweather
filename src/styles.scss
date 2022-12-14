@@ -78,6 +78,26 @@ $angular-protoweather-theme: mat.define-light-theme((
 
   --angular-protoweather-invert-surface: #001b3d;
   --angular-protoweather-invert-on-surface: #d6e3ff;
+
+  /*hovers state*/
+  --angular-protoweather-on-primary-container-over-surface-1-hover: #dde2ea;
+
+  --angular-protoweather-on-primary-hover:
+
+  --angular-protoweather-primary-hover:
+
+  --angular-protoweather-on-error-hover: #FFFFFF;
+
+  --angular-protoweather-error-hover: #BA1A1A;
+
+  /*pressed state*/
+  --angular-protoweather-primary-state-pressed:
+  --angular-protoweather-primary-state-pressed:
+  --angular-protoweather-primary-state-pressed:
+
+  /*disabñed state*/
+
+
 }
 
 html, body { height: 100%; }
