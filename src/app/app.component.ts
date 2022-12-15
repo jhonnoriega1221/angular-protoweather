@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   constructor( private titleService:Title){
-    titleService.setTitle('ProtoWeather');
+    titleService.setTitle('Protoweather');
     this.setFirstTime(localStorage.getItem('ft'));
   }
 

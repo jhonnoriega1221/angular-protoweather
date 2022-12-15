@@ -4,19 +4,63 @@
 	width: 100px;
 }
 
+.wrapper{
+    padding: 12px 12px 71px 12px;
+	box-sizing: border-box;
+}
+
 p{
 	margin: 0;
 	text-align: center;
-	color: var(--angular-protoweather-on-background);
+	color: var(--angular-protoweather-primary);
 }
 
 .logo-text {
 	font-weight: 600;
 	text-align: center;
 	margin: 42px 0 0 0;
-	font-size: 20px
+	font-size: 20px;
+	color: var(--angular-protoweather-on-background);
 }
 
 .grey-text{
 	color: var(--angular-protoweather-on-primary-container-alt);
+}
+
+.credits-section{
+	padding: 12px;
+	box-sizing: border-box;
+	background-color: var(--angular-protoweather-surface-1);
+	border-radius: 12px;
+	margin: 24px auto 0 auto;
+	width: 100%;
+}
+
+.section{
+	margin: 12px 0;
+	text-align: left;
+	margin: 8px 0 8px 0;
+}
+
+.title{
+	color: var(--angular-protoweather-on-primary-container-alt);
+	font-size: 12px;
+	display: block;
+}
+
+.url{
+	color: var(--angular-protoweather-primary);
+	font-size: 14px;
+	display: block;
+	margin-bottom: 3px;
+}
+
+@media (min-width: 600px){
+	.wrapper{
+        padding: 12px 12px 12px 100px;
+	}
+
+	.credits-section{
+		max-width: 450px;
+	}
 }
