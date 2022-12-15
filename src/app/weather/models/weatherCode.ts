@@ -3,5 +3,6 @@ export interface WeatherCode{
     description:string;
     backgroundURL:string;
     iconURL:string;
-    textColor:'black' | 'white';
+    backgroundColor:string;
+    textColor:string;
 }

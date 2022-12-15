@@ -32,7 +32,8 @@ export class ActualWeatherComponent implements OnInit {
     backgroundURL: '',
     description: '',
     iconURL: '',
-    textColor: 'black',
+    backgroundColor: '#000000',
+    textColor: '#000000',
     weatherCode: 0
   };
 
