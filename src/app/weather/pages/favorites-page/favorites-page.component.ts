@@ -115,10 +115,10 @@ export class FavoritesPageComponent implements OnInit {
   private openSetLocationDialog(){
     this.isMobile = this.setIsMobile(window.innerWidth);
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
-      width: this.isMobile ? '100vw' : '450px',
-      height: this.isMobile ? '100vh' : '80vh',
-      maxWidth: this.isMobile ? '100vw' : '450px',
-      maxHeight: '100vh',
+      width: this.isMobile ? '100vw' : '600px',
+      height: this.isMobile ? '100vh' : '100%',
+      maxWidth: this.isMobile ? '100vw' : '600px',
+      maxHeight: this.isMobile ? '100vh' : '95vh',
       minHeight: '200px',
       disableClose: true,
       enterAnimationDuration: '0ms'

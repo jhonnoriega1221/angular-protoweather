@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
@@ -25,6 +25,11 @@ export class NolocationButtonsComponent {
 
   constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    const innerWidth:number = event.target.innerWidth;
+    this.isMobile = this.setIsMobile(innerWidth);
+  }
 
   private setIsMobile(innerWidth: number): boolean {
     const isMobile = innerWidth <= 600 ? true : false
@@ -71,10 +76,10 @@ export class NolocationButtonsComponent {
   public openSetLocationDialog(){
     this.isMobile = this.setIsMobile(window.innerWidth);
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
-      width: this.isMobile ? '100vw' : '450px',
-      height: this.isMobile ? '100vh' : '80vh',
-      maxWidth: this.isMobile ? '100vw' : '450px',
-      maxHeight: '100vh',
+      width: this.isMobile ? '100vw' : '600px',
+      height: this.isMobile ? '100vh' : '100%',
+      maxWidth: this.isMobile ? '100vw' : '600px',
+      maxHeight: this.isMobile ? '100vh' : '95vh',
       minHeight: '200px',
       disableClose: true,
       enterAnimationDuration: '0ms'
