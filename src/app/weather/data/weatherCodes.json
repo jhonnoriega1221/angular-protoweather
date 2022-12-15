@@ -1,196 +1,196 @@
 [
     {
         "weatherCode": 0,
-        "description": "Clear sky",
+        "description": "Cielos despejados",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/0-clear-sky.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/0-clear-sky.svg",
         "textColor": "black"
     },
     {
         "weatherCode": 1,
-        "description": "Mainly clear",
+        "description": "Principalmente despejado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/1-mainly-clear.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/1-mainly-clear.svg",
         "textColor": "black"
     },
     {
         "weatherCode": 2,
-        "description": "Partly cloud",
+        "description": "Parcialmente nublado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/2-partly-cloud.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/2-partly-cloud.svg",
         "textColor": "black"
     },
     {
         "weatherCode": 3,
-        "description": "Overcast",
+        "description": "Nublado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/3-overcast.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/3-overcast.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 45,
-        "description": "Fog",
+        "description": "Niebla",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/3-overcast.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 48,
-        "description": "Depositing rime fog",
+        "description": "Niebla helada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/48-depositing-rime-fog.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 51,
-        "description": "Light drizzle",
+        "description": "Llovizna ligera",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/51-light-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 53,
-        "description": "Moderate drizzle",
+        "description": "Llovizna moderada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/48-depositing-rime-fog.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 55,
-        "description": "Dense drizzle",
+        "description": "Llovizna densa",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 56,
-        "description": "Light freezing drizzle",
+        "description": "Llovizna helada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 57,
-        "description": "Dense freezing drizzle",
+        "description": "Llovizna helada densa",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 61,
-        "description": "Slight rain",
+        "description": "Lluvia ligera",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 63,
-        "description": "Moderate rain",
+        "description": "Lluvia moderada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 65,
-        "description": "Heavy rain",
+        "description": "Lluvia pesada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 66,
-        "description": "Light freezing rain",
+        "description": "Lluvia helada ligera",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 67,
-        "description": "Heavy freezing rain",
+        "description": "Lluvia helada pesada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 71,
-        "description": "Slight snow fall",
+        "description": "Ligeramente nevado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 73,
-        "description": "Moderate snow fall",
+        "description": "Moderadamente nevado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 75,
-        "description": "Heavy snow fall",
+        "description": "Nevada fuerte",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 77,
-        "description": "Snow grains",
+        "description": "Nieve granulada",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 80,
-        "description": "Slight rain showers",
+        "description": "Chubascos de lluvias ligeras",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 81,
-        "description": "Moderate rain showers",
+        "description": "Chubascos de lluvias moderados",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 82,
-        "description": "Violent rain showers",
+        "description": "Chubascos de lluvias pesadas",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 85,
-        "description": "Slight snow showers",
+        "description": "Chubascos de nieve livianas",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 86,
-        "description": "Heavy snow showers",
+        "description": "Chubascos de nieve pesadas",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 95,
-        "description": "Slight thunderstorm",
+        "description": "Tormenta liviana",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 96,
-        "description": "Thunderstorm with slight hail",
+        "description": "Tormenta con granizo leve",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "textColor": "white"
     },
     {
         "weatherCode": 99,
-        "description": "Thunderstorm with heavy hail",
+        "description": "Tormenta con granizo pesado",
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "textColor": "white"
