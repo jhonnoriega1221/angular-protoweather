@@ -5,6 +5,7 @@
     height: 100%;
     padding: 12px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .dialog-buttons{
@@ -12,6 +13,11 @@
     width: 100%;
     gap: 6px;
     justify-content: flex-end;
+    position: fixed;
+    padding: 24px 12px;
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0;
 }
 
 .dialog-button{

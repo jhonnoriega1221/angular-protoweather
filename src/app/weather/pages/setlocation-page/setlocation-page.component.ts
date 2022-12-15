@@ -17,7 +17,7 @@ export class SetlocationPageComponent implements OnInit {
 
   public warningInfo = {
     title: '',
-    message: '¿Como quieres indicar tu ubicación por defecto?',
+    message: '¿Como quieres indicar tu ciudad por defecto?',
     imageURL: "../../../../assets/location-1.svg"
   }
   private nextUrl:null|string = '/';

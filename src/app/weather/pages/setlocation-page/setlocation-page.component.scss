@@ -5,24 +5,31 @@
 
 .card{
     padding: 12px;
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
     justify-content: space-around;
     background-color: var(--angular-protoweather-background);
+    align-content: center;
 }
 
 .location-buttons{
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
-.cancel-button{
+.cancel-button {
     font-size: 16px;
     color: var(--angular-protoweather-primary);
     background-color: var(--angular-protoweather-background);
     border: none;
-    position: relative;
+    position: fixed;
+    bottom: 24px;
+    right: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
 }
 
 .cancel-button::after{
@@ -60,5 +67,10 @@
 
     .location-buttons{
         margin-bottom: 0;
+    }
+
+    .cancel-button {
+        position: relative;
+        top: 12px;
     }
 }

@@ -1,7 +1,7 @@
 <div class="wrapper">
     <h2 class="page-title">Favoritos</h2>
     <div class="default-places-title">
-        <p class="place-subtitle-caption">Lugar predeterminado</p>
+        <p class="place-subtitle-caption">Ciudad por defecto</p>
         <button class="edit-button" *ngIf="defaultPlaceName" (click)="toggleEditModeDefault()">
             <i class="fa-solid fa-edit"></i>
             Editar
@@ -15,7 +15,7 @@
     </app-add-favorite-place-card>
 
     <div class="default-places-title">
-        <p class="place-subtitle-caption">Lugares favoritos</p>
+        <p class="place-subtitle-caption">Ciudades favoritas</p>
         <button class="edit-button" *ngIf="favoritePlaces.length > 0" (click)="toggleEditModeFavorites()">
             <i class="fa-solid fa-edit"></i>
             Editar

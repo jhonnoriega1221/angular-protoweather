@@ -14,8 +14,8 @@ export class SearchPageComponent implements OnInit {
   public historySearch:FavoritePlace[] = [];
 
   public emptyHistory = {
-    title: 'Realiza busquedas a lugares',
-    message: 'Los lugares que busques se almacenarán aquí',
+    title: 'Realiza busquedas a ciudades',
+    message: 'Aquí se mostrará el historial de ciudades buscadas.',
     imageURL: "../../../../assets/search-history-empty.svg"
   }
 
