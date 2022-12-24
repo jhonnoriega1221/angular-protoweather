@@ -1,5 +1,6 @@
 .wrapper{
     padding: 0 12px;
+    margin: 12px 0;
 
     .list{
         display: flex;
@@ -48,3 +49,10 @@
         }
     }
 }
+
+@media (min-width: 825px){
+    .app-card{
+        background-color: var(--angular-protoweather-background);
+    }
+}
+

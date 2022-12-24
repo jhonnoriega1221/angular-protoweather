@@ -41,8 +41,12 @@
     display: none;
 }
 
-@media (min-width:824px){
+@media (min-width:825px){
     .section-title{
         display: block;
+    }
+
+    .app-card{
+        background-color: var(--angular-protoweather-background);
     }
 }

@@ -41,6 +41,13 @@
 .right-side{
     max-width: 360px;
     min-width: 360px;
+    margin: 0 12px 0 0;
+}
+
+.right-side-background{
+    background-color: var(--angular-protoweather-surface-1);
+    padding: 1px;
+    border-radius: 12px;
 }
 
 .forecast-info-grid{
@@ -71,7 +78,7 @@
 
 }
 
-@media (min-width: 824px){
+@media (min-width: 825px){
     .wrapper{
         flex-direction: row;
     }

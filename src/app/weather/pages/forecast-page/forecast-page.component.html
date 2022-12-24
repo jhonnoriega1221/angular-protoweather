@@ -16,8 +16,12 @@
                         [actualHourIndex]="actualHourIndex" [temperatures]="forecastData.hourly.temperature_2m"
                         [weatherTimes]="forecastData.hourly.time" [weatherCodes]="forecastData.hourly.weathercode">
                     </app-next-hour-weather>
+                    <app-weather-week-info *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
+                        [weekDays]="forecastData.daily.time"
+                        [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
+                        [weekWeatherCode]="forecastData.daily.weathercode">
+                    </app-weather-week-info>
                 </ng-container>
-
                 <app-actual-weather-info *skeleton="isLoading; height:'129px'; repeat: 1; width: '95%';"
                     [weatherPressure]="forecastData.hourly.surface_pressure[actualHourIndex]"
                     [weatherDewpoint]="forecastData.hourly.dewpoint_2m[actualHourIndex]">
@@ -30,13 +34,6 @@
                     [windDirectionAngle]="forecastData.hourly.winddirection_10m[actualHourIndex]"
                     [windSpeed]="forecastData.hourly.windspeed_10m[actualHourIndex]">
                 </app-wind-info>
-                <ng-container *ngIf="isOneColumn">
-                    <app-weather-week-info *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
-                        [weekDays]="forecastData.daily.time"
-                        [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
-                        [weekWeatherCode]="forecastData.daily.weathercode">
-                    </app-weather-week-info>
-                </ng-container>
             </div>
         </div>
     </div>
@@ -45,16 +42,18 @@
             <p>{{actualDay.weekDay}}</p>
             <p>{{actualDay.date}}</p>
         </div>
-        <div *ngIf="!isError">
-            <app-next-hour-weather *skeleton="isLoading; height:'159px'; repeat: 1; width: '95%';"
-                [actualHourIndex]="actualHourIndex" [temperatures]="forecastData.hourly.temperature_2m"
-                [weatherTimes]="forecastData.hourly.time" [weatherCodes]="forecastData.hourly.weathercode">
-            </app-next-hour-weather>
-            <app-weather-week-info *skeleton="isLoading; height:'515px'; repeat: 1; width: '95%';"
-                [weekDays]="forecastData.daily.time" [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
-                [weekWeatherCode]="forecastData.daily.weathercode">
-            </app-weather-week-info>
-        </div>
+        <ng-container *ngIf="!isError">
+            <div class="right-side-background" *skeleton="isLoading; height:'686px'; repeat: 1; width: '100%';">
+                <app-next-hour-weather 
+                    [actualHourIndex]="actualHourIndex" [temperatures]="forecastData.hourly.temperature_2m"
+                    [weatherTimes]="forecastData.hourly.time" [weatherCodes]="forecastData.hourly.weathercode">
+                </app-next-hour-weather>
+                <app-weather-week-info 
+                    [weekDays]="forecastData.daily.time" [weekMaxTemperature]="forecastData.daily.temperature_2m_max"
+                    [weekWeatherCode]="forecastData.daily.weathercode">
+                </app-weather-week-info>
+            </div>
+        </ng-container>
     </div>
 </div>
 
