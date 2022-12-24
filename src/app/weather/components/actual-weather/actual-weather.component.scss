@@ -134,7 +134,8 @@
         width: 72px;
 
         .bottom-info-item-text{
-            font-size: 10px;
+            font-size: 12px;
+            margin-top: 6px;
         }
 
         .info-value{
@@ -142,16 +143,6 @@
             white-space: nowrap;
         }
     }
-}
-
-.credits-text{
-    text-align: right;
-    font-size: 12px;
-    position: absolute;
-    bottom: 3px;
-    opacity: 0.5;
-    right: 15px;
-    text-decoration: none;
 }
 
 @media(min-width: 600px){

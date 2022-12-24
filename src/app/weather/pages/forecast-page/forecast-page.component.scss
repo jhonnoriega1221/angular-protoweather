@@ -1,5 +1,8 @@
-.wrapper{
+.container{
     padding: 18px 0 83px 0;
+}
+
+.wrapper{
     display: flex;
     flex-direction: column;
 }
@@ -64,8 +67,24 @@
     margin: 0 12px 12px 12px;
 }
 
+.link-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+
+}
+
+.credits-text{
+    text-align: right;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0 12px;
+    color: var(--angular-protoweather-on-background);
+}
+
 @media (min-width: 600px){
-    .wrapper{
+    .container{
         padding: 18px 0 12px 88px;
     }
 
