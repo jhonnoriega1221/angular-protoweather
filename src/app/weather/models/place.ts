@@ -16,7 +16,7 @@ export interface Place {
 }
 
 export interface Address {
-    city?:             string;
+    city:             string;
     state_district?:   string;
     state?:            string;
     "ISO3166-2-lvl4"?: string;

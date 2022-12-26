@@ -32,7 +32,9 @@ export class LocationSearchAutocompleteComponent implements OnInit {
       this.searchPlaceInterval = setTimeout(() => {
         this.placeService.search(this.input).subscribe(
           {
-            next: (v) => { this.places = v },
+            next: (v) => { 
+              this.places = v 
+            },
             error: (e) => {
               console.log(e);
               this.isSearching = false;
