@@ -3,8 +3,8 @@
     <div class="default-places-title">
         <p class="place-subtitle-caption">Ciudad por defecto</p>
         <button class="edit-button" *ngIf="defaultPlaceName" (click)="toggleEditModeDefault()">
-            <i class="fa-solid fa-edit"></i>
-            Editar
+            <i class="fa-solid" [ngClass]="isEditModeDefault ? 'fa-check' : 'fa-edit'"></i>
+            {{isEditModeDefault ? 'Listo' : 'Editar'}}
         </button>
     </div>
     <app-favorite-place-card  (deletePlace)="deleteDefaultPlace()" *ngIf="defaultPlaceName" [isEditMode]="isEditModeDefault" [isDefaultPlace]="true" placeId="" [name]="defaultPlaceName"
@@ -17,8 +17,8 @@
     <div class="default-places-title">
         <p class="place-subtitle-caption">Ciudades favoritas</p>
         <button class="edit-button" *ngIf="favoritePlaces.length > 0" (click)="toggleEditModeFavorites()">
-            <i class="fa-solid fa-edit"></i>
-            Editar
+            <i class="fa-solid" [ngClass]="isEditModeFavorites ? 'fa-check' : 'fa-edit'"></i>
+            {{isEditModeFavorites ? 'Listo' : 'Editar'}}
         </button>
     </div>
     <ul class="list">
