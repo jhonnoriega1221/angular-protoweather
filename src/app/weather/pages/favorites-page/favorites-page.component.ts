@@ -127,7 +127,6 @@ export class FavoritesPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe( (result:Place) => {
       if(result){
         const placeName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
-        console.log(placeName)
         this.placeService.saveFavoritePlace({name: placeName, placeId: ''+result.place_id});
         this.snackBar.open('Ciudad agregada a favoritos', '' ,{
           duration: 2000,

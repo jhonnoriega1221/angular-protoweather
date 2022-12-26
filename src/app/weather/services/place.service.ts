@@ -58,7 +58,7 @@ export class PlaceService {
       favPlaces = JSON.parse(localStorage.getItem('favplaces') || '');
     }
 
-    favPlaces.push(favoritePlace);
+    favPlaces.unshift(favoritePlace);
 
     localStorage.setItem("favplaces", JSON.stringify(favPlaces));
 
