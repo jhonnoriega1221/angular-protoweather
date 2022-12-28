@@ -36,6 +36,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FavoritePlaceCardComponent } from './components/favorite-place-card/favorite-place-card.component';
 import { NoLocationHomeWarningComponent } from './components/no-location-home-warning/no-location-home-warning.component';
 import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-card/add-favorite-place-card.component';
+import { ButtonModule } from '../button/button.module';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-c
     MatAutocompleteModule,
     MatDialogModule,
     SharedModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ButtonModule
   ]
 })
 export class WeatherModule { }

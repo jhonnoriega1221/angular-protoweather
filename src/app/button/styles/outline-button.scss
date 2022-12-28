@@ -1,0 +1,27 @@
+.outline-button{
+	border: 1px solid buttonface;
+	color: buttonface;
+	background-color: transparent;
+
+	&::after{
+		background-color: buttontext;
+	}
+
+	&-primary{
+		color: var(--angular-protoweather-primary);
+		border-color: var(--angular-protoweather-primary);
+
+		&::after{
+			background-color: var(--angular-protoweather-primary);
+		}
+	}
+
+	&-error{
+		color: var(--angular-protoweather-error);
+		border-color: var(--angular-protoweather-error);
+
+		&::after{
+			background-color: var(--angular-protoweather-error);
+		}
+	}
+}

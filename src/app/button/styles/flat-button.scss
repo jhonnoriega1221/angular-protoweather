@@ -1,0 +1,25 @@
+.flat-button{
+	border: none;
+
+	&::after{
+		background-color: buttontext;
+	}
+
+	&-primary{
+		background-color: var(--angular-protoweather-primary);
+		color: var(--angular-protoweather-on-primary);
+
+		&::after{
+			background-color: var(--angular-protoweather-on-primary);
+		}
+	}
+
+	&-error{
+		background-color: var(--angular-protoweather-error);
+		color: var(--angular-protoweather-on-error);
+
+		&::after{
+			background-color: var(--angular-protoweather-on-error);
+		}
+	}
+}
