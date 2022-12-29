@@ -9,11 +9,11 @@
     font-size: 16px;
     border-radius: 12px;
     position: relative;
-    height: 41px;
+    min-height: 41px;
 
     &-small{
         padding: 0px 11px;
-        height: 32px;
+        min-height: 32px;
     }
 }
 

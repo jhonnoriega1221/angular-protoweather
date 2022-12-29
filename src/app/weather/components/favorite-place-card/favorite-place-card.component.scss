@@ -10,6 +10,10 @@
     background-color: var(--angular-protoweather-surface-1);
     display: block;
 
+    button{
+        height: 41px;
+    }
+
     .place-name {
         overflow: hidden;
         height: 30px;

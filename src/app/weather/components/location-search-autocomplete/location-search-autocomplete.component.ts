@@ -48,7 +48,27 @@ export class LocationSearchAutocompleteComponent implements OnInit {
 
   selectPlace(e: MatAutocompleteSelectedEvent) {
     const place:Place = this.places[e.option.value];
-    this.input = place.display_name;
+    const placeName:string[] = [];
+
+    if(place.address?.town)
+      placeName.push(place.address?.town)
+
+    if(place.address?.village)
+      placeName.push(place.address?.village)
+
+    if(place.address?.county)
+      placeName.push(place.address?.county)
+
+    if(place.address?.city)
+      placeName.push(place.address?.city)
+
+    if(place.address?.state)
+      placeName.push(place.address?.state)
+
+    if(place.address?.country)
+      placeName.push(place.address?.country)
+
+    this.input = placeName.join(", ");
     this.locationSelected.emit(place);
   }
 
