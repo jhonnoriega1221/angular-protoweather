@@ -9,7 +9,7 @@
     </div>
 
     <div *ngIf="isEditMode" class="delete-card-overlay">
-        <button class="delete-button" (click)="deleteActionButton()">
+        <button pw-flat-button color="error" (click)="deleteActionButton()">
             <i class="fa-solid fa-close"></i>
         </button>
     </div>

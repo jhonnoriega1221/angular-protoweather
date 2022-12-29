@@ -7,70 +7,19 @@
 
     .place-subtitle-caption{
         color: var(--angular-protoweather-on-primary-container);
-        margin-bottom: 12px;
         margin-right: 6px;
-    }
-
-    .edit-button{
-        color: var(--angular-protoweather-primary);
-        background-color: var(--angular-protoweather-background);
-        border: none;
-        font-size: 16px;
-        position: relative;
-    }
-
-    .edit-button::after{ //hover state
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--angular-protoweather-primary);
-        opacity: 0;
-        border-radius: 12px;
-    }
-
-    
-    .edit-button:hover::after{ //hover state
-        opacity: 0.08;
-    }
-
-    .edit-button:active::after{ //hover state
-        opacity: 0.12;
     }
 
     .default-places-title{
         display: flex;
-        align-items: flex-start;
-    }
-
-    .no-default-location {
-        margin-bottom: 12px;
+        align-items: center;
+        margin: 6px 0;
+        height: 32px;
     }
 
     .favorite-card{
         margin-bottom: 24px;
         display: block;
-    }
-
-    .caption{
-        margin-bottom: 12px;
-    }
-
-    .default-place-card{
-        overflow: hidden;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 12px;
-        box-sizing: border-box;
-        border-radius: 12px;
-        text-decoration: none;
-        height: 50px;
-        gap: 6px;
-        margin-bottom: 16px;
     }
 
     .list {
@@ -80,19 +29,6 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         margin: 0 0 24px 0;
-
-        .add-place-card {
-            border-radius: 12px;
-            color: rgb(0 0 0 / 50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 46px;
-            background-color: transparent;
-            box-shadow: none;
-            border: dashed 1px rgb(0 0 0 / 25%);
-            cursor: pointer;
-        }
     }
 }
 
