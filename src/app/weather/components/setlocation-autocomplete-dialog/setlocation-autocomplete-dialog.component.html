@@ -4,7 +4,7 @@
   <app-location-search-autocomplete (locationSelected)="getLocationSelected($event)"></app-location-search-autocomplete>
   </div>
   <div class="dialog-buttons">
-    <button class="dialog-button primary-btn outlined-btn" (click)="closeDialog()">Cancelar</button>
-    <button class="dialog-button primary-btn filled-btn" [mat-dialog-close]="placeSelected" [disabled]="isDisabledSelectButton">Seleccionar</button>
+    <button pw-text-button color="primary" (click)="closeDialog()">Cancelar</button>
+    <button pw-flat-button color="primary" [mat-dialog-close]="placeSelected" [disabled]="isDisabledSelectButton">Seleccionar</button>
   </div>
 </div>

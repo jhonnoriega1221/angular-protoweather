@@ -7,7 +7,7 @@ import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-l
 import { SkeletonDirective } from './directives/skeleton.directive';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { ButtonModule } from '../button/button.module';
 @NgModule({
   declarations: [
     CardInfoComponent,
@@ -19,7 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommonModule,
     RouterModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    ButtonModule
   ], exports: [
     CardInfoComponent,
     SkeletonDirective,

@@ -1,7 +1,7 @@
 <div class="wrapper" *ngIf="!isSearchingLocation">
-    <button class="primary-btn filled-btn" (click)="getLocation()">Detectar mi ubicación</button>
+    <button pw-flat-button color="primary" (click)="getLocation()">Detectar mi ubicación</button>
     <p class="or-text">o</p>
-    <button class="primary-btn outlined-btn" (click)="openSetLocationDialog()">Seleccionar una ciudad manualmente</button>
+    <button pw-outline-button color="primary" (click)="openSetLocationDialog()">Seleccionar una ciudad manualmente</button>
 </div>
 
 <div *ngIf="isSearchingLocation" class="wrapper">

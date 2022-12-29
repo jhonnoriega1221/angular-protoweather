@@ -2,6 +2,6 @@
     <div class="card">
         <app-nolocation-warning [title]=warningInfo.title [message]=warningInfo.message [imageURL]=warningInfo.imageURL></app-nolocation-warning>
         <app-nolocation-buttons class="location-buttons" (errorLocation)="showLocationErrorMessage($event)" (locationFound)="goToHome()" ></app-nolocation-buttons>
-        <button (click)="goBack()" class="cancel-button">Cancelar</button>
+        <button pw-text-button color="primary" (click)="goBack()">Cancelar</button>
     </div>
 </div>
