@@ -22,4 +22,8 @@
 			background-color: var(--angular-protoweather-error);
 		}
 	}
+
+	&:disabled{
+		color: var(--angular-protoweather-disabled-content);
+	}
 }
