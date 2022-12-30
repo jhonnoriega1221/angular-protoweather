@@ -56,6 +56,18 @@ $angular-protoweather-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-legacy-component-themes($angular-protoweather-theme);
 
+$angular-protoweather-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $angular-protoweather-primary,
+    accent: $angular-protoweather-accent,
+    warn: $angular-protoweather-warn,
+  )
+));
+
+.dark-theme {
+@include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 :root {
@@ -109,8 +121,8 @@ $angular-protoweather-theme: mat.define-light-theme((
   --angular-protoweather-invert-surface: #fdfbff;
   --angular-protoweather-invert-on-surface: #001b3d;
 
-  --angular-protoweather-disabled-content: #8b97a6;
-  --angular-protoweather-disabled-container: #e0e3e7;
+  --angular-protoweather-disabled-content: #486b95;
+  --angular-protoweather-disabled-container: #133054;
 }
 
 html, body { height: 100%; }

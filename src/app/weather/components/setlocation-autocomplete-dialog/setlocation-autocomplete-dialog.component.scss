@@ -6,6 +6,8 @@
     padding: 12px;
     box-sizing: border-box;
     position: relative;
+    background-color: var(--angular-protoweather-surface-3);
+    color: var(--angular-protoweather-on-primary-container)
 }
 
 .dialog-buttons{
