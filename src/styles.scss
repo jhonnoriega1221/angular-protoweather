@@ -63,14 +63,15 @@ $angular-protoweather-theme: mat.define-light-theme((
   --angular-protoweather-on-primary: #F2F7FA;
   --angular-protoweather-primary-container: #D2E4FF;
   --angular-protoweather-on-primary-container: #001C37;
-  --angular-protoweather-on-primary-container-alt: #788799;
 
   --angular-protoweather-background: #FDFBFF;
   --angular-protoweather-on-background: #001B3D;
 
-  --angular-protoweather-surface-1: #F0F3FA;
-  --angular-protoweather-on-surface-1: #001B3D;
-  --angular-protoweather-surface-2: #E9EFF8;
+  --angular-protoweather-surface-1: #f0f3fa;
+  --angular-protoweather-surface-2: #e9eff8;
+  --angular-protoweather-surface-3: #e1eaf5;
+  --angular-protoweather-surface-4: #dfe9f4;
+  --angular-protoweather-surface-5: #dae5f2;
 
   --angular-protoweather-error: #BA1A1A;
   --angular-protoweather-on-error: #FFFFFF;
@@ -83,6 +84,33 @@ $angular-protoweather-theme: mat.define-light-theme((
   --angular-protoweather-disabled-content: #8b97a6;
   --angular-protoweather-disabled-container: #e0e3e7;
 
+}
+
+.dark-theme{
+  --angular-protoweather-primary: #9fcaff;
+  --angular-protoweather-on-primary: #003259;
+  --angular-protoweather-primary-container: #00497e;
+  --angular-protoweather-on-primary-container: #d2e4ff;
+
+  --angular-protoweather-background: #001b3d;
+  --angular-protoweather-on-background: #d6e3ff;
+
+  --angular-protoweather-surface-1: #082447;
+  --angular-protoweather-surface-2: #0d294d;
+  --angular-protoweather-surface-3: #112e52;
+  --angular-protoweather-surface-4: #133054;
+  --angular-protoweather-surface-5: #163358;
+
+  --angular-protoweather-error: #ffb4ab;
+  --angular-protoweather-on-error: #690005;
+  --angular-protoweather-error-container: #93000a;
+  --angular-protoweather-on-error-container: #ffdad6;
+
+  --angular-protoweather-invert-surface: #fdfbff;
+  --angular-protoweather-invert-on-surface: #001b3d;
+
+  --angular-protoweather-disabled-content: #8b97a6;
+  --angular-protoweather-disabled-container: #e0e3e7;
 }
 
 html, body { height: 100%; }

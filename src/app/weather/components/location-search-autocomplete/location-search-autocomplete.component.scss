@@ -4,19 +4,33 @@
     border: none;
     border-radius: 16px;
     font-size: 16px;
-    background: var(--angular-protoweather-surface-1) url(../../../../assets/search-icon.svg) no-repeat 12px center;
+    background: var(--angular-protoweather-surface-1);
     padding: 12px 12px 9px 42px;
     background-size: 24px;
     margin-bottom: 12px;
     color: var(--angular-protoweather-on-primary-container);
+}
+
+.search-input-container{
     position: relative;
 }
 
+.search-icon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 12px;
+    left: 12px;
+    color: var(--angular-protoweather-on-primary-container);
+    pointer-events: none;
+}
+
 .search-input::placeholder{
-    color: var(--angular-protoweather-on-primary-container-alt);
+    color: var(--angular-protoweather-on-primary-container);
+    opacity: 0.5;
 }
 
 .search-input:focus {
     outline: none;
-    box-shadow: inset 0px 0px 0px 1px var(--angular-protoweather-on-primary-container-alt);
+    box-shadow: 0px 0px 0px 1.6px var(--angular-protoweather-on-primary-container);
 }
