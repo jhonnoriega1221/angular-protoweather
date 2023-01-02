@@ -37,6 +37,7 @@ import { FavoritePlaceCardComponent } from './components/favorite-place-card/fav
 import { NoLocationHomeWarningComponent } from './components/no-location-home-warning/no-location-home-warning.component';
 import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-card/add-favorite-place-card.component';
 import { ButtonModule } from '../button/button.module';
+import { SettingsListItemComponent } from './components/settings-list-item/settings-list-item.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ButtonModule } from '../button/button.module';
     AboutPageComponent,
     FavoritePlaceCardComponent,
     NoLocationHomeWarningComponent,
-    AddFavoritePlaceCardComponent
+    AddFavoritePlaceCardComponent,
+    SettingsListItemComponent
   ],
   imports: [
     CommonModule,

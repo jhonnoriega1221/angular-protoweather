@@ -8,6 +8,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 import { FirstTimeGuard } from './guards/first-time.guard';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'search', component: SearchPageComponent },
       { path: 'favorites', component: FavoritesPageComponent },
       { path: 'forecast/:id', component: ForecastPageComponent },
-      { path: 'about', component: AboutPageComponent }
+      { path: 'settings', component: SettingsPageComponent },
+      { path: 'settings/about', component: AboutPageComponent }
 
     ]},
     { path: 'setlocation', component: SetlocationPageComponent}

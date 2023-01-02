@@ -1,0 +1,62 @@
+p{
+    margin: 0;
+    color: var(--angular-protoweather-on-background);
+}
+
+.list-item{
+    display: flex;
+    padding: 0 12px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+
+    &-text{
+        display: flex;
+        gap: 6px;
+        align-items: center;
+
+        &-icon {
+            min-width: 36px;
+            min-height: 36px;
+            display: flex;
+            border-radius: 100%;
+            background-color: var(--angular-protoweather-primary-container);
+            color: var(--angular-protoweather-primary);
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-name{
+
+            &-description{
+                font-size: 14px;
+                color: var(--angular-protoweather-disabled-content);
+                line-height: 16px;
+            }
+        }
+
+    }
+
+    &-option{
+        display: flex;
+        align-items: center;
+        color: var(--angular-protoweather-on-background);
+
+        select{
+            font-size: 16px;
+            border: none;
+            appearance: none;
+            text-indent: 0;
+            padding: 0 6px;
+            font-family: 'Poppins';
+            outline: none;
+            color: inherit;
+            background-color: transparent;
+        }
+
+        i{
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    }
+}
