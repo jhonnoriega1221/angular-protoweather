@@ -5,6 +5,13 @@ h2{
 .wrapper{
     padding: 12px 0 83px 0;
     box-sizing: border-box;
+
+    .list{
+        background-color: var(--angular-protoweather-background);
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
 }
 
 .page-title{
@@ -13,7 +20,19 @@ h2{
 
 @media (min-width: 600px){
     .wrapper{
-        padding: 12px 0 0 88px;
+        padding: 12px 12px 0 100px;
+
+        .page-title{
+            padding: 0px;
+        }
+
+        .list {
+            margin: auto;
+            max-width: 800px;
+            background-color: var(--angular-protoweather-surface-1);
+            border-radius: 12px;
+            padding: 12px;
+        }
     }
 
 }

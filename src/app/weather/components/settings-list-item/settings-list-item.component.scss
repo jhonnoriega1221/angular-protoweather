@@ -4,6 +4,7 @@ p{
 }
 
 .list-item{
+    text-decoration: none;
     display: flex;
     padding: 0 12px;
     align-items: center;
@@ -44,19 +45,41 @@ p{
 
         select{
             font-size: 16px;
-            border: none;
+            border-top-width: 0;
+            border-left-width: 0; 
+            border-right-width: 0; 
+            border-bottom-width: 0;
             appearance: none;
             text-indent: 0;
-            padding: 0 6px;
+            padding: 6px 6px;
             font-family: 'Poppins';
             outline: none;
             color: inherit;
-            background-color: transparent;
+            background-color: var(--angular-protoweather-background);
+            text-align: end;
+            border-radius: 6px;
         }
 
-        i{
+        &-icon, .list-item-route-icon{
             font-size: 12px;
             margin-top: 4px;
+        }
+    }
+}
+
+@media (min-width: 600px){
+
+
+    .list-item-option{
+        select{
+            border-right-width: 6px;
+            border-right-color: var(--angular-protoweather-background);
+            appearance: auto;
+            text-align: start;
+        }
+
+        &-icon{
+            display: none;
         }
     }
 }
