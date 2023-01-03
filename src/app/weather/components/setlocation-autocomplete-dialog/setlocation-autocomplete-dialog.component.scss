@@ -20,6 +20,16 @@
     bottom: 0;
     box-sizing: border-box;
     left: 0;
+    margin-bottom: env(keyboard-inset-height);
+}
+
+[data-stickto] {
+    position: fixed;
+}
+
+[data-stickto="bottom"] {
+    bottom: 0;
+    background: green;
 }
 
 .dialog-button{

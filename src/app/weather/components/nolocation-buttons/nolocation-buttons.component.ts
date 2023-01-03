@@ -86,6 +86,7 @@ export class NolocationButtonsComponent {
     })
 
     dialogRef.afterClosed().subscribe( (result:Place) => {
+      console.log(result);
         if(result){
         const displayName = this.placeService.setLocationName(result.address?.city, result.address?.county, result.address?.town, result.address?.village, result.address?.state, result.address?.country);
         this.placeService.setDefaultPlace(result.lat, result.lon, displayName);

@@ -13,12 +13,18 @@ export class SetlocationAutocompleteDialogComponent {
 
   public isDisabledSelectButton:boolean = true;
 
-  constructor(public dialogRef: MatDialogRef<SetlocationAutocompleteDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<SetlocationAutocompleteDialogComponent>) {
+    if (!("virtualKeyboard" in navigator)) {
+      console.log('VIRTUALKEYBOARD API NOT SUPPORTED');
+    }
+  }
 
   public getLocationSelected(place:Place){
     if(place){
       this.placeSelected = place;
       this.isDisabledSelectButton = false;
+
+      this.dialogRef.close(this.placeSelected);
     } else {
       this.isDisabledSelectButton = true;
     }
