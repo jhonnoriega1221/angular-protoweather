@@ -40,6 +40,7 @@ export class ActualWeatherComponent implements OnInit {
   constructor( private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
+    console.log(this.weatherCode);
     if(!this.isDefaultLocation){
       this.checkIsFavorite();
     }

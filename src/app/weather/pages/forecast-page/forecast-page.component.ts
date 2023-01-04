@@ -135,8 +135,10 @@ export class ForecastPageComponent implements OnInit {
               ':00';
           }
 
-          const time = new Date();
           this.forecastData = v;
+          const time = new Date();
+          time.setSeconds(time.getSeconds() + v.utc_offset_seconds);
+          time.setMinutes(time.getMinutes() + time.getTimezoneOffset());
           this.actualHourIndex = v.hourly.time.findIndex((value: string) => value === toIsoString(time));
         },
         error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
