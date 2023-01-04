@@ -95,7 +95,7 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 
 }
 
-.dark-theme{
+.dark2-theme{
   @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark;
   --angular-protoweather-primary: #9fcaff;
@@ -122,6 +122,35 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 
   --angular-protoweather-disabled-content: #486b95;
   --angular-protoweather-disabled-container: #133054;
+}
+
+.dark-theme{
+  @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
+  color-scheme: dark;
+  --angular-protoweather-primary: #9fcaff;
+  --angular-protoweather-on-primary: #2c2c2c;
+  --angular-protoweather-primary-container: #00497e;
+  --angular-protoweather-on-primary-container: #ffffff;
+
+  --angular-protoweather-background: #000000;
+  --angular-protoweather-on-background: #ffffff;
+
+  --angular-protoweather-surface-1: #0a0a0a;
+  --angular-protoweather-surface-2: #101010;
+  --angular-protoweather-surface-3: #161616;
+  --angular-protoweather-surface-4: #181818;
+  --angular-protoweather-surface-5: #1e1e1e;
+
+  --angular-protoweather-error: #ffb4ab;
+  --angular-protoweather-on-error: #690005;
+  --angular-protoweather-error-container: #93000a;
+  --angular-protoweather-on-error-container: #ffdad6;
+
+  --angular-protoweather-invert-surface: #fdfbff;
+  --angular-protoweather-invert-on-surface: #001b3d;
+
+  --angular-protoweather-disabled-content: #747474;
+  --angular-protoweather-disabled-container: #1f1f1f;
 }
 
 [data-color-scheme="dark"] {
