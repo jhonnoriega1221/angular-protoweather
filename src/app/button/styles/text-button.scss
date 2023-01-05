@@ -1,10 +1,10 @@
 .text-button{
 	border: none;
-	color: buttonface;
+	color: var(--angular-protoweather-surface-5);
 	background-color: transparent;
 
 	&::after{
-		background-color: buttontext;
+		background-color: var(--angular-protoweather-surface-5);
 	}
 
 	&-primary{

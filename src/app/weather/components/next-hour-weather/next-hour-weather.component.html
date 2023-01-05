@@ -1,6 +1,6 @@
 <app-wrapper-header class="section-title" text="Siguientes horas"></app-wrapper-header>
 <div class="container">
-    <button pw-flat-button color="primary" size="small" class="scroll-button scroll-button-back" [disabled]="scrollPosition === 0" (click)="scrollBack(target)">
+    <button pw-flat-button size="small" class="scroll-button scroll-button-back" [disabled]="scrollPosition === 0" (click)="scrollBack(target)">
         <i class="fa-solid fa-angle-left"></i>
     </button>
     <div (scroll)="onScroll(target)" #target class="wrapper">
@@ -10,7 +10,7 @@
             <p class="weather">{{hourly.temperature | number:'1.0-0'}}ºc</p>
         </div>
     </div>
-    <button pw-flat-button color="primary" size="small" class="scroll-button scroll-button-forward" [disabled]="scrollPosition === scrollWidth" (click)="scrollForward(target)">
+    <button pw-flat-button size="small" class="scroll-button scroll-button-forward" [disabled]="scrollPosition === scrollWidth" (click)="scrollForward(target)">
         <i class="fa-solid fa-angle-right"></i>
     </button>
 </div>

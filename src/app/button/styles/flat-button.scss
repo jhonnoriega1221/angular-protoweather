@@ -1,8 +1,10 @@
 .flat-button{
 	border: none;
+    background-color: var(--angular-protoweather-surface-5);
+    color: var(--angular-protoweather-on-primary-container);
 
 	&::after{
-		background-color: buttontext;
+		background-color: var(--angular-protoweather-on-primary-container);
 	}
 
 	&-primary{

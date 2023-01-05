@@ -9,8 +9,10 @@
   border-radius: 100%;
   padding: 0px;
   display: none;
-  background-color: var(--angular-protoweather-surface-5);
-  color: var(--angular-protoweather-on-primary-container);
+
+  &::after{
+    border-radius: 100%;
+  }
 
 
   &:disabled {
@@ -35,7 +37,7 @@
 
   .time {
     font-size: 12px;
-    color: var(--angular-protoweather-on-primary-container);
+    color: var(--angular-protoweather-primary);
   }
 
   .forecast-list-item {
