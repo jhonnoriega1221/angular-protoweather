@@ -9,7 +9,8 @@
                     [humidity]="forecastData.hourly.relativehumidity_2m[actualHourIndex]"
                     [precipitation]="forecastData.hourly.precipitation[actualHourIndex]"
                     [radiation]="forecastData.hourly.shortwave_radiation[actualHourIndex]" [placeCode]="placeCode"
-                    [isDefaultLocation]="isDefaultLocation">
+                    [isDefaultLocation]="isDefaultLocation"
+                    [actualDay] = "actualDay">
                 </app-actual-weather>
                 <div class="forecast-info-grid">
                     <ng-container *ngIf="isOneColumn">

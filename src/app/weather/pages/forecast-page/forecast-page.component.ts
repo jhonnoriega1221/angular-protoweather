@@ -77,10 +77,7 @@ export class ForecastPageComponent implements OnInit {
     longitude: 0
   };
 
-  public actualDay:ActualDay = {
-    weekDay: this.getWeekDayName(),
-    date: this.getDateFormat()
-  }
+  public actualDay:string = '';
   public actualHourIndex: number = 0;
   public placeName: string = '';
   public placeCode:string = '';
@@ -140,6 +137,8 @@ export class ForecastPageComponent implements OnInit {
           time.setSeconds(time.getSeconds() + v.utc_offset_seconds);
           time.setMinutes(time.getMinutes() + time.getTimezoneOffset());
           this.actualHourIndex = v.hourly.time.findIndex((value: string) => value === toIsoString(time));
+          console.log(time);
+          this.actualDay = `${time.getDate()} de ${this.getTextMonth(time.getMonth())}, ${time.getHours()}:${time.getMinutes()}`;
         },
         error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
         complete: () => this.isLoading = false
@@ -170,32 +169,8 @@ export class ForecastPageComponent implements OnInit {
     this.ngOnInit();
   }
 
-  private getWeekDayName():string {
-    const date = new Date();
-    switch (date.getDay()) {
-      case 0:
-        return 'Domingo';
-      case 1:
-        return 'Lunes';
-      case 2:
-        return 'Martes';
-      case 3:
-        return 'Miercoles';
-      case 4:
-        return 'Jueves';
-      case 5:
-        return 'Viernes';
-      default:
-        return 'Sabado';
-      
-    }
-  }
 
-  private getDateFormat():string{
-    const date = new Date();
-    
-
-    function getTextMonth(month : number) {
+    private getTextMonth(month : number) {
       switch (month) {
         case 0:
           return 'Enero';
@@ -223,9 +198,6 @@ export class ForecastPageComponent implements OnInit {
           return 'Diciembre';
       }
     }
-
-    return date.getDate() + " de " + getTextMonth(date.getMonth()) + " de " + date.getFullYear();
-  }
 
   public setLocationData() {
     this.activatedRoute.params.subscribe(params => {

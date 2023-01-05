@@ -24,6 +24,7 @@ export class ActualWeatherComponent implements OnInit {
   @Input() humidity:number = 0;
   @Input() precipitation:number = 0;
   @Input() radiation:number = 0;
+  @Input() actualDay:string = '';
 
   @Input() placeCode:string = '';
   @Input() isDefaultLocation:boolean = false;
@@ -40,7 +41,6 @@ export class ActualWeatherComponent implements OnInit {
   constructor( private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
-    console.log(this.weatherCode);
     if(!this.isDefaultLocation){
       this.checkIsFavorite();
     }

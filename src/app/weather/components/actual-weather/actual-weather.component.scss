@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 310px;
+    gap: 26px;
     position: relative;
 }
 
@@ -17,6 +17,11 @@
     width: 16px;
     font-size: 16px;
     min-width: 16px;
+}
+
+.actual-date{
+    font-size: 14px;
+    margin: 6px 0 0 0;
 }
 
 .icon-favorite-button {
@@ -142,11 +147,5 @@
             font-size: 16px;
             white-space: nowrap;
         }
-    }
-}
-
-@media(min-width: 600px){
-    .wrapper{
-        height: 365px;
     }
 }
