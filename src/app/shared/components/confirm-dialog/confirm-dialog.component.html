@@ -1,10 +1,13 @@
-<div class="wrapper">
+<div class="dialog">
     <div class="dialog-top">
-    <h4>{{data.title}}</h4>
-    <p>{{data.dialogBodyText}}</p>
+      <i class="dialog-top-icon fa-solid fa-warning"></i>
+      <h4 class="dialog-top-title">{{data.title}}</h4>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-body-text">{{data.dialogBodyText}}</p>
     </div>
     <div class="dialog-buttons">
-      <button pw-text-button color="primary" (click)="closeBtnAction()">{{data.cancelButtonText}}</button>
-      <button pw-flat-button color="error" [mat-dialog-close]="true">{{data.okButtonText}}</button>
+      <button pw-text-button class="dialog-buttons-button" color="primary" (click)="closeBtnAction()">{{data.cancelButtonText}}</button>
+      <button pw-flat-button class="dialog-buttons-button" color="error" [mat-dialog-close]="true">{{data.okButtonText}}</button>
     </div>
   </div>

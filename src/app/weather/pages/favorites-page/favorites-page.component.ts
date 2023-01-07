@@ -37,8 +37,8 @@ export class FavoritesPageComponent implements OnInit {
   public deleteFavoritePlace(placeId:string){
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Eliminar favorito', 
-        dialogBodyText: '¿Desea eliminar la ciudad de favoritos?', 
+        title: 'Eliminar ciudad favorita', 
+        dialogBodyText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
         okButtonText: 'Eliminar', 
         cancelButtonText: 'Cancelar'
       }
@@ -79,7 +79,7 @@ export class FavoritesPageComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Eliminar ciudad predeterminada', 
-        dialogBodyText: '¿Desea eliminar la ciudad predeterminada?', 
+        dialogBodyText: 'Se va a eliminar la ciudad por defecto, ¿Desea continuar?', 
         okButtonText: 'Eliminar', 
         cancelButtonText: 'Cancelar'
       }

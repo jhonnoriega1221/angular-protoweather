@@ -63,8 +63,8 @@ export class ActualWeatherComponent implements OnInit {
     } else {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
           data: {
-            title: 'Eliminar favorito', 
-            dialogBodyText: '¿Desea eliminar la ciudad de favoritos?', 
+            title: 'Eliminar ciudad favorita', 
+            dialogBodyText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
             okButtonText: 'Eliminar', 
             cancelButtonText: 'Cancelar'
           }
