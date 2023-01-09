@@ -26,7 +26,7 @@ export class ActualWeatherComponent implements OnInit {
   @Input() radiation:number = 0;
   @Input() actualDay:string = '';
 
-  @Input() placeCode:string = '';
+  @Input() placeCode:string|undefined;
   @Input() isDefaultLocation:boolean = false;
 
   public weatherCodeData:WeatherCode = {
@@ -48,13 +48,13 @@ export class ActualWeatherComponent implements OnInit {
   }
 
   checkIsFavorite():void{
-    this.isFavorite = this.placeService.getFavoritePlace(this.placeCode) ? true : false;
+    this.isFavorite = this.placeService.getFavoritePlace(this.placeCode!) ? true : false;
     this.favoriteIconStatus = this.isFavorite? 'fa-solid fa-star': 'fa-regular fa-star';
   }
 
   toggleFavorite():void{
     if(!this.isFavorite){
-      this.placeService.saveFavoritePlace({placeId: this.placeCode, name: this.place});
+      this.placeService.saveFavoritePlace({placeId: this.placeCode!, name: this.place});
       this.snackBar.open('Ciudad agregada a favoritos', '' ,{
         duration: 2000,
         horizontalPosition: 'left',
@@ -72,7 +72,7 @@ export class ActualWeatherComponent implements OnInit {
     
         dialogRef.afterClosed().subscribe( (result:boolean) => {
             if(result){
-              this.placeService.deleteFavoritePlace(this.placeCode);
+              this.placeService.deleteFavoritePlace(this.placeCode!);
               this.checkIsFavorite();
               this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
                 duration: 2000,

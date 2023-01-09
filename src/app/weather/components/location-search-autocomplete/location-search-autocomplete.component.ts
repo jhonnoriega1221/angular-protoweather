@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { Place } from '../../models/place';
 import { MatAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-location-search-autocomplete',
@@ -12,8 +13,11 @@ export class LocationSearchAutocompleteComponent implements OnInit {
 
   public input: string = '';
   public isSearching:boolean = false;
-  public places: Place[] = [];
+  public searchPlaceResults$: Place[] = [];
   private searchPlaceInterval: any = 0;
+
+  private searchSubscription?:Subscription;
+
   @Output() locationSelected: EventEmitter<any> = new EventEmitter();
 
   constructor(private placeService: PlaceService) { }
@@ -22,18 +26,26 @@ export class LocationSearchAutocompleteComponent implements OnInit {
   }
 
   getSearchPlaces(): void {
-    this.places = [];
+    this.searchPlaceResults$ = [];
+    this.searchSubscription?.unsubscribe();
+    this.isSearching = false;
     clearTimeout(this.searchPlaceInterval);
-    if (this.input === '') {
-      this.isSearching = false;
-    } else {
+    
+    if (this.input) {
       this.isSearching = true;
-      
       this.searchPlaceInterval = setTimeout(() => {
-        this.placeService.search(this.input).subscribe(
+        this.searchSubscription = this.placeService.search(this.input).pipe().subscribe(
           {
-            next: (v) => { 
-              this.places = v 
+            next: (searchPlacesResponse:Place[]) => { 
+              searchPlacesResponse.forEach( (place) => {place.display_name = this.placeService.setLocationName(
+                place.address?.country,
+                place.address?.city,
+                place.address?.county,
+                place.address?.town,
+                place.address?.village,
+                place.address?.state
+              )});
+              this.searchPlaceResults$ = searchPlacesResponse;
             },
             error: (e) => {
               console.log(e);
@@ -47,28 +59,8 @@ export class LocationSearchAutocompleteComponent implements OnInit {
   }
 
   selectPlace(e: MatAutocompleteSelectedEvent) {
-    const place:Place = this.places[e.option.value];
-    const placeName:string[] = [];
-
-    if(place.address?.town)
-      placeName.push(place.address?.town)
-
-    if(place.address?.village)
-      placeName.push(place.address?.village)
-
-    if(place.address?.county)
-      placeName.push(place.address?.county)
-
-    if(place.address?.city)
-      placeName.push(place.address?.city)
-
-    if(place.address?.state)
-      placeName.push(place.address?.state)
-
-    if(place.address?.country)
-      placeName.push(place.address?.country)
-
-    this.input = placeName.join(", ");
+    const place:Place = this.searchPlaceResults$[e.option.value];
+    this.input = place.display_name;
     this.locationSelected.emit(place);
   }
 

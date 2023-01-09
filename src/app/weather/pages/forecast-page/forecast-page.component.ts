@@ -1,9 +1,11 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { PlaceService } from '../../services/place.service';
 import { Forecast } from '../../models/forecast-response';
 import { Place } from '../../models/place';
 import { ActivatedRoute, Router } from '@angular/router';
+import { mergeMap, Subscription} from 'rxjs';
+import { PlaceDetails } from '../../models/place-details';
 
 interface Message {
   title: string;
@@ -21,15 +23,9 @@ interface ActualDay{
   templateUrl: './forecast-page.component.html',
   styleUrls: ['./forecast-page.component.scss']
 })
-export class ForecastPageComponent implements OnInit {
+export class ForecastPageComponent implements OnInit, OnDestroy {
 
-  private locationData: Place = {
-    place_id: 0,
-    display_name: '',
-    lat: '',
-    lon: ''
-  };
-  public forecastData: Forecast = {
+  public forecastData$: Forecast = {
     generationtime_ms: 0,
     daily: {
       sunrise: [],
@@ -80,7 +76,14 @@ export class ForecastPageComponent implements OnInit {
   public actualDay:string = '';
   public actualHourIndex: number = 0;
   public placeName: string = '';
-  public placeCode:string = '';
+  private placeCoordinates:{lat:number, lon:number} = {
+    lat:0,
+    lon:0
+  }
+  public placeCode:string|undefined;
+
+  public urlParam?: Subscription;
+  public forecastSubscribe?: Subscription;
 
   public isLoading: boolean = true;
   public isDefaultLocationSet: boolean = false;
@@ -98,7 +101,89 @@ export class ForecastPageComponent implements OnInit {
   constructor(private weatherService: WeatherService, private placeService: PlaceService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    this.setLocationData();
+    this.getForecastData();
+  }
+
+  ngOnDestroy(): void {
+      this.urlParam?.unsubscribe();
+      this.forecastSubscribe?.unsubscribe();
+  }
+
+  private getForecastData(){
+
+    //Se obtiene el id del lugar por medio de la url
+    this.urlParam = this.activatedRoute.params.subscribe(params => {
+      this.placeCode = params['id'];
+    });
+
+    //Determina si se está consultando el lugar por defecto
+    this.isDefaultLocation = this.placeCode ? false:true;
+
+    //Valida si el lugar por defecto está establecido
+    if(this.isDefaultLocation)
+      this.isDefaultLocationSet = this.placeService.getDefaultPlace() ? true:false;
+
+    //declara el primer pipe que se consultará
+    let firstApiCall:any;
+    let placeMergeMap:any[] = [];
+
+    if(this.isDefaultLocation){
+      if(!this.isDefaultLocationSet){
+        this.isLoading = false;
+        this.isError = true;
+        return;
+      }
+      const defaultPlace = this.placeService.getDefaultPlace();
+      this.placeCoordinates = {
+        lat: Number.parseFloat(defaultPlace!.lat),
+        lon: Number.parseFloat(defaultPlace!.lon)
+      };
+      this.placeName = defaultPlace!.display_name;
+
+      //La primera llamada a la API será la del clima
+      firstApiCall = this.weatherService.getForecast(this.placeCoordinates.lat+'',this.placeCoordinates.lon+'');
+
+    } else {
+      //La primera llamada a la API será la de obtener lugar por ID
+      firstApiCall = this.placeService.getPlaceById(this.placeCode!);
+
+      //Se obtienen las coordenadas y el nombre del lugar por medio de la respuesta de la API
+      placeMergeMap.push( 
+        mergeMap( (placeDetailsResponse:PlaceDetails) => {
+          if(!this.isDefaultLocation){
+            this.placeCoordinates = {
+              lat: placeDetailsResponse.geometry.coordinates[1],
+              lon: placeDetailsResponse.geometry.coordinates[0]
+            };
+            const cityName = placeDetailsResponse.address![0].localname;
+            const countryName = placeDetailsResponse.address!.find(
+              (element) => element.type === 'country'
+            );
+            this.placeName = this.placeService.setLocationName(countryName?.localname, cityName);
+          }
+
+          //La siguiente llamada a la API será la del clima
+          return this.weatherService.getForecast(this.placeCoordinates.lat+'', this.placeCoordinates.lon+'');
+        })
+      )
+    }
+
+    this.forecastSubscribe = firstApiCall.pipe(
+      ...placeMergeMap
+    ).subscribe(
+      {
+        next: (forecastResponse:Forecast) => {
+          this.forecastData$ = forecastResponse;
+          const time = new Date();
+          time.setSeconds(time.getSeconds() + forecastResponse.utc_offset_seconds);
+          time.setMinutes(time.getMinutes() + time.getTimezoneOffset());
+          this.actualHourIndex = forecastResponse.hourly.time.findIndex((value: string) => value === this.toIsoString(time));
+          this.actualDay = `${time.getDate()} de ${this.getTextMonth(time.getMonth())}, ${time.getHours()}:${time.getMinutes()}`;
+        },
+        error: (e:any) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
+        complete: () => this.isLoading = false
+      }
+    )
   }
 
   private getIsMobile(innerWidth:number):boolean {
@@ -116,34 +201,16 @@ export class ForecastPageComponent implements OnInit {
     this.isOneColumn = this.getIsOneColumn(innerWidth);
   }
 
-  private setActualHourIndex(): void {
-    this.weatherService.getForecast(this.locationData.lat, this.locationData.lon).subscribe(
-      {
-        next: (v) => {
-          function toIsoString(date: Date) {
-            const pad = function (num: number) {
-              return (num < 10 ? '0' : '') + num;
-            };
+  private toIsoString(date: Date) {
+    const pad = function (num: number) {
+      return (num < 10 ? '0' : '') + num;
+    };
 
-            return date.getFullYear() +
-              '-' + pad(date.getMonth() + 1) +
-              '-' + pad(date.getDate()) +
-              'T' + pad(date.getHours()) +
-              ':00';
-          }
-
-          this.forecastData = v;
-          const time = new Date();
-          time.setSeconds(time.getSeconds() + v.utc_offset_seconds);
-          time.setMinutes(time.getMinutes() + time.getTimezoneOffset());
-          this.actualHourIndex = v.hourly.time.findIndex((value: string) => value === toIsoString(time));
-          console.log(time);
-          this.actualDay = `${time.getDate()} de ${this.getTextMonth(time.getMonth())}, ${time.getHours()}:${time.getMinutes()}`;
-        },
-        error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
-        complete: () => this.isLoading = false
-      }
-    );
+    return date.getFullYear() +
+      '-' + pad(date.getMonth() + 1) +
+      '-' + pad(date.getDate()) +
+      'T' + pad(date.getHours()) +
+      ':00';
   }
 
   public showLocationErrorMessage(message: Message) {
@@ -164,11 +231,9 @@ export class ForecastPageComponent implements OnInit {
 
   public reloadHome() {
     this.isError = false;
-    this.isDefaultLocationSet = true;
     this.isLoading = true;
     this.ngOnInit();
   }
-
 
     private getTextMonth(month : number) {
       switch (month) {
@@ -199,54 +264,6 @@ export class ForecastPageComponent implements OnInit {
       }
     }
 
-  public setLocationData() {
-    this.activatedRoute.params.subscribe(params => {
-      if (params['id']) {
-        this.placeCode = params['id'];
-        this.isDefaultLocation = false;
-        
-        this.placeService.getPlaceById(params['id']).subscribe({
-          next: (v) => {
-            const [lat, lng] = [v.geometry.coordinates[1], v.geometry.coordinates[0]];
-            this.placeService.getPlace(lat, lng).subscribe({
-              next: (v:Place) => {
-                this.locationData = v;
-                const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
-
-                this.placeName = displayName;
-              },
-              error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
-              complete: () => {this.setActualHourIndex()}
-            })
-          },
-          error: (e) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
-          complete: () => {}
-        })
-
-      } else {
-        const defaultPlace = this.placeService.getDefaultPlace();
-        if(defaultPlace){
-          this.isDefaultLocationSet = true;
-          this.placeService.getPlace(Number.parseFloat(defaultPlace.lat) , Number.parseFloat(defaultPlace.lon) ).subscribe({
-            next: (v:Place) => {
-              this.locationData = v;
-              const displayName = this.placeService.setLocationName(v.address?.city, v.address?.county, v.address?.town, v.address?.village, v.address?.state, v.address?.country);
-              this.placeName = displayName;
-            },
-            error: (e) => {
-              console.log(e); this.isError = true; this.setWarningInfoError();
-            },
-            complete: () => ( this.setActualHourIndex())
-          })
-        } else {
-          this.isLoading = false;
-          this.isError = true;
-          this.isDefaultLocationSet = false;
-        }
-      }
-    });
-  }
-
   public goToSelectedLocation(place:Place) {
     this.placeService.saveHistoryPlace({name: place.display_name, placeId:''+place.place_id});
     if(this.isDefaultLocation){
@@ -254,7 +271,7 @@ export class ForecastPageComponent implements OnInit {
       return;
     }
     this.router.navigate(['/forecast/',place.place_id ]);
-    this.isLoading = true;
+    this.reloadHome();
     
   }
 }

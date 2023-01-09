@@ -9,14 +9,8 @@
     <mat-option *ngIf="isSearching">
         <mat-spinner style="margin: 0 auto" diameter="30" color="primary"></mat-spinner>
     </mat-option>
-        <mat-option *ngFor="let place of places; let i = index" [value]=i>
-                <ng-container *ngIf="place.address">
-            {{place.address.town ? place.address.town+"," : ''}}
-            {{place.address.village ? place.address.village+"," : ''}}
-            {{place.address.county ? place.address.county+"," : ''}}
-            {{place.address.city ? place.address.city+"," : ''}}
-            {{place.address.state}},
-            {{place.address.country}}
+        <mat-option *ngFor="let place of searchPlaceResults$; let i = index" [value]=i>
+                <ng-container *ngIf="place.address">{{place.display_name}}
                 </ng-container>
         </mat-option>
 </mat-autocomplete>
