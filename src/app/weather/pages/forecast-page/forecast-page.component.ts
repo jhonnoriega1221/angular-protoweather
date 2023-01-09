@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { PlaceService } from '../../services/place.service';
 import { Forecast } from '../../models/forecast-response';
@@ -6,6 +6,7 @@ import { Place } from '../../models/place';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subscription} from 'rxjs';
 import { PlaceDetails } from '../../models/place-details';
+import { LocationSearchAutocompleteComponent } from '../../components/location-search-autocomplete/location-search-autocomplete.component';
 
 interface Message {
   title: string;
@@ -101,20 +102,21 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
   constructor(private weatherService: WeatherService, private placeService: PlaceService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    this.getForecastData();
+    //Se obtiene el id del lugar por medio de la url
+    this.urlParam = this.activatedRoute.params.subscribe(params => {
+      this.forecastSubscribe?.unsubscribe();
+      this.placeCode = params['id'];
+      this.reloadHome();
+    });
   }
 
   ngOnDestroy(): void {
-      this.urlParam?.unsubscribe();
-      this.forecastSubscribe?.unsubscribe();
+    this.urlParam?.unsubscribe();
+    this.forecastSubscribe?.unsubscribe();
   }
 
   private getForecastData(){
 
-    //Se obtiene el id del lugar por medio de la url
-    this.urlParam = this.activatedRoute.params.subscribe(params => {
-      this.placeCode = params['id'];
-    });
 
     //Determina si se está consultando el lugar por defecto
     this.isDefaultLocation = this.placeCode ? false:true;
@@ -232,7 +234,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
   public reloadHome() {
     this.isError = false;
     this.isLoading = true;
-    this.ngOnInit();
+    this.getForecastData();
   }
 
     private getTextMonth(month : number) {
@@ -266,10 +268,6 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
 
   public goToSelectedLocation(place:Place) {
     this.placeService.saveHistoryPlace({name: place.display_name, placeId:''+place.place_id});
-    if(this.isDefaultLocation){
-      this.router.navigate(['/forecast/',place.place_id ]);
-      return;
-    }
     this.router.navigate(['/forecast/',place.place_id ]);
     this.reloadHome();
     

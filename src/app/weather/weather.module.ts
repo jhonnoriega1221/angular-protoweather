@@ -38,6 +38,7 @@ import { NoLocationHomeWarningComponent } from './components/no-location-home-wa
 import { AddFavoritePlaceCardComponent } from './components/add-favorite-place-card/add-favorite-place-card.component';
 import { ButtonModule } from '../button/button.module';
 import { SettingsListItemComponent } from './components/settings-list-item/settings-list-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { SettingsListItemComponent } from './components/settings-list-item/setti
     MatDialogModule,
     SharedModule,
     MatSnackBarModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class WeatherModule { }

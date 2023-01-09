@@ -1,8 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { Place } from '../../models/place';
 import { MatAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-location-search-autocomplete',
@@ -19,8 +20,13 @@ export class LocationSearchAutocompleteComponent implements OnInit {
   private searchSubscription?:Subscription;
 
   @Output() locationSelected: EventEmitter<any> = new EventEmitter();
+  public searchForm:FormGroup;
 
-  constructor(private placeService: PlaceService) { }
+  constructor(private placeService: PlaceService, private fb:FormBuilder) {
+    this.searchForm = this.fb.group({
+      searchInput: new FormControl('')
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -30,11 +36,12 @@ export class LocationSearchAutocompleteComponent implements OnInit {
     this.searchSubscription?.unsubscribe();
     this.isSearching = false;
     clearTimeout(this.searchPlaceInterval);
+    const inputValue = this.searchForm.get('searchInput')!.value;
     
-    if (this.input) {
+    if (inputValue) {
       this.isSearching = true;
       this.searchPlaceInterval = setTimeout(() => {
-        this.searchSubscription = this.placeService.search(this.input).pipe().subscribe(
+        this.searchSubscription = this.placeService.search(inputValue).pipe().subscribe(
           {
             next: (searchPlacesResponse:Place[]) => { 
               searchPlacesResponse.forEach( (place) => {place.display_name = this.placeService.setLocationName(
@@ -60,7 +67,8 @@ export class LocationSearchAutocompleteComponent implements OnInit {
 
   selectPlace(e: MatAutocompleteSelectedEvent) {
     const place:Place = this.searchPlaceResults$[e.option.value];
-    this.input = place.display_name;
+    this.searchForm.controls['searchInput'].setValue('');
+    this.searchPlaceResults$ = [];
     this.locationSelected.emit(place);
   }
 
