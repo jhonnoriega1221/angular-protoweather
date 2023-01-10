@@ -7,6 +7,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { slideAnimation } from './weather.animation';
 
 const routes: Routes = [
   { path: '', component: WeatherLayoutComponent,
@@ -17,9 +18,9 @@ const routes: Routes = [
       { path: 'forecast/:id', component: ForecastPageComponent },
       { path: 'settings', component: SettingsPageComponent },
       { path: 'settings/about', component: AboutPageComponent }
-
-    ]},
-    { path: 'setlocation', component: SetlocationPageComponent}
+    ]
+  },
+  { path: 'setlocation', component: SetlocationPageComponent}
 ];
 
 @NgModule({
