@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
-import { ButtonModule } from '../button/button.module';
+import { PwButtonModule } from '../ui/button/button.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -82,7 +82,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     MatDialogModule,
     SharedModule,
     MatSnackBarModule,
-    ButtonModule,
+    PwButtonModule,
     ReactiveFormsModule
   ]
 })

@@ -21,4 +21,4 @@ import { PwTextButtonDirective } from './directives/pw-text-button.directive';
     PwTextButtonDirective
   ]
 })
-export class ButtonModule { }
+export class PwButtonModule { }

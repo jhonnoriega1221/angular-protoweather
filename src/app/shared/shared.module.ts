@@ -7,7 +7,7 @@ import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-l
 import { SkeletonDirective } from './directives/skeleton.directive';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ButtonModule } from '../button/button.module';
+import { PwButtonModule } from '../ui/button/button.module';
 @NgModule({
   declarations: [
     CardInfoComponent,
@@ -20,7 +20,7 @@ import { ButtonModule } from '../button/button.module';
     RouterModule,
     MatIconModule,
     MatDialogModule,
-    ButtonModule
+    PwButtonModule
   ], exports: [
     CardInfoComponent,
     SkeletonDirective,
