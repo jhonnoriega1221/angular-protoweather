@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WeatherCardData } from '../../models/weather-card-data';
+import { WeatherCardData } from '../../../models/weather-card-data';
 
 interface sunsetInfo {
   icon:string;

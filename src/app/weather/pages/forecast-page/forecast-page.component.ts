@@ -6,7 +6,6 @@ import { Place } from '../../models/place';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subscription} from 'rxjs';
 import { PlaceDetails } from '../../models/place-details';
-import { LocationSearchAutocompleteComponent } from '../../components/location-search-autocomplete/location-search-autocomplete.component';
 
 interface Message {
   title: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { WeatherCardData } from '../../models/weather-card-data';
+import { WeatherCardData } from '../../../models/weather-card-data';
 
 @Component({
   selector: 'app-actual-weather-info',

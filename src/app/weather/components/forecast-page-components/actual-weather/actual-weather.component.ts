@@ -1,9 +1,9 @@
 //https://icons8.com/icon/set/weather/color
 // [ngStyle]="{'background-image': 'url('+ actualBackground.backgroundURL+')'}"
 import { Component, OnInit, Input } from '@angular/core';
-import { WeatherCode } from '../../models/weatherCode';
-import { WeatherService } from '../../services/weather.service';
-import { PlaceService } from '../../services/place.service';
+import { WeatherCode } from '../../../models/weatherCode';
+import { WeatherService } from '../../../services/weather.service';
+import { PlaceService } from '../../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';

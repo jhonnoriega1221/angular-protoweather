@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { WeatherService } from '../../services/weather.service';
+import { WeatherService } from '../../../services/weather.service';
 
 interface Hourly{
   time:string;
