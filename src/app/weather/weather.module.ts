@@ -4,12 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { PwButtonModule } from '../ui/button/button.module';
+import { PwSpinnerModule } from '../ui/spinner/spinner.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
-import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -74,15 +73,13 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     CommonModule,
     FormsModule,
     WeatherRoutingModule,
-    MatIconModule,
     MatRippleModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
     MatAutocompleteModule,
     MatDialogModule,
     SharedModule,
     MatSnackBarModule,
     PwButtonModule,
+    PwSpinnerModule,
     ReactiveFormsModule
   ]
 })

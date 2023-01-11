@@ -60,8 +60,8 @@
     </div>
     <div class="link-container"><a *ngIf="!isLoading && !isError" class="credits-text" href="https://open-meteo.com/" target="_blank">Datos del clima por Open-Meteo.com</a></div>
 </div>
-
 <div class="error-state" *ngIf="isError">
+
     <app-nolocation-warning style="margin-bottom:12px; display:block" [title]=warningInfo.title
         [message]=warningInfo.message [imageURL]=warningInfo.imageURL>
     </app-nolocation-warning>
