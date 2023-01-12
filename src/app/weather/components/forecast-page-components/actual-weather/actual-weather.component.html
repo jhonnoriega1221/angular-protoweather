@@ -1,4 +1,5 @@
 <div [ngStyle]="{'background-color': weatherCodeData.backgroundColor, 'color': weatherCodeData.textColor}" class="wrapper">
+    <app-actual-weather-background [actualDate]="actualDay" class="background"></app-actual-weather-background>
     <div class="place-name-date">
         <div class="place-name">
             <div class="place-name-container">

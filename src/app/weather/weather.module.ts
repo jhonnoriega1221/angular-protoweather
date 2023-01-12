@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PwButtonModule } from '../ui/button/button.module';
 import { PwSpinnerModule } from '../ui/spinner/spinner.module';
+import { PwSkyModule } from '../sky/sky.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
 import { MatRippleModule } from '@angular/material/core';
@@ -80,7 +81,8 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     MatSnackBarModule,
     PwButtonModule,
     PwSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PwSkyModule
   ]
 })
 export class WeatherModule { }
