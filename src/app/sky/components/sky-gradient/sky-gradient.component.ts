@@ -9,7 +9,7 @@ export class SkyGradientComponent {
 
   @Input() actualDate:string = '';
 
-  setHour(){
+  setHour():string {
     return this.actualDate.split(', ', 2)[1].split(':', 2)[0];
   }
 

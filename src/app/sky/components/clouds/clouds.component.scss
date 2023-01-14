@@ -1,0 +1,74 @@
+.cloud{
+    position: absolute;
+    width: 853px;
+    height: 310px;
+    opacity: 0.8;
+    filter: brightness(3);
+    animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background: url('../../../../assets/weather_backgrounds/long-cloud.png') no-repeat;
+    background-size: contain;
+}
+
+@keyframes cloudMovement {
+    from{
+        transform: translateX(-613px); 
+    }
+
+    to{
+        transform: translateX(866px);
+    }
+    /*-1479px*/
+}
+
+.cloud-1{
+    top: -111px;
+    left: -613px;
+    animation-duration: 108s;
+}
+.cloud-2{
+    top: -111px;
+    left: 866px;
+    animation-duration: 108s;
+}
+.cloud-3{
+    top: -120px;
+    left: 128px;
+    animation-duration: 112s;
+}
+.cloud-4{
+    top: -120px;
+    left: -1351px;
+    animation-duration: 112s;
+}
+.cloud-5{
+    top: -130px;
+    left: -1071px;
+    animation-duration: 115s;
+}
+.cloud-6{
+    top: -130px;
+    left: 408px;
+    animation-duration: 115s;
+}
+.cloud-7{
+    top: -135px;
+    left: -853px;
+    animation-duration: 110s;
+}
+.cloud-8{
+    top: -135px;
+    left: 624px;
+    animation-duration: 110s;
+}
+.cloud-9{
+    top: -115px;
+    left: -35px;
+    animation-duration: 105s;
+}
+.cloud-10{
+    top: -115px;
+    left: 1444px;
+    animation-duration: 105s;
+}

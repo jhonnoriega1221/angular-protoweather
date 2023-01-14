@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkyGradientComponent } from './components/sky-gradient/sky-gradient.component';
+import { CloudsComponent } from './components/clouds/clouds.component';
 
 
 
 @NgModule({
   declarations: [
-    SkyGradientComponent
+    SkyGradientComponent,
+    CloudsComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SkyGradientComponent
+    SkyGradientComponent,
+    CloudsComponent
   ]
 })
 export class PwSkyModule { }
