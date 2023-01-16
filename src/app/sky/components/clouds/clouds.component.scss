@@ -9,11 +9,35 @@ $large-cloud-2-start: -755px;
 
 .cloud{
     position: absolute;
-    filter: brightness(3);
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     background-size: contain;
     background-repeat: no-repeat;
+
+    &-0{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-1{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-2{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-3{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-4{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-5{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-6{filter: brightness(70%) sepia(100%) hue-rotate(296deg);}
+    &-7{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-8{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-9{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-10{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-11{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-12{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-13{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-14{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-15{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-16{filter: brightness(300%) sepia(0%) hue-rotate(0);}
+    &-17{filter: brightness(70%) sepia(100%) hue-rotate(340deg);}
+    &-18{filter: brightness(70%) sepia(100%) hue-rotate(340deg);}
+    &-19{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-20{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-21{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-22{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-23{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
 
     &-thin{
         width: 853px;

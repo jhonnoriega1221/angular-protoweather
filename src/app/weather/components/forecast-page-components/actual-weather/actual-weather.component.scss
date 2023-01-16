@@ -11,6 +11,7 @@
     gap: 26px;
     position: relative;
     overflow: hidden;
+    color: white;
 }
 
 .background{
@@ -54,6 +55,7 @@
     height: 100%;
     opacity: 0;
     border-radius:100%;
+    background-color: white;
 }
 
 .icon-favorite-button:hover .icon-favorite-button-background {
@@ -68,10 +70,12 @@
     font-size: 18px;
     width: 18px;
     min-width: 18px;
+    color: white;
 }
 
 .place-name-date{
     position: relative;
+    filter: drop-shadow(0px 2px 2px #00000035);
     
     .place-name{
         display: flex;
@@ -82,13 +86,13 @@
         .place-name-container{
             display: flex;
             height: 32px;
-            padding: 6px 8px;
             box-sizing: border-box;
             border-radius: 6px;
             overflow: hidden;
             text-overflow: ellipsis;
             align-items: center;
             position: relative;
+            gap: 2px;
         }
 
         .place-name-container-background{
@@ -117,6 +121,7 @@
 
 .temperature-status{
     position: relative;
+    filter: drop-shadow(0px 2px 2px #00000035);
 
     .temperature {
         position: relative;
@@ -151,6 +156,7 @@
     align-items: center;
     gap: 16px;
     position: relative;
+    filter: drop-shadow(0px 2px 2px #00000035);
 
     .bottom-info-item{
         display: inherit;

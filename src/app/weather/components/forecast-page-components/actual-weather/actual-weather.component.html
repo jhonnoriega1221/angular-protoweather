@@ -1,15 +1,14 @@
-<div [ngStyle]="{'background-color': weatherCodeData.backgroundColor, 'color': weatherCodeData.textColor}" class="wrapper">
+<div class="wrapper">
     <app-actual-weather-background [actualDate]="actualDay" class="background"></app-actual-weather-background>
     <div class="place-name-date">
         <div class="place-name">
             <div class="place-name-container">
                 <i class="icon-small fa-solid fa-map-marker-alt"></i>
                 <span>{{place}}</span>
-                <div [ngStyle]="{'background-color': weatherCodeData.textColor}" class="place-name-container-background"></div>
             </div>
             <button class="icon-favorite-button" *ngIf="!isDefaultLocation" (click)="toggleFavorite()">
-                <i [ngStyle]="{'color': weatherCodeData.textColor}" class="favorite-button-icon" [ngClass]="favoriteIconStatus"></i>
-                <div [ngStyle]="{'background-color': weatherCodeData.textColor}" class="icon-favorite-button-background"></div>
+                <i class="favorite-button-icon" [ngClass]="favoriteIconStatus"></i>
+                <div class="icon-favorite-button-background"></div>
             </button>
         </div>
         <p class="actual-date">{{actualDay}}</p>
