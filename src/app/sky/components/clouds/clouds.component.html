@@ -1,10 +1,12 @@
-<div class="cloud cloud-1"  alt=""></div>
-<div class="cloud cloud-2"  alt=""></div>
-<div class="cloud cloud-3"  alt=""></div>
-<div class="cloud cloud-4"  alt=""></div>
-<div class="cloud cloud-5"  alt=""></div>
-<div class="cloud cloud-6"  alt=""></div>
-<div class="cloud cloud-7"  alt=""></div>
-<div class="cloud cloud-8"  alt=""></div>
-<div class="cloud cloud-9"  alt=""></div>
-<div class="cloud cloud-10"  alt=""></div>
+<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1"></div>
+<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1 cloud-thin-1-loop"></div>
+<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2"></div>
+<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2 cloud-thin-2-loop"></div>
+<div *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1"></div>
+<div *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1 cloud-normal-1-loop"></div>
+<div *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2"></div>
+<div *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2 cloud-normal-2-loop"></div>
+<div *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1"></div>
+<div *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1 cloud-large-1-loop"></div>
+<div *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2"></div>
+<div *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2 cloud-large-2-loop"></div>
