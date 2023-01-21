@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SkyGradientComponent } from './components/sky-gradient/sky-gradient.component';
 import { CloudsComponent } from './components/clouds/clouds.component';
 import { StarsComponent } from './components/stars/stars.component';
+import { SunComponent } from './components/sun/sun.component';
 
 
 
@@ -10,7 +11,8 @@ import { StarsComponent } from './components/stars/stars.component';
   declarations: [
     SkyGradientComponent,
     CloudsComponent,
-    StarsComponent
+    StarsComponent,
+    SunComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { StarsComponent } from './components/stars/stars.component';
   exports: [
     SkyGradientComponent,
     CloudsComponent,
-    StarsComponent
+    StarsComponent,
+    SunComponent
   ]
 })
 export class PwSkyModule { }

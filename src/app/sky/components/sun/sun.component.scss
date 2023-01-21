@@ -1,0 +1,13 @@
+.sun {
+    background-repeat: no-repeat;
+    background-image: url('../../../../assets/weather_backgrounds/sun.png');
+    position: absolute;
+    top: -198px;
+    left: 0;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    filter: brightness(120%);
+    height: 510px;
+}
