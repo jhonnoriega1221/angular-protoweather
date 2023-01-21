@@ -9,6 +9,7 @@ export class CloudsComponent {
 
   @Input() cloudsLevel:number = 5;
   @Input() actualDate:string = '';
+  @Input() isCloudy:boolean = false;
 
   setHour():string {
     return this.actualDate.split(', ', 2)[1].split(':', 2)[0];

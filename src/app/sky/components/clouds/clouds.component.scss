@@ -38,6 +38,7 @@ $large-cloud-2-start: -755px;
     &-21{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
     &-22{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
     &-23{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
+    &-cloudy{filter: brightness(60%) sepia(30%) hue-rotate(165deg);}
 
     &-thin{
         width: 853px;
@@ -122,30 +123,30 @@ $large-cloud-2-start: -755px;
 
 @keyframes thinCloudMovement {
     from{
-        transform: translateX(-853px); 
+        transform: translate3d(-853px, 0px, 0px); 
     }
 
     to{
-        transform: translateX(-853px + $container-width);
+        transform: translate3d(-853px + $container-width, 0px, 0px);
     }
 }
 
 @keyframes cloudMovement {
     from{
-        transform: translateX(-363px); 
+        transform: translate3d(-363px, 0px, 0px); 
     }
 
     to{
-        transform: translateX(-363px + $container-width);
+        transform: translate3d(-363px + $container-width, 0px, 0px);
     }
 }
 
 @keyframes largeCloudMovement {
     from{
-        transform: translateX(-853px); 
+        transform: translate3d(-853px, 0px, 0px); 
     }
 
     to{
-        transform: translateX(-853px + $container-width);
+        transform: translate3d(-853px + $container-width, 0px, 0px);
     }
 }

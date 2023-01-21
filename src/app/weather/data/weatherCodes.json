@@ -5,7 +5,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/0-clear-sky.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/0-clear-sky.svg",
         "backgroundColor": "#56A0EE",
-        "textColor": "#11365E"
+        "textColor": "#11365E",
+        "cloudLevel":"1",
+        "isCloudy":"false",
+        "isRain":"false",
+        "isSnow":"false",
+        "isThunder":"false",
+        "isShowingSun":"true"
     },
     {
         "weatherCode": 1,
