@@ -7,9 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class StarsComponent {
 
-  @Input() actualDate:string = '';
+  @Input() actualHour:number = 0;
 
-  setHour():string {
-    return this.actualDate.split(', ', 2)[1].split(':', 2)[0];
-  }
 }

@@ -1,6 +1,6 @@
 <div class="wrapper">
-	<pw-sky-gradient [actualDate]="actualDate"></pw-sky-gradient>
-	<pw-clouds [actualDate]="actualDate"></pw-clouds>
-	<pw-stars [actualDate]="actualDate"></pw-stars>
-	<pw-sun></pw-sun>
+	<pw-sky-gradient [actualHour]="setHour()"></pw-sky-gradient>
+	<pw-clouds [actualHour]="setHour()"></pw-clouds>
+	<pw-stars *ngIf="(setHour() > 17 || setHour() < 7)" [actualHour]="setHour()"></pw-stars>
+	<pw-sun *ngIf="(setHour() > 7 && setHour() < 17)"></pw-sun>
 </div>

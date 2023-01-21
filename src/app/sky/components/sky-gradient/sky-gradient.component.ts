@@ -7,11 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SkyGradientComponent {
 
-  @Input() actualDate:string = '';
+  @Input() actualHour:number = 0;
   @Input() isCloudy:boolean = false;
-
-  setHour():string {
-    return this.actualDate.split(', ', 2)[1].split(':', 2)[0];
-  }
 
 }
