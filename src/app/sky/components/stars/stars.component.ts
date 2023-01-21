@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'pw-stars',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class StarsComponent {
 
+  @Input() actualDate:string = '';
+
+  setHour():string {
+    return this.actualDate.split(', ', 2)[1].split(':', 2)[0];
+  }
 }

@@ -10,8 +10,11 @@
     animation-duration: 200s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-}
 
+    &-6{
+        filter: opacity(60%);
+    }
+}
 @keyframes starsMove {
     from { transform: translate3d(0, 0, 0); }
     to { transform: translate3d(-326px, 0, 0); }
