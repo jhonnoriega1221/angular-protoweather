@@ -6,12 +6,12 @@
         "iconURL": "../../../../../../assets/weather_code_icons/0-clear-sky.svg",
         "backgroundColor": "#56A0EE",
         "textColor": "#11365E",
-        "cloudLevel":"1",
-        "isCloudy":"false",
-        "isRain":"false",
-        "isSnow":"false",
-        "isThunder":"false",
-        "isShowingSun":"true"
+        "cloudLevel": 0,
+        "isCloudy": false,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": true
     },
     {
         "weatherCode": 1,
@@ -19,7 +19,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/1-mainly-clear.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/1-mainly-clear.svg",
         "backgroundColor": "#7AB9FC",
-        "textColor": "#122A44"
+        "textColor": "#122A44",
+        "cloudLevel":1,
+        "isCloudy": false,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": true
     },
     {
         "weatherCode": 2,
@@ -27,7 +33,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/2-partly-cloud.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/2-partly-cloud.svg",
         "backgroundColor": "#7AB9FC",
-        "textColor": "#122A44"
+        "textColor": "#122A44",
+        "cloudLevel":3,
+        "isCloudy": false,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": true
     },
     {
         "weatherCode": 3,
@@ -35,7 +47,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/3-overcast.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/3-overcast.svg",
         "backgroundColor": "#A8A8A8",
-        "textColor": "#454545"
+        "textColor": "#454545",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 45,
@@ -43,7 +61,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/3-overcast.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 48,
@@ -51,7 +75,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/48-depositing-rime-fog.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain": false,
+        "isSnow": false,
+        "isThunder": false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 51,
@@ -59,7 +89,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/51-light-drizzle.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 53,
@@ -67,7 +103,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/48-depositing-rime-fog.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 55,
@@ -75,7 +117,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 56,
@@ -83,7 +131,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 57,
@@ -91,7 +145,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "backgroundColor": "#D2D2D2",
-        "textColor": "#606060"
+        "textColor": "#606060",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 61,
@@ -99,7 +159,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 63,
@@ -107,7 +173,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 65,
@@ -115,7 +187,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 66,
@@ -123,7 +201,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 67,
@@ -131,7 +215,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 71,
@@ -139,7 +229,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 73,
@@ -147,7 +243,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 75,
@@ -155,7 +257,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 77,
@@ -163,7 +271,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/57-dense-freezing-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 80,
@@ -171,7 +285,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": false,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 81,
@@ -179,7 +299,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/61-slight-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": false,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 82,
@@ -187,7 +313,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/65-heavy-rain.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": false,
+        "isRain":true,
+        "isSnow":false,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 85,
@@ -195,7 +327,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": false,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 86,
@@ -203,7 +341,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/55-dense-drizzle.svg",
         "backgroundColor": "#426385",
-        "textColor": "#CAE4FF"
+        "textColor": "#CAE4FF",
+        "cloudLevel":5,
+        "isCloudy": false,
+        "isRain":false,
+        "isSnow":true,
+        "isThunder":false,
+        "isShowingSun": false
     },
     {
         "weatherCode": 95,
@@ -211,7 +355,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "backgroundColor": "#2D4156",
-        "textColor": "#C8E3FF"
+        "textColor": "#C8E3FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":false,
+        "isThunder":true,
+        "isShowingSun": false
     },
     {
         "weatherCode": 96,
@@ -219,7 +369,13 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "backgroundColor": "#2D4156",
-        "textColor": "#C8E3FF"
+        "textColor": "#C8E3FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":false,
+        "isThunder":true,
+        "isShowingSun": false
     },
     {
         "weatherCode": 99,
@@ -227,6 +383,12 @@
         "backgroundURL": "../../../../../../assets/weather_backgrounds/background-placeholder-2.jpg",
         "iconURL": "../../../../../../assets/weather_code_icons/95-slight-thunderstorm.svg",
         "backgroundColor": "#2D4156",
-        "textColor": "#C8E3FF"
+        "textColor": "#C8E3FF",
+        "cloudLevel":5,
+        "isCloudy": true,
+        "isRain":false,
+        "isSnow":false,
+        "isThunder":true,
+        "isShowingSun": false
     }
 ]

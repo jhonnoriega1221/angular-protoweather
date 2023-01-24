@@ -35,7 +35,13 @@ export class ActualWeatherComponent implements OnInit {
     iconURL: '',
     backgroundColor: '#000000',
     textColor: '#000000',
-    weatherCode: 0
+    weatherCode: 0,
+    cloudLevel: 0,
+    isCloudy: false,
+    isRain: false,
+    isShowingSun: false,
+    isSnow: false,
+    isThunder: false
   };
 
   constructor( private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }

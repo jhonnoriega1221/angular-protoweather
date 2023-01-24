@@ -2,12 +2,12 @@
     background-repeat: no-repeat;
     background-image: url('../../../../assets/weather_backgrounds/sun.png');
     position: absolute;
-    top: -198px;
+    top: 0;
     left: 0;
     width: 100%;
-    background-size: cover;
+    background-size: 640px;
     background-position-x: center;
-    background-position-y: center;
-    filter: brightness(120%);
-    height: 510px;
+    background-position-y: -179px;
+    filter: brightness(110%);
+    height: 100%;
 }

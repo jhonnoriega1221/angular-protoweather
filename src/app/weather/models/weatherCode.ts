@@ -5,4 +5,10 @@ export interface WeatherCode{
     iconURL:string;
     backgroundColor:string;
     textColor:string;
+    cloudLevel: number;
+    isCloudy: boolean;
+    isRain: boolean;
+    isSnow: boolean;
+    isThunder: boolean;
+    isShowingSun: boolean;
 }

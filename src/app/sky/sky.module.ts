@@ -4,6 +4,7 @@ import { SkyGradientComponent } from './components/sky-gradient/sky-gradient.com
 import { CloudsComponent } from './components/clouds/clouds.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { SunComponent } from './components/sun/sun.component';
+import { RainComponent } from './components/rain/rain.component';
 
 
 
@@ -12,7 +13,8 @@ import { SunComponent } from './components/sun/sun.component';
     SkyGradientComponent,
     CloudsComponent,
     StarsComponent,
-    SunComponent
+    SunComponent,
+    RainComponent
   ],
   imports: [
     CommonModule
@@ -21,7 +23,8 @@ import { SunComponent } from './components/sun/sun.component';
     SkyGradientComponent,
     CloudsComponent,
     StarsComponent,
-    SunComponent
+    SunComponent,
+    RainComponent
   ]
 })
 export class PwSkyModule { }
