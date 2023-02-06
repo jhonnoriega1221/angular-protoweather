@@ -39,26 +39,32 @@ p{
     }
 
     &-option{
-        display: flex;
-        align-items: center;
         color: var(--angular-protoweather-on-background);
 
-        select{
-            font-size: 16px;
-            border-top-width: 0;
-            border-left-width: 0; 
-            border-right-width: 0; 
-            border-bottom-width: 0;
-            appearance: none;
-            text-indent: 0;
-            padding: 6px 6px;
-            font-family: 'Poppins';
-            outline: none;
-            color: inherit;
-            background-color: var(--angular-protoweather-background);
-            text-align: end;
-            border-radius: 6px;
+        &-select{
+            display: flex;
+            align-items: center;
+
+            select{
+                font-size: 16px;
+                border-top-width: 0;
+                border-left-width: 0; 
+                border-right-width: 0; 
+                border-bottom-width: 0;
+                appearance: none;
+                text-indent: 0;
+                padding: 6px 6px;
+                font-family: 'Poppins';
+                outline: none;
+                color: inherit;
+                background-color: var(--angular-protoweather-background);
+                text-align: end;
+                border-radius: 6px;
+            }
+
         }
+
+        
 
         &-icon, .list-item-route-icon{
             font-size: 12px;

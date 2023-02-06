@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PwButtonModule } from '../ui/button/button.module';
 import { PwSpinnerModule } from '../ui/spinner/spinner.module';
+import { PwToggleModule } from '../ui/toggle/toggle.module';
 import { PwSkyModule } from '../sky/sky.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
@@ -77,6 +78,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     MatRippleModule,
     MatAutocompleteModule,
     MatDialogModule,
+    PwToggleModule,
     SharedModule,
     MatSnackBarModule,
     PwButtonModule,
