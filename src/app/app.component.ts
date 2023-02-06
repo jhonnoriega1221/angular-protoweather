@@ -21,21 +21,27 @@ export class AppComponent {
 
   private configDefaultTheme(pwTheme: string | null) {
 
-    const setDefaultTheme = (isDark:boolean) => {
-      if (isDark) {
-        this.renderer.addClass(document.body, 'dark-theme');
-      } else {
-        this.renderer.removeClass(document.body, 'dark-theme')
-      }
+    const setDefaultTheme = (theme:string) => {
+        this.renderer.addClass(document.body, `${theme}-theme`);
     }
 
-    if (pwTheme === null || pwTheme === undefined) {
+    if (pwTheme === null || pwTheme === undefined || pwTheme === 'auto') {
       localStorage.setItem('pw_theme', 'auto');
-      setDefaultTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    } else if (localStorage.getItem('pw_theme') === 'auto') {
-      setDefaultTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    } else {
-      setDefaultTheme(pwTheme === 'dark');
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDefaultTheme('dark');
+      }
+      return;
     }
+    
+    if (pwTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setDefaultTheme('dark');
+      return;
+    }
+
+    if (pwTheme !== 'light') {
+      setDefaultTheme(`${pwTheme}`);
+      return;
+    }
+  
   }
 }

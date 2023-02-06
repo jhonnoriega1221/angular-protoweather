@@ -32,17 +32,18 @@ export class SettingsPageComponent implements OnInit {
       optionsList: [
         {value: 'auto', name: 'Automático'},
         {value: 'light', name: 'Claro'},
-        {value: 'dark', name: 'Oscuro'}
+        {value: 'dark', name: 'Oscuro'},
+        {value: 'black', name: 'Amoled'}
       ],
       selectedValue: this.pwTheme
     },
-    {
+    /*{
       type: 'toggle',
       icon: 'play-circle',
       title: 'Animaciones',
       description: 'Controla las animaciones',
       selectedValue: true
-    },
+    },*/
     {
       type: 'url',
       route: ['about'],
@@ -59,26 +60,37 @@ export class SettingsPageComponent implements OnInit {
   }
 
   public changeTheme (selectedTheme:any) {
+
+    const setDefaultTheme = (themeName:string) => {
+      if (themeName !== 'light') {
+        this.renderer.addClass(document.body, `${themeName}-theme`);
+      }
+      localStorage.setItem('pw_theme', selectedTheme);
+    }
+
+    const removeOldTheme = (themeName:string) => {
+      this.renderer.removeClass(document.body, `${themeName}-theme`);
+    }
+
+    const oldTheme = this.pwTheme;
+
+    if(oldTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      removeOldTheme('dark');
+    }
+
+    if (oldTheme !== 'light') {
+      removeOldTheme(`${this.pwTheme}`);
+    }
+
     this.pwTheme = selectedTheme;
     this.optionsItems[0].selectedValue = selectedTheme;
 
-    const setDefaultTheme = (isDark:boolean) => {
-      if (isDark) {
-        this.renderer.addClass(document.body, 'dark-theme');
-      } else {
-        this.renderer.removeClass(document.body, 'dark-theme')
-      }
+    if (selectedTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setDefaultTheme('dark');
+      return;
     }
 
-    if (selectedTheme === 'auto') {
-      setDefaultTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    } else {
-      console.log(selectedTheme);
-      setDefaultTheme(selectedTheme === 'dark');
-    }
-
-      localStorage.setItem('pw_theme', selectedTheme);
-
+    setDefaultTheme(selectedTheme);
   }
 
   public toggleAnimations (selectValue:any){

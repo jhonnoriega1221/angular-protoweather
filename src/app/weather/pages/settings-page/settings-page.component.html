@@ -3,7 +3,7 @@
 
     <div class="list">
     	<app-settings-list-item 
-            type="select"
+            [type]="optionsItems[0].type"
             [icon]="optionsItems[0].icon"
             [title]="optionsItems[0].title"
             [description]="optionsItems[0].description"
@@ -12,21 +12,21 @@
             (onChange)="changeTheme($event)">
         </app-settings-list-item>
 
-        <app-settings-list-item
-            type="toggle"
+       <!--FUTURE <app-settings-list-item
+            [type]="optionsItems[1].type"
             [icon]="optionsItems[1].icon"
             [title]="optionsItems[1].title"
             [description]="optionsItems[1].description"
             [selectedValue]="optionsItems[1].selectedValue"
             (onChange)="toggleAnimations($event)">
-        </app-settings-list-item>
+        </app-settings-list-item>-->
 
         <app-settings-list-item
-            type="url"
-            [url]="optionsItems[2].route"
-            [icon]="optionsItems[2].icon"
-            [title]="optionsItems[2].title"
-            [description]="optionsItems[2].description">
+            [type]="optionsItems[1].type"
+            [url]="optionsItems[1].route"
+            [icon]="optionsItems[1].icon"
+            [title]="optionsItems[1].title"
+            [description]="optionsItems[1].description">
         </app-settings-list-item>
     </div>    
 </div>

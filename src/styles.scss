@@ -96,7 +96,7 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 
 }
 
-.dark2-theme{
+.dark-theme{
   @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark;
   --angular-protoweather-primary: #9fcaff;
@@ -125,7 +125,7 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
   --angular-protoweather-disabled-container: #133054;
 }
 
-.dark-theme{
+.black-theme{
   @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark;
   --angular-protoweather-primary: #9fcaff;
