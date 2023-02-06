@@ -11,12 +11,13 @@ interface OptionSelectList{
   styleUrls: ['./settings-list-item.component.scss']
 })
 export class SettingsListItemComponent {
-  @Input() url:string[]|null = null;
+  @Input() type:'toggle'|'select'|'url' = 'url';
+  @Input() url?:string[]|null = null;
   @Input() icon:string = 'square';
   @Input() title:string = '';
   @Input() description:string = '';
-  @Input() selectedValue:string|null = '';
-  @Input() optionsList:OptionSelectList[] = [];
+  @Input() selectedValue?:string|boolean|null = '';
+  @Input() optionsList?:OptionSelectList[]|null = [];
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 

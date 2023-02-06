@@ -9,10 +9,13 @@
 		</div>
 	</div>
 	<div class="list-item-option">
-		<select *ngIf="!url" [ngModel]="selectedValue" (ngModelChange)="changeOption($event)">
-			<option *ngFor="let option of optionsList" [ngValue]="option.value">{{option.name}}</option>
-		</select>
-		<i *ngIf="!url" class="fa-solid fa-angle-right list-item-option-icon"></i>
-		<i *ngIf="url" class="fa-solid fa-angle-right list-item-route-icon"></i>
+		<div *ngIf="type === 'select'" class="list-item-option-select">
+			<select [ngModel]="selectedValue" (ngModelChange)="changeOption($event)">
+				<option *ngFor="let option of optionsList" [ngValue]="option.value">{{option.name}}</option>
+			</select>
+			<i class="fa-solid fa-angle-right list-item-option-icon"></i>
+		</div>
+
+		<i *ngIf="type === 'url' && url" class="fa-solid fa-angle-right list-item-route-icon"></i>
 	</div>
 </a>

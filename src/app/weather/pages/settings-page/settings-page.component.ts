@@ -1,12 +1,13 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 
 interface OptionItem {
-  route:string[] | null;
+  route?:string[] | null;
   icon:string;
   title:string;
   description:string;
-  selectedValue:string|null;
-  optionsList:OptionSelectList[];
+  type:'url'|'toggle'|'select';
+  selectedValue?:string|boolean|null;
+  optionsList?:OptionSelectList[]|null;
 }
 
 interface OptionSelectList{
@@ -22,10 +23,9 @@ interface OptionSelectList{
 export class SettingsPageComponent implements OnInit {
 
   public pwTheme = localStorage.getItem('pw_theme');
-
   public optionsItems:OptionItem[] = [
     {
-      route: null,
+      type: 'select',
       icon: 'moon',
       title: 'Tema',
       description: 'Selecciona tu tema preferido',
@@ -37,13 +37,20 @@ export class SettingsPageComponent implements OnInit {
       selectedValue: this.pwTheme
     },
     {
+      type: 'toggle',
+      icon: 'play-circle',
+      title: 'Animaciones',
+      description: 'Controla las animaciones',
+      selectedValue: true
+    },
+    {
+      type: 'url',
       route: ['about'],
       icon: 'info-circle',
       title: 'Acerca de',
-      description: 'Más información',
-      optionsList: [],
-      selectedValue: ''
+      description: 'Más información'
     }
+
   ]
 
   constructor(private renderer: Renderer2) { }
@@ -72,6 +79,10 @@ export class SettingsPageComponent implements OnInit {
 
       localStorage.setItem('pw_theme', selectedTheme);
 
+  }
+
+  public toggleAnimations (selectValue:any){
+    console.log(selectValue);
   }
 
 
