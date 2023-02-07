@@ -26,7 +26,7 @@
     border-style: solid;
     border-radius: 100%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: var(--angular-protoweather-surface-5) transparent transparent transparent;
+    border-color: var(--pw-surface-5) transparent transparent transparent;
 
     &.small{
       height: 24px;
@@ -41,11 +41,11 @@
     }
 
     &.primary{
-      border-color: var(--angular-protoweather-primary) transparent transparent transparent;
+      border-color: var(--pw-primary) transparent transparent transparent;
     }
 
     &.error{
-      border-color: var(--angular-protoweather-error) transparent transparent transparent;
+      border-color: var(--pw-error) transparent transparent transparent;
     }
 
     &:nth-child(1){

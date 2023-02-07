@@ -1,32 +1,32 @@
 .flat-button{
 	border: none;
-    background-color: var(--angular-protoweather-surface-5);
-    color: var(--angular-protoweather-on-primary-container);
+    background-color: var(--pw-surface-5);
+    color: var(--pw-on-primary-container);
 
 	&::after{
-		background-color: var(--angular-protoweather-on-primary-container);
+		background-color: var(--pw-on-primary-container);
 	}
 
 	&-primary{
-		background-color: var(--angular-protoweather-primary);
-		color: var(--angular-protoweather-on-primary);
+		background-color: var(--pw-primary);
+		color: var(--pw-on-primary);
 
 		&::after{
-			background-color: var(--angular-protoweather-on-primary);
+			background-color: var(--pw-on-primary);
 		}
 	}
 
 	&-error{
-		background-color: var(--angular-protoweather-error);
-		color: var(--angular-protoweather-on-error);
+		background-color: var(--pw-error);
+		color: var(--pw-on-error);
 
 		&::after{
-			background-color: var(--angular-protoweather-on-error);
+			background-color: var(--pw-on-error);
 		}
 	}
 
 	&:disabled{
-		color: var(--angular-protoweather-disabled-content);
-		background-color: var(--angular-protoweather-disabled-container);
+		color: var(--pw-disabled-content);
+		background-color: var(--pw-disabled-container);
 	}
 }

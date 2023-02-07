@@ -1,29 +1,29 @@
 .text-button{
 	border: none;
-	color: var(--angular-protoweather-surface-5);
+	color: var(--pw-surface-5);
 	background-color: transparent;
 
 	&::after{
-		background-color: var(--angular-protoweather-surface-5);
+		background-color: var(--pw-surface-5);
 	}
 
 	&-primary{
-		color: var(--angular-protoweather-primary);
+		color: var(--pw-primary);
 
 		&::after{
-			background-color: var(--angular-protoweather-primary);
+			background-color: var(--pw-primary);
 		}
 	}
 
 	&-error{
-		color: var(--angular-protoweather-error);
+		color: var(--pw-error);
 
 		&::after{
-			background-color: var(--angular-protoweather-error);
+			background-color: var(--pw-error);
 		}
 	}
 
 	&:disabled{
-		color: var(--angular-protoweather-disabled-content);
+		color: var(--pw-disabled-content);
 	}
 }

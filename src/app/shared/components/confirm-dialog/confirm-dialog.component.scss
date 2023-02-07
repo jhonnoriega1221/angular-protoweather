@@ -4,12 +4,12 @@
     justify-content: space-between;
     height: 100%;
     box-sizing: border-box;
-    color: var(--angular-protoweather-on-background);
-    background-color: var(--angular-protoweather-surface-1);
+    color: var(--pw-on-background);
+    background-color: var(--pw-surface-1);
 
     &-top {
         padding: 24px 16px 20px 16px;
-        color: var(--angular-protoweather-primary);
+        color: var(--pw-primary);
         text-align: center;
         font-size: 18px;
 
@@ -31,7 +31,7 @@
         display: flex;
         width: 100%;
         gap: 6px;
-        background-color: var(--angular-protoweather-surface-2);
+        background-color: var(--pw-surface-2);
         padding: 12px 16px;
         justify-content: space-between;
         box-sizing: border-box;

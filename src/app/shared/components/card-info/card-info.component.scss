@@ -1,7 +1,7 @@
 .icon {
     margin-right: 14px;
     margin-left: 6px;
-    color: var(--angular-protoweather-primary);
+    color: var(--pw-primary);
 }
 
 p {
@@ -11,13 +11,13 @@ p {
 .title {
     font-size: 12px;
     margin-bottom: 4px;
-    color: var(--angular-protoweather-primary)
+    color: var(--pw-primary)
 }
 
 .text {
     font-size: 20px;
     font-weight: 600;
-    color: var(--angular-protoweather-on-primary-container)
+    color: var(--pw-on-primary-container)
 }
 
 .wrapper{

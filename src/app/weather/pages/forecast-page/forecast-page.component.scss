@@ -36,7 +36,7 @@
 }
 
 .right-side-background{
-    background-color: var(--angular-protoweather-surface-1);
+    background-color: var(--pw-surface-1);
     padding: 1px;
     border-radius: 12px;
 }
@@ -51,7 +51,7 @@
         text-align: end;
         font-weight: 600;
         font-size: 20px;
-        color: var(--angular-protoweather-on-background);
+        color: var(--pw-on-background);
     }
     //margin: 0 12px 12px 12px;
 }
@@ -69,7 +69,7 @@
     font-size: 12px;
     text-decoration: none;
     padding: 0 12px;
-    color: var(--angular-protoweather-on-background);
+    color: var(--pw-on-background);
 }
 
 @media (min-width: 600px){

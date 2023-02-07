@@ -1,5 +1,5 @@
 .wrapper{
-    background-color: var(--angular-protoweather-surface-1);
+    background-color: var(--pw-surface-1);
     height: 100vh;
 }
 
@@ -11,7 +11,7 @@
     height: 100%;
     box-sizing: border-box;
     justify-content: space-around;
-    background-color: var(--angular-protoweather-background);
+    background-color: var(--pw-background);
     align-content: center;
 }
 
@@ -21,8 +21,8 @@
 
 .cancel-button {
     font-size: 16px;
-    color: var(--angular-protoweather-primary);
-    background-color: var(--angular-protoweather-background);
+    color: var(--pw-primary);
+    background-color: var(--pw-background);
     border: none;
     position: fixed;
     bottom: 24px;
@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--angular-protoweather-primary);
+    background-color: var(--pw-primary);
     opacity: 0;
     border-radius: 12px;
 }
@@ -55,7 +55,7 @@
 @media(min-width: 600px){
     .card {
         position: relative;
-        background-color: var(--angular-protoweather-background);
+        background-color: var(--pw-background);
         top: 50%;
         width: 570px;
         margin: auto;

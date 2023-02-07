@@ -4,11 +4,11 @@
     box-sizing: border-box;
     border-radius: 12px;
     text-decoration: none;
-    color: var(--angular-protoweather-on-primary-container);
+    color: var(--pw-on-primary-container);
     font-size: 26px;
-    border: 2px dashed var(--angular-protoweather-on-primary-container);
+    border: 2px dashed var(--pw-on-primary-container);
     height: 117px;
-    background-color: var(--angular-protoweather-background);
+    background-color: var(--pw-background);
     display: block;
     position: relative;
 }
@@ -22,7 +22,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--angular-protoweather-on-primary-container);
+    background-color: var(--pw-on-primary-container);
     opacity: 0;
     border-radius: 12px;
 }

@@ -69,89 +69,89 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 
 :root {
   color-scheme: light;
-  --angular-protoweather-primary: #0061A5;
-  --angular-protoweather-on-primary: #F2F7FA;
-  --angular-protoweather-primary-container: #D2E4FF;
-  --angular-protoweather-on-primary-container: #001C37;
+  --pw-primary: #0061A5;
+  --pw-on-primary: #F2F7FA;
+  --pw-primary-container: #D2E4FF;
+  --pw-on-primary-container: #001C37;
 
-  --angular-protoweather-background: #FDFBFF;
-  --angular-protoweather-on-background: #001B3D;
+  --pw-background: #FDFBFF;
+  --pw-on-background: #001B3D;
 
-  --angular-protoweather-surface-1: #f0f3fa;
-  --angular-protoweather-surface-2: #e9eff8;
-  --angular-protoweather-surface-3: #e1eaf5;
-  --angular-protoweather-surface-4: #dfe9f4;
-  --angular-protoweather-surface-5: #dae5f2;
+  --pw-surface-1: #f0f3fa;
+  --pw-surface-2: #e9eff8;
+  --pw-surface-3: #e1eaf5;
+  --pw-surface-4: #dfe9f4;
+  --pw-surface-5: #dae5f2;
 
-  --angular-protoweather-error: #BA1A1A;
-  --angular-protoweather-on-error: #FFFFFF;
-  --angular-protoweather-error-container: #FFDAD6;
-  --angular-protoweather-on-error-container: #410002;
+  --pw-error: #BA1A1A;
+  --pw-on-error: #FFFFFF;
+  --pw-error-container: #FFDAD6;
+  --pw-on-error-container: #410002;
 
-  --angular-protoweather-invert-surface: #001b3d;
-  --angular-protoweather-invert-on-surface: #d6e3ff;
+  --pw-invert-surface: #001b3d;
+  --pw-invert-on-surface: #d6e3ff;
 
-  --angular-protoweather-disabled-content: #8b97a6;
-  --angular-protoweather-disabled-container: #e0e3e7;
+  --pw-disabled-content: #8b97a6;
+  --pw-disabled-container: #e0e3e7;
 
 }
 
 .dark-theme{
   @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark;
-  --angular-protoweather-primary: #9fcaff;
-  --angular-protoweather-on-primary: #003259;
-  --angular-protoweather-primary-container: #00497e;
-  --angular-protoweather-on-primary-container: #d2e4ff;
+  --pw-primary: #9fcaff;
+  --pw-on-primary: #003259;
+  --pw-primary-container: #00497e;
+  --pw-on-primary-container: #d2e4ff;
 
-  --angular-protoweather-background: #001b3d;
-  --angular-protoweather-on-background: #d6e3ff;
+  --pw-background: #001b3d;
+  --pw-on-background: #d6e3ff;
 
-  --angular-protoweather-surface-1: #082447;
-  --angular-protoweather-surface-2: #0d294d;
-  --angular-protoweather-surface-3: #112e52;
-  --angular-protoweather-surface-4: #133054;
-  --angular-protoweather-surface-5: #163358;
+  --pw-surface-1: #082447;
+  --pw-surface-2: #0d294d;
+  --pw-surface-3: #112e52;
+  --pw-surface-4: #133054;
+  --pw-surface-5: #163358;
 
-  --angular-protoweather-error: #ffb4ab;
-  --angular-protoweather-on-error: #690005;
-  --angular-protoweather-error-container: #93000a;
-  --angular-protoweather-on-error-container: #ffdad6;
+  --pw-error: #ffb4ab;
+  --pw-on-error: #690005;
+  --pw-error-container: #93000a;
+  --pw-on-error-container: #ffdad6;
 
-  --angular-protoweather-invert-surface: #fdfbff;
-  --angular-protoweather-invert-on-surface: #001b3d;
+  --pw-invert-surface: #fdfbff;
+  --pw-invert-on-surface: #001b3d;
 
-  --angular-protoweather-disabled-content: #486b95;
-  --angular-protoweather-disabled-container: #133054;
+  --pw-disabled-content: #486b95;
+  --pw-disabled-container: #133054;
 }
 
 .black-theme{
   @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark;
-  --angular-protoweather-primary: #9fcaff;
-  --angular-protoweather-on-primary: #2c2c2c;
-  --angular-protoweather-primary-container: #00497e;
-  --angular-protoweather-on-primary-container: #ffffff;
+  --pw-primary: #9fcaff;
+  --pw-on-primary: #2c2c2c;
+  --pw-primary-container: #00497e;
+  --pw-on-primary-container: #ffffff;
 
-  --angular-protoweather-background: #000000;
-  --angular-protoweather-on-background: #ffffff;
+  --pw-background: #000000;
+  --pw-on-background: #ffffff;
 
-  --angular-protoweather-surface-1: #0a0a0a;
-  --angular-protoweather-surface-2: #101010;
-  --angular-protoweather-surface-3: #161616;
-  --angular-protoweather-surface-4: #181818;
-  --angular-protoweather-surface-5: #1e1e1e;
+  --pw-surface-1: #0a0a0a;
+  --pw-surface-2: #101010;
+  --pw-surface-3: #161616;
+  --pw-surface-4: #181818;
+  --pw-surface-5: #1e1e1e;
 
-  --angular-protoweather-error: #ffb4ab;
-  --angular-protoweather-on-error: #690005;
-  --angular-protoweather-error-container: #93000a;
-  --angular-protoweather-on-error-container: #ffdad6;
+  --pw-error: #ffb4ab;
+  --pw-on-error: #690005;
+  --pw-error-container: #93000a;
+  --pw-on-error-container: #ffdad6;
 
-  --angular-protoweather-invert-surface: #fdfbff;
-  --angular-protoweather-invert-on-surface: #001b3d;
+  --pw-invert-surface: #fdfbff;
+  --pw-invert-on-surface: #001b3d;
 
-  --angular-protoweather-disabled-content: #747474;
-  --angular-protoweather-disabled-container: #1f1f1f;
+  --pw-disabled-content: #747474;
+  --pw-disabled-container: #1f1f1f;
 }
 
 [data-color-scheme="dark"] {
@@ -170,27 +170,27 @@ a {
 
 /* Scrollbar*/
 *::-webkit-scrollbar {
-    background-color: var(--angular-protoweather-background);
+    background-color: var(--pw-background);
     width: 16px;
 } 
 
 *::-webkit-scrollbar-track {
-    background-color: var(--angular-protoweather-background);
+    background-color: var(--pw-background);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--angular-protoweather-surface-5);
+    background-color: var(--pw-surface-5);
     border-radius: 16px;
-    border: 4px solid var(--angular-protoweather-background);
+    border: 4px solid var(--pw-background);
     position: relative;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background-color: var(--angular-protoweather-disabled-content);
+    background-color: var(--pw-disabled-content);
 }
 
 *::-webkit-scrollbar-thumb:active {
-    background-color: var(--angular-protoweather-on-primary-container);
+    background-color: var(--pw-on-primary-container);
 }
 /*------                     scrollbar                ---------*/
 
@@ -199,16 +199,16 @@ input, button{
 }
 
 .app-background{
-  background-color: var(--angular-protoweather-background);
+  background-color: var(--pw-background);
 }
 
 .app-card{
-  background-color: var(--angular-protoweather-surface-1);
+  background-color: var(--pw-surface-1);
 }
 
 .app-snackbar{
-  background-color: var(--angular-protoweather-invert-surface);
-  color: var(--angular-protoweather-invert-on-surface);
+  background-color: var(--pw-invert-surface);
+  color: var(--pw-invert-on-surface);
   margin-bottom: 76px !important;
 }
 

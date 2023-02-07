@@ -14,7 +14,7 @@
 p{
 	margin: 0;
 	text-align: center;
-	color: var(--angular-protoweather-primary);
+	color: var(--pw-primary);
 }
 
 .logo-text {
@@ -22,17 +22,17 @@ p{
 	text-align: center;
 	margin: 42px 0 0 0;
 	font-size: 20px;
-	color: var(--angular-protoweather-on-background);
+	color: var(--pw-on-background);
 }
 
 .grey-text{
-	color: var(--angular-protoweather-primary);
+	color: var(--pw-primary);
 }
 
 .credits-section{
 	padding: 12px;
 	box-sizing: border-box;
-	background-color: var(--angular-protoweather-surface-1);
+	background-color: var(--pw-surface-1);
 	border-radius: 12px;
 	margin: 24px auto 0 auto;
 	width: 100%;
@@ -45,13 +45,13 @@ p{
 }
 
 .title{
-	color: var(--angular-protoweather-on-primary-container);
+	color: var(--pw-on-primary-container);
 	font-size: 12px;
 	display: block;
 }
 
 .url{
-	color: var(--angular-protoweather-primary);
+	color: var(--pw-primary);
 	font-size: 14px;
 	display: block;
 	margin-bottom: 3px;

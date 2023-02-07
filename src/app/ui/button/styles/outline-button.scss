@@ -1,32 +1,32 @@
 .outline-button{
-	border: 1px solid var(--angular-protoweather-surface-5);
-	color: var(--angular-protoweather-surface-5);
+	border: 1px solid var(--pw-surface-5);
+	color: var(--pw-surface-5);
 	background-color: transparent;
 
 	&::after{
-		background-color: var(--angular-protoweather-surface-5);
+		background-color: var(--pw-surface-5);
 	}
 
 	&-primary{
-		color: var(--angular-protoweather-primary);
-		border-color: var(--angular-protoweather-primary);
+		color: var(--pw-primary);
+		border-color: var(--pw-primary);
 
 		&::after{
-			background-color: var(--angular-protoweather-primary);
+			background-color: var(--pw-primary);
 		}
 	}
 
 	&-error{
-		color: var(--angular-protoweather-error);
-		border-color: var(--angular-protoweather-error);
+		color: var(--pw-error);
+		border-color: var(--pw-error);
 
 		&::after{
-			background-color: var(--angular-protoweather-error);
+			background-color: var(--pw-error);
 		}
 	}
 
 	&:disabled{
-		color: var(--angular-protoweather-disabled-content);
-		border-color: var(--angular-protoweather-disabled-container);
+		color: var(--pw-disabled-content);
+		border-color: var(--pw-disabled-container);
 	}
 }

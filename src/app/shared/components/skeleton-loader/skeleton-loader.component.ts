@@ -14,7 +14,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
       height: var(--skeleton-height);
       margin: 0 auto 12px auto;
 
-      background: linear-gradient(90deg, var(--angular-protoweather-surface-1) 8%, var(--angular-protoweather-surface-3) 18%, var(--angular-protoweather-surface-1) 33%);
+      background: linear-gradient(90deg, var(--pw-surface-1) 8%, var(--pw-surface-3) 18%, var(--pw-surface-1) 33%);
       background-size: 200% 100%;
       border-radius: 12px;
       opacity: 0.7;

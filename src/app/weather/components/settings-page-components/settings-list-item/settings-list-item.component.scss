@@ -1,6 +1,6 @@
 p{
     margin: 0;
-    color: var(--angular-protoweather-on-background);
+    color: var(--pw-on-background);
 }
 
 .list-item{
@@ -21,8 +21,8 @@ p{
             min-height: 36px;
             display: flex;
             border-radius: 100%;
-            background-color: var(--angular-protoweather-primary-container);
-            color: var(--angular-protoweather-primary);
+            background-color: var(--pw-primary-container);
+            color: var(--pw-primary);
             justify-content: center;
             align-items: center;
         }
@@ -31,7 +31,7 @@ p{
 
             &-description{
                 font-size: 14px;
-                color: var(--angular-protoweather-primary);
+                color: var(--pw-primary);
                 line-height: 16px;
             }
         }
@@ -39,7 +39,7 @@ p{
     }
 
     &-option{
-        color: var(--angular-protoweather-on-background);
+        color: var(--pw-on-background);
 
         &-select{
             display: flex;
@@ -57,7 +57,7 @@ p{
                 font-family: 'Poppins';
                 outline: none;
                 color: inherit;
-                background-color: var(--angular-protoweather-background);
+                background-color: var(--pw-background);
                 text-align: end;
                 border-radius: 6px;
             }
@@ -79,7 +79,7 @@ p{
     .list-item-option{
         select{
             border-right-width: 6px;
-            border-right-color: var(--angular-protoweather-background);
+            border-right-color: var(--pw-background);
             appearance: auto;
             text-align: start;
         }

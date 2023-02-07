@@ -28,12 +28,12 @@
                 width: 100%;
 
                 .forecast-week-day{
-                    color: var(--angular-protoweather-on-primary-container);
+                    color: var(--pw-on-primary-container);
                 }
 
                 .forecast-date{
                     font-size: 12px;
-                    color: var(--angular-protoweather-primary);
+                    color: var(--pw-primary);
                 }
             }
             .weather-code-icon{
@@ -43,7 +43,7 @@
             .temperature{
                 font-size: 20px;
                 font-weight: 600;
-                color: var(--angular-protoweather-on-primary-container);
+                color: var(--pw-on-primary-container);
             }
 
         }
@@ -52,7 +52,7 @@
 
 @media (min-width: 825px){
     .app-card{
-        background-color: var(--angular-protoweather-background);
+        background-color: var(--pw-background);
     }
 }
 
