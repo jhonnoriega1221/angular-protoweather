@@ -40,10 +40,6 @@ import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.co
 import { FavoritePlaceCardComponent } from './components/favorites-page-components/favorite-place-card/favorite-place-card.component';
 import { AddFavoritePlaceCardComponent } from './components/favorites-page-components/add-favorite-place-card/add-favorite-place-card.component';
 
-import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
-import { SettingsListItemComponent } from './components/settings-page-components/settings-list-item/settings-list-item.component';
-import { AboutPageComponent } from './pages/about-page/about-page.component';
-
 @NgModule({
   declarations: [
     WeatherLayoutComponent,
@@ -64,12 +60,9 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     WeatherWeekInfoComponent,
     SearchPageComponent,
     FavoritesPageComponent,
-    SettingsPageComponent,
     ForecastPageComponent,
-    AboutPageComponent,
     FavoritePlaceCardComponent,
-    AddFavoritePlaceCardComponent,
-    SettingsListItemComponent
+    AddFavoritePlaceCardComponent
   ],
   imports: [
     CommonModule,
