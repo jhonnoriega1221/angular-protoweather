@@ -47,7 +47,7 @@ $large-cloud-2-start: -755px;
         animation-name: thinCloudMovement;
 
         &-1{
-            top: -111px;
+            top: -101px;
             left: $thin-cloud-1-start;
             animation-duration: 120s;
 
@@ -57,7 +57,7 @@ $large-cloud-2-start: -755px;
         }
 
         &-2{
-            top: -139px;
+            top: -69px;
             left: $thin-cloud-2-start;
             animation-duration: 120s;
 
@@ -74,7 +74,7 @@ $large-cloud-2-start: -755px;
         animation-name: cloudMovement;
 
         &-1{
-            top: -31px;
+            top: 9px;
             left: $normal-cloud-1-start;
             animation-duration: 118s;
 
@@ -84,7 +84,7 @@ $large-cloud-2-start: -755px;
         }
 
         &-2{
-            top: -81px;
+            top: -71px;
             left: $normal-cloud-2-start;
             animation-duration: 121s;
 
@@ -101,7 +101,7 @@ $large-cloud-2-start: -755px;
         animation-name: largeCloudMovement;
 
         &-1{
-            top: -111px;
+            top: -81px;
             left: $large-cloud-1-start;
             animation-duration: 120s;
 
@@ -110,7 +110,7 @@ $large-cloud-2-start: -755px;
             }
         }
         &-2{
-            top: -120px;
+            top: -90px;
             left: $large-cloud-2-start;
             animation-duration: 120s;
 
