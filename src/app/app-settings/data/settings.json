@@ -1,0 +1,15 @@
+[
+	{
+		"type": "select",
+		"icon": "moon",
+		"title": "Tema",
+		"description": "Selecciona tu tema preferido"
+	},
+	{
+		"type": "url",
+		"icon": "info-circle",
+		"title": "Acerca de",
+		"description": "Más información",
+		"route": ["about"]
+	}
+]

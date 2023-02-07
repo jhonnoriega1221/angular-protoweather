@@ -1,9 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-interface OptionSelectList{
-  value:string;
-  name:string;
-}
+import { OptionSelectList } from '../../models/setting-item';
 
 @Component({
   selector: 'app-settings-list-item',
@@ -11,7 +7,7 @@ interface OptionSelectList{
   styleUrls: ['./settings-list-item.component.scss']
 })
 export class SettingsListItemComponent {
-  @Input() type:'toggle'|'select'|'url' = 'url';
+  @Input() type:string|'toggle'|'select'|'url' = 'url';
   @Input() url?:string[]|null = null;
   @Input() icon:string = 'square';
   @Input() title:string = '';

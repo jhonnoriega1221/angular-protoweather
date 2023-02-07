@@ -1,0 +1,6 @@
+[
+    {"value": "auto", "name": "Automático"},
+    {"value": "light", "name": "Claro"},
+    {"value": "dark", "name": "Oscuro"},
+    {"value": "black", "name": "Amoled"}
+]

@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WeatherLayoutComponent } from './layouts/weather-layout/weather-layout.component';
 import { SetlocationPageComponent } from './pages/setlocation-page/setlocation-page.component';
-import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
-import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
-import { slideAnimation } from './weather.animation';
 
 const routes: Routes = [
   { path: '', component: WeatherLayoutComponent,
@@ -16,8 +13,7 @@ const routes: Routes = [
       { path: 'search', component: SearchPageComponent },
       { path: 'favorites', component: FavoritesPageComponent },
       { path: 'forecast/:id', component: ForecastPageComponent },
-      { path: 'settings', component: SettingsPageComponent },
-      { path: 'settings/about', component: AboutPageComponent }
+      { path: 'settings', loadChildren: () => import('../app-settings/app-settings.module').then(m => m.AppSettingsModule) }
     ]
   },
   { path: 'setlocation', component: SetlocationPageComponent}
