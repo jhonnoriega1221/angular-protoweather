@@ -34,12 +34,12 @@
         "iconURL": "../../../../../../assets/weather_code_icons/2-partly-cloud.svg",
         "backgroundColor": "#7AB9FC",
         "textColor": "#122A44",
-        "cloudLevel":3,
+        "cloudLevel":5,
         "isCloudy": false,
         "isRain": false,
         "isSnow": false,
         "isThunder": false,
-        "isShowingSun": true
+        "isShowingSun": false
     },
     {
         "weatherCode": 3,
