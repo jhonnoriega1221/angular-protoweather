@@ -179,7 +179,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
           time.setSeconds(time.getSeconds() + forecastResponse.utc_offset_seconds);
           time.setMinutes(time.getMinutes() + time.getTimezoneOffset());
           this.actualHourIndex = forecastResponse.hourly.time.findIndex((value: string) => value === this.toIsoString(time));
-          this.actualDay = `${time.getDate()} de ${this.getTextMonth(time.getMonth())}, ${time.getHours()}:${time.getMinutes()}`;
+          this.actualDay = `${time.getDate()} de ${this.getTextMonth(time.getMonth())}, ${time.getHours() < 10 ? '0'+time.getHours() : time.getHours()}:${time.getMinutes() < 10 ? '0'+time.getMinutes() : time.getMinutes()}`; //TODO: Better leading zero implementation
         },
         error: (e:any) => { console.log(e); this.isError = true; this.setWarningInfoError(); },
         complete: () => this.isLoading = false
