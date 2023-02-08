@@ -6,6 +6,7 @@ import { Place } from '../../models/place';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subscription} from 'rxjs';
 import { PlaceDetails } from '../../models/place-details';
+import { Title } from '@angular/platform-browser';
 
 interface Message {
   title: string;
@@ -98,7 +99,14 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
     imageURL: "../../../../assets/location-1.svg"
   }
 
-  constructor(private weatherService: WeatherService, private placeService: PlaceService, private activatedRoute: ActivatedRoute, private router:Router) { }
+  constructor(
+    private weatherService: WeatherService,
+    private placeService: PlaceService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
+    private _titleService:Title
+  ) {
+  }
 
   ngOnInit(): void {
     //Se obtiene el id del lugar por medio de la url
@@ -115,8 +123,6 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
   }
 
   private getForecastData(){
-
-
     //Determina si se está consultando el lugar por defecto
     this.isDefaultLocation = this.placeCode ? false:true;
 
@@ -151,7 +157,6 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
       //Se obtienen las coordenadas y el nombre del lugar por medio de la respuesta de la API
       placeMergeMap.push( 
         mergeMap( (placeDetailsResponse:PlaceDetails) => {
-          if(!this.isDefaultLocation){
             this.placeCoordinates = {
               lat: placeDetailsResponse.geometry.coordinates[1],
               lon: placeDetailsResponse.geometry.coordinates[0]
@@ -161,7 +166,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
               (element) => element.type === 'country'
             );
             this.placeName = this.placeService.setLocationName(countryName?.localname, cityName);
-          }
+            this._titleService.setTitle(`${this.placeName} - Protoweather`);
 
           //La siguiente llamada a la API será la del clima
           return this.weatherService.getForecast(this.placeCoordinates.lat+'', this.placeCoordinates.lon+'');

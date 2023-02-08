@@ -6,17 +6,19 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { ForecastPageComponent } from './pages/forecast-page/forecast-page.component';
 
+const nameApp:string = 'Protoweather';
+
 const routes: Routes = [
   { path: '', component: WeatherLayoutComponent,
     children: [
-      { path: '', component: ForecastPageComponent },
-      { path: 'search', component: SearchPageComponent },
-      { path: 'favorites', component: FavoritesPageComponent },
-      { path: 'forecast/:id', component: ForecastPageComponent },
-      { path: 'settings', loadChildren: () => import('../app-settings/app-settings.module').then(m => m.AppSettingsModule) }
+      { path: '', component: ForecastPageComponent, title: "Protoweather" },
+      { path: 'search', component: SearchPageComponent, title: `Buscar - ${nameApp}`  },
+      { path: 'favorites', component: FavoritesPageComponent, title: `Favoritos - ${nameApp}` },
+      { path: 'forecast/:id', component: ForecastPageComponent},
+      { path: 'settings', loadChildren: () => import('../app-settings/app-settings.module').then(m => m.AppSettingsModule), title: `Ajustes - ${nameApp}`  }
     ]
   },
-  { path: 'setlocation', component: SetlocationPageComponent}
+  { path: 'setlocation', component: SetlocationPageComponent, title: `Establecer ubicación - ${nameApp}`}
 ];
 
 @NgModule({

@@ -1,5 +1,4 @@
 import { Component, Renderer2 } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor( private titleService:Title, private renderer:Renderer2){
-    titleService.setTitle('Protoweather');
+  constructor( private renderer:Renderer2){
     this.setFirstTime(localStorage.getItem('ft'));
     this.configDefaultTheme(localStorage.getItem('pw_theme'));
   }
