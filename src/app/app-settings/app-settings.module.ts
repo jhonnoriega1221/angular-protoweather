@@ -5,7 +5,7 @@ import { SettingsListItemComponent } from './components/settings-list-item/setti
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { FormsModule } from '@angular/forms';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
-
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
   imports: [
     CommonModule,
     AppSettingsRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class AppSettingsModule { }

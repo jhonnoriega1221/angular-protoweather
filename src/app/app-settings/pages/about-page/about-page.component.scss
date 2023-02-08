@@ -17,10 +17,13 @@ p{
 	color: var(--pw-primary);
 }
 
+.page-title{
+    color: var(--pw-on-background);
+}
+
 .logo-text {
 	font-weight: 600;
 	text-align: center;
-	margin: 42px 0 0 0;
 	font-size: 20px;
 	color: var(--pw-on-background);
 }

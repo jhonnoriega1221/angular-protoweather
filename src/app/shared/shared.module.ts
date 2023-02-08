@@ -8,12 +8,14 @@ import { SkeletonDirective } from './directives/skeleton.directive';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PwButtonModule } from '../ui/button/button.module';
+import { BackTitleComponent } from './components/back-title/back-title.component';
 @NgModule({
   declarations: [
     CardInfoComponent,
     SkeletonLoaderComponent,
     SkeletonDirective,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    BackTitleComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { PwButtonModule } from '../ui/button/button.module';
     CardInfoComponent,
     SkeletonDirective,
     SkeletonLoaderComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    BackTitleComponent
   ]
 })
 export class SharedModule { }
