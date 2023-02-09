@@ -6,7 +6,7 @@ import { Place } from '../../models/place';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subscription} from 'rxjs';
 import { PlaceDetails } from '../../models/place-details';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 
 interface Message {
@@ -32,6 +32,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private router:Router,
     private _titleService:Title,
+    private _metaService:Meta,
     @Inject(PLATFORM_ID) private platformId:any
   ) {
   }
@@ -170,6 +171,19 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
             );
             this.placeName = this.placeService.setLocationName(countryName?.localname, cityName);
             this._titleService.setTitle(`${this.placeName} - Protoweather`);
+
+            const metaDescription:string = `Consulta la previsión del tiempo metereológica para ${this.placeName}. Precipitación, horas de amanecer y atardecer, previsión de 24 horas y más en Protoweather`;
+            const metaTitle:string = `Consulta el clima de ${this.placeName} en Protoweather`;
+            const metaUrl:string = `https://protoweather.vercel.app/forecast/${this.placeCode}`
+            
+            this._metaService.updateTag({property:"og:url", content:metaUrl});
+            this._metaService.updateTag({property:"og:title", content:metaTitle});
+            this._metaService.updateTag({property:"og:description",content:metaDescription});
+            this._metaService.updateTag({name:"description",content:metaDescription});
+            this._metaService.updateTag({name:"twitter:text:title",content:metaTitle});
+            this._metaService.updateTag({name:"twitter:title",content:metaTitle});
+            this._metaService.updateTag({name:"twitter:description",content:metaDescription});
+
 
           //La siguiente llamada a la API será la del clima
           return this.weatherService.getForecast(this.placeCoordinates.lat+'', this.placeCoordinates.lon+'');
