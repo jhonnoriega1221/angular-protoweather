@@ -68,6 +68,7 @@ export class PlaceService {
   }
 
   public getFavoritePlace(placeId:string):FavoritePlace|undefined{
+    if(!isPlatformBrowser(this.platformId)) return undefined;
     let favPlaces:FavoritePlace[] = [];
 
     if(localStorage.getItem('favplaces') != undefined){

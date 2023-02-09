@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-skeleton-loader',
@@ -49,14 +50,18 @@ export class SkeletonLoaderComponent implements OnInit {
   public height: string = '';
   public className:string = '';
 
-  constructor(private host: ElementRef<HTMLElement>){}
+  constructor(private host: ElementRef<HTMLElement>, @Inject(PLATFORM_ID) private platformId:any){}
 
   ngOnInit(): void {
+
+      if(!isPlatformBrowser(this.platformId)) return;
+
       const host = this.host.nativeElement;
       
       if( this.className ){
         host.classList.add(this.className);
       }
+
       host.style.setProperty('--skeleton-width', this.width ?? '100%')
       host.style.setProperty('--skeleton-height', this.height ?? '20px')
   }

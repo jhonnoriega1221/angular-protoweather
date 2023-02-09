@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Input, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { WeatherCardData } from '../../../models/weather-card-data';
 
 @Component({
@@ -9,13 +10,14 @@ import { WeatherCardData } from '../../../models/weather-card-data';
 
 export class ActualWeatherInfoComponent implements OnInit {
 
+  constructor( @Inject(PLATFORM_ID) private platformId:any) {}
+
   @Input() weatherPressure:number = 0;
   @Input() weatherDewpoint:number = 0;
-  public isSmallScreen:boolean = this.setIsSmallScreen(innerWidth);
+  public isSmallScreen:boolean|null = isPlatformBrowser(this.platformId) ? this.setIsSmallScreen(innerWidth) : null;
 
   public actualWeatherCards:WeatherCardData[] = [];
 
-  constructor() {}
 
   ngOnInit(): void {
     this.actualWeatherCards = [
