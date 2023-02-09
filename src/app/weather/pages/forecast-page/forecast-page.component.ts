@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { PlaceService } from '../../services/place.service';
 import { Forecast } from '../../models/forecast-response';
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Subscription} from 'rxjs';
 import { PlaceDetails } from '../../models/place-details';
 import { Title } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 interface Message {
   title: string;
@@ -25,6 +26,15 @@ interface ActualDay{
   styleUrls: ['./forecast-page.component.scss']
 })
 export class ForecastPageComponent implements OnInit, OnDestroy {
+  constructor(
+    private weatherService: WeatherService,
+    private placeService: PlaceService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
+    private _titleService:Title,
+    @Inject(PLATFORM_ID) private platformId:any
+  ) {
+  }
 
   public forecastData$: Forecast = {
     generationtime_ms: 0,
@@ -90,8 +100,8 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
   public isDefaultLocationSet: boolean = false;
   public isDefaultLocation:boolean = true;
   public isError: boolean = false;
-  public isMobile:boolean = this.getIsMobile(window.innerWidth);
-  public isOneColumn:boolean = this.getIsOneColumn(window.innerWidth);
+  public isMobile:boolean|null = isPlatformBrowser(this.platformId) ? this.getIsMobile(window.innerWidth) : null;
+  public isOneColumn:boolean|null =  isPlatformBrowser(this.platformId) ? this.getIsOneColumn(window.innerWidth) : null;
 
   public warningInfo = {
     title: 'Establece una ubicación por defecto para mostrarla aquí',
@@ -99,14 +109,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
     imageURL: "../../../../assets/location-1.svg"
   }
 
-  constructor(
-    private weatherService: WeatherService,
-    private placeService: PlaceService,
-    private activatedRoute: ActivatedRoute,
-    private router:Router,
-    private _titleService:Title
-  ) {
-  }
+
 
   ngOnInit(): void {
     //Se obtiene el id del lugar por medio de la url

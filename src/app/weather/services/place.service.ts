@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
 import { Place } from '../models/place';
 import { PlaceDetails } from '../models/place-details';
 import { FavoritePlace } from '../favorite-place';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class PlaceService {
 
   private apiURL:string = "https://nominatim.openstreetmap.org/"
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, @Inject(PLATFORM_ID) private platformId:any) { }
 
   public search(query:string|undefined):Observable <Place[]>{
     
@@ -38,10 +39,12 @@ export class PlaceService {
   }
 
   public getDefaultPlace():Place|undefined{
+
+    if(!isPlatformBrowser(this.platformId)) return undefined;
+
     if(localStorage.getItem('defloc')){
       return JSON.parse(localStorage.getItem('defloc') || '');
-    }
-    else{
+    } else {
       return undefined;
     }  
   }
@@ -93,6 +96,9 @@ export class PlaceService {
   }
 
   public getFavoritePlaces():FavoritePlace[]{
+
+    if(!isPlatformBrowser(this.platformId)) return [];
+
     let favPlaces:FavoritePlace[] = [];
 
     if(localStorage.getItem('favplaces') != undefined){

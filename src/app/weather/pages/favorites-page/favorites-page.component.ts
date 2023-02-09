@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { FavoritePlace } from '../../favorite-place';
 import { Place } from '../../models/place';
 import { PlaceService } from '../../services/place.service';
@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../../components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-favorites-page',
@@ -15,11 +16,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar) { }
+  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
-  private isMobile = this.setIsMobile(window.innerWidth);
+  private isMobile = isPlatformBrowser(this.platformId) ? this.setIsMobile(window.innerWidth) : null;
   public isEditModeFavorites:boolean = false;
   public isEditModeDefault:boolean = false;
   
@@ -113,7 +114,9 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   private openSetLocationDialog(){
-    this.isMobile = this.setIsMobile(window.innerWidth);
+    if(isPlatformBrowser(this.platformId)){
+      this.isMobile = this.setIsMobile(window.innerWidth);
+    }
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
       width: this.isMobile ? '100vw' : '600px',
       height: this.isMobile ? '100vh' : '100%',

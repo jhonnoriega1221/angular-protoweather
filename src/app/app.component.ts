@@ -1,5 +1,5 @@
-import { Component, Renderer2 } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Renderer2, PLATFORM_ID, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,21 +7,11 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor( private renderer:Renderer2, private _meta:Meta){
-    this.setFirstTime(localStorage.getItem('ft'));
-    this.configDefaultTheme(localStorage.getItem('pw_theme'));
-  }
-
-  private setFirstTime(firstTime: string | null){
-    if(firstTime === null || firstTime === undefined ){
-      localStorage.setItem('ft', 'true');
+  constructor( private renderer:Renderer2, @Inject(PLATFORM_ID) private platformId:any){
+   
+   if(isPlatformBrowser(platformId)){
+      this.configDefaultTheme(localStorage.getItem('pw_theme'));
     }
-
-    this._meta.addTags([
-      {property:"og:title", content:"Consulta el clima en Protoweather"},
-      {name:"description", content:"Clima de la ciudad"},
-      {property:"og:description", content:"Clima de la ciudad"}
-    ]);
   }
 
   private configDefaultTheme(pwTheme: string | null) {

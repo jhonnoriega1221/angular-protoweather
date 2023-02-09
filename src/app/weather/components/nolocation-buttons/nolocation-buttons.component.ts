@@ -1,10 +1,11 @@
-import { Component, Output, EventEmitter, HostListener, OnDestroy } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { Place } from '../../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-nolocation-buttons',
@@ -17,7 +18,7 @@ export class NolocationButtonsComponent implements OnDestroy {
   @Output() locationFound: EventEmitter<any> = new EventEmitter();
 
   public isSearchingLocation:boolean = false;
-  private isMobile = this.setIsMobile(window.innerWidth);
+  private isMobile = isPlatformBrowser(this.platformId) ? this.setIsMobile(window.innerWidth) : null;
 
   private placeSubscribe?:Subscription;
 
@@ -27,7 +28,7 @@ export class NolocationButtonsComponent implements OnDestroy {
     imageURL: '../../../assets/location-error.svg'
   }
 
-  constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
+  constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
 
   ngOnDestroy(): void {
       this.placeSubscribe?.unsubscribe();
