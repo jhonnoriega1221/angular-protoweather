@@ -146,6 +146,7 @@ export class PlaceService {
   }
 
   public getHistoryPlaces():FavoritePlace[]{
+    if(!isPlatformBrowser(this.platformId)) return [];
     let historyPlaces:FavoritePlace[] = [];
 
     if(localStorage.getItem('searchhistory') != undefined){
