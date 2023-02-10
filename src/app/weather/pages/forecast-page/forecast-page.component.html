@@ -3,7 +3,7 @@
         <div class="left-side">
             <app-location-search-autocomplete #searchComponent class="search-bar" (locationSelected)="goToSelectedLocation($event)" *ngIf="!isMobile"></app-location-search-autocomplete>
             <div *ngIf="!isError">
-                <app-actual-weather *pw-skeleton="isLoading; height:'337px'; padding:'0 12px 0'; width: '100%';"
+                <app-actual-weather *pw-skeleton="isLoading; height:'337px'; padding:'0 12px 0'; width: '100%';" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                     [weatherCode]="forecastData$.hourly.weathercode[actualHourIndex]" [place]="placeName"
                     [temperature]="forecastData$.hourly.temperature_2m[actualHourIndex]"
                     [humidity]="forecastData$.hourly.relativehumidity_2m[actualHourIndex]"
@@ -14,25 +14,25 @@
                 </app-actual-weather>
                 <div class="forecast-info-grid">
                     <ng-container *ngIf="isOneColumn">
-                        <app-next-hour-weather *pw-skeleton="isLoading; height:'159px'; padding:'12px'; width: '100%';"
+                        <app-next-hour-weather *pw-skeleton="isLoading; height:'159px'; padding:'12px'; width: '100%';" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                             [actualHourIndex]="actualHourIndex" [temperatures]="forecastData$.hourly.temperature_2m"
                             [weatherTimes]="forecastData$.hourly.time" [weatherCodes]="forecastData$.hourly.weathercode">
                         </app-next-hour-weather>
-                        <app-weather-week-info *pw-skeleton="isLoading; height:'515px'; padding:'0 12px' width: '100%';"
+                        <app-weather-week-info *pw-skeleton="isLoading; height:'515px'; padding:'0 12px' width: '100%';" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                             [weekDays]="forecastData$.daily.time"
                             [weekMaxTemperature]="forecastData$.daily.temperature_2m_max"
                             [weekWeatherCode]="forecastData$.daily.weathercode">
                         </app-weather-week-info>
                     </ng-container>
-                    <app-actual-weather-info *pw-skeleton="isLoading; height:'129px'; padding:'12px 12px 0'; width: '100%';"
+                    <app-actual-weather-info *pw-skeleton="isLoading; height:'129px'; padding:'12px 12px 0'; width: '100%';" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                         [weatherPressure]="forecastData$.hourly.surface_pressure[actualHourIndex]"
                         [weatherDewpoint]="forecastData$.hourly.dewpoint_2m[actualHourIndex]">
                     </app-actual-weather-info>
-                    <app-weather-sunset-info class="sunset-info"
+                    <app-weather-sunset-info class="sunset-info" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                         *pw-skeleton="isLoading; height:'129px'; width: '100%'; padding: '12px 12px 0'"
                         [sunsetTime]="forecastData$.daily.sunset[0]" [sunriseTime]="forecastData$.daily.sunrise[0]">
                     </app-weather-sunset-info>
-                    <app-wind-info *pw-skeleton="isLoading; height:'129px'; width: '100%'; padding: '12px 12px 0';"
+                    <app-wind-info *pw-skeleton="isLoading; height:'129px'; width: '100%'; padding: '12px 12px 0';" [ngClass]="{'forecastcard-prerender' : isPrerender}"
                         [windDirectionAngle]="forecastData$.hourly.winddirection_10m[actualHourIndex]"
                         [windSpeed]="forecastData$.hourly.windspeed_10m[actualHourIndex]">
                     </app-wind-info>
@@ -46,11 +46,11 @@
             </div>
             <ng-container *ngIf="!isError">
                 <div class="right-side-background" *pw-skeleton="isLoading; height:'686px'; width: '100%';">
-                    <app-next-hour-weather 
+                    <app-next-hour-weather [ngClass]="{'forecastcard-prerender' : isPrerender}"
                         [actualHourIndex]="actualHourIndex" [temperatures]="forecastData$.hourly.temperature_2m"
                         [weatherTimes]="forecastData$.hourly.time" [weatherCodes]="forecastData$.hourly.weathercode">
                     </app-next-hour-weather>
-                    <app-weather-week-info 
+                    <app-weather-week-info [ngClass]="{'forecastcard-prerender' : isPrerender}"
                         [weekDays]="forecastData$.daily.time" [weekMaxTemperature]="forecastData$.daily.temperature_2m_max"
                         [weekWeatherCode]="forecastData$.daily.weathercode">
                     </app-weather-week-info>

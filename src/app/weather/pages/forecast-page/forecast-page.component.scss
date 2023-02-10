@@ -24,15 +24,20 @@
 .search-bar{
     padding: 0 12px;
     box-sizing: border-box;
-    display: block;
+    display: none; /*prerrender*/
     position: relative;
     z-index: 1;
+}
+
+.forecastcard-prerender{
+    display: none;
 }
 
 .right-side{
     max-width: 360px;
     min-width: 360px;
     margin: 0 12px 0 0;
+    display: none;
 }
 
 .right-side-background{
@@ -89,6 +94,14 @@
 @media (min-width: 825px){
     .wrapper{
         flex-direction: row;
+    }
+
+    .search-bar{
+        display: block; /*prerrender*/
+    }
+
+    .right-side{
+        display: block;
     }
 }
 

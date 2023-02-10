@@ -1,4 +1,5 @@
-import { Directive, Input, TemplateRef, ViewContainerRef, SimpleChanges } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Directive, Input, TemplateRef, ViewContainerRef, SimpleChanges, PLATFORM_ID, Inject } from '@angular/core';
 import { SkeletonComponent } from '../components/skeleton/skeleton.component';
 
 @Directive({
@@ -8,7 +9,8 @@ export class PwSkeletonDirective {
 
   constructor(
     private _templateRef: TemplateRef<any>,
-    private _viewContainerRef: ViewContainerRef
+    private _viewContainerRef: ViewContainerRef,
+    @Inject(PLATFORM_ID) private _platformId:any
   ) { }
 
   @Input('pw-skeleton') public isLoading:boolean = true;
@@ -18,7 +20,7 @@ export class PwSkeletonDirective {
 
   ngOnChanges(changes: SimpleChanges): void {
 
-    this._viewContainerRef.clear();
+    if(isPlatformBrowser(this._platformId)) this._viewContainerRef.clear();
 
     if (changes['isLoading'].currentValue) {
         const ref = this._viewContainerRef.createComponent(SkeletonComponent);

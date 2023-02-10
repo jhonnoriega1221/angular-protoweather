@@ -97,20 +97,19 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
   public urlParam?: Subscription;
   public forecastSubscribe?: Subscription;
 
+  public isPrerender:boolean = !isPlatformBrowser(this.platformId);
   public isLoading: boolean = true;
   public isDefaultLocationSet: boolean = false;
   public isDefaultLocation:boolean = true;
   public isError: boolean = false;
-  public isMobile:boolean|null = isPlatformBrowser(this.platformId) ? this.getIsMobile(window.innerWidth) : null;
-  public isOneColumn:boolean|null =  isPlatformBrowser(this.platformId) ? this.getIsOneColumn(window.innerWidth) : null;
+  public isMobile:boolean = !this.isPrerender ? this.getIsMobile(window.innerWidth) : false;
+  public isOneColumn:boolean =  !this.isPrerender ? this.getIsOneColumn(window.innerWidth) : false;
 
   public warningInfo = {
     title: 'Establece una ubicación por defecto para mostrarla aquí',
     message: '',
     imageURL: "../../../../assets/location-1.svg"
   }
-
-
 
   ngOnInit(): void {
     //Se obtiene el id del lugar por medio de la url
@@ -140,8 +139,8 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
 
     if(this.isDefaultLocation){
       if(!this.isDefaultLocationSet){
-        this.isLoading = false;
-        this.isError = true;
+        this.isLoading = this.isPrerender ? true : false;
+        this.isError = this.isPrerender ? false : true;
         return;
       }
       const defaultPlace = this.placeService.getDefaultPlace();
