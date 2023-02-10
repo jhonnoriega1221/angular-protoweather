@@ -23,13 +23,6 @@ export class SkeletonDirective {
 
     if (changes['isLoading'].currentValue) {
       Array.from({length: this.size}).forEach(() => {
-        const ref = this.vcr.createComponent(SkeletonLoaderComponent);
-
-        Object.assign(ref.instance, {
-          width: this.width,
-          height: this.height,
-          className: this.className
-        })
       })
     } else {
       this.vcr.createEmbeddedView(this.tpl);

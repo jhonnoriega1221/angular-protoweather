@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PwButtonModule } from '../ui/button/button.module';
 import { PwSpinnerModule } from '../ui/spinner/spinner.module';
 import { PwToggleModule } from '../ui/toggle/toggle.module';
+import { PwSkeletonModule } from '../ui/skeleton/skeleton.module';
 import { PwSkyModule } from '../sky/sky.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
@@ -72,6 +73,7 @@ import { AddFavoritePlaceCardComponent } from './components/favorites-page-compo
     MatAutocompleteModule,
     MatDialogModule,
     PwToggleModule,
+    PwSkeletonModule,
     SharedModule,
     MatSnackBarModule,
     PwButtonModule,

@@ -57,6 +57,7 @@ export class SkeletonLoaderComponent implements OnInit {
       if(!isPlatformBrowser(this.platformId)) return;
 
       const host = this.host.nativeElement;
+      console.log(host);
       
       if( this.className ){
         host.classList.add(this.className);

@@ -21,7 +21,7 @@
             {{isEditModeFavorites ? 'Listo' : 'Editar'}}
         </button>
     </div>
-    <ul class="list">
+    <ul  class="list">
         <app-add-favorite-place-card *ngIf="isEditModeFavorites" (click)="addFavoritePlace()"></app-add-favorite-place-card>
         <app-favorite-place-card (deletePlace)="deleteFavoritePlace(favoritePlace.placeId)" [isEditMode]="isEditModeFavorites" *ngFor="let favoritePlace of favoritePlaces" [isDefaultPlace]="false"
             [placeId]="favoritePlace.placeId" [name]="favoritePlace.name"></app-favorite-place-card>
