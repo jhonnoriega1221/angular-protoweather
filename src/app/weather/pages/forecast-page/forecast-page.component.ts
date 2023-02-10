@@ -117,7 +117,7 @@ export class ForecastPageComponent implements OnInit, OnDestroy {
     this.urlParam = this.activatedRoute.params.subscribe(params => {
       this.forecastSubscribe?.unsubscribe();
       this.placeCode = params['id'];
-     // this.reloadHome();
+      this.reloadHome();
     });
   }
 

@@ -3,7 +3,7 @@
         <div class="left-side">
             <app-location-search-autocomplete #searchComponent class="search-bar" (locationSelected)="goToSelectedLocation($event)" *ngIf="!isMobile"></app-location-search-autocomplete>
             <div *ngIf="!isError">
-                <app-actual-weather *pw-skeleton="isLoading; height:'300px'; padding:'0 12px 0'; width: '100%';"
+                <app-actual-weather *pw-skeleton="isLoading; height:'337px'; padding:'0 12px 0'; width: '100%';"
                     [weatherCode]="forecastData$.hourly.weathercode[actualHourIndex]" [place]="placeName"
                     [temperature]="forecastData$.hourly.temperature_2m[actualHourIndex]"
                     [humidity]="forecastData$.hourly.relativehumidity_2m[actualHourIndex]"

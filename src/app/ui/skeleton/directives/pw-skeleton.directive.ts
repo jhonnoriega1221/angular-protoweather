@@ -18,6 +18,8 @@ export class PwSkeletonDirective {
 
   ngOnChanges(changes: SimpleChanges): void {
 
+    this._viewContainerRef.clear();
+
     if (changes['isLoading'].currentValue) {
         const ref = this._viewContainerRef.createComponent(SkeletonComponent);
 
@@ -29,7 +31,6 @@ export class PwSkeletonDirective {
     }
 
     if (!changes['isLoading'].currentValue) {
-      this._viewContainerRef.clear();
       this._viewContainerRef.createEmbeddedView(this._templateRef);
     }
   }
