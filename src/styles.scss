@@ -4,46 +4,19 @@
 @use '@angular/material' as mat;
 @use './app/ui/button/styles/button.scss';
 @use './app/ui/toggle/styles/toggle.scss';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
 @include mat.all-legacy-component-typographies();
 @include mat.legacy-core();
 @font-face {
   font-family: "Poppins";
-  src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
-  font-weight: 500;
-  font-style: normal;
+  src: url(./assets/fonts/Poppins/Poppins-Regular.woff2);
+  unicode-range: U+00-7F, U+80-FF;
 }
 
-@font-face {
-  font-family: "Poppins";
-  src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Medium.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $angular-protoweather-primary: mat.define-palette(mat.$indigo-palette);
 $angular-protoweather-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $angular-protoweather-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $angular-protoweather-theme: mat.define-light-theme((
   color: (
     primary: $angular-protoweather-primary,
@@ -52,9 +25,6 @@ $angular-protoweather-theme: mat.define-light-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include mat.all-legacy-component-themes($angular-protoweather-theme);
 
 $angular-protoweather-dark-theme: mat.define-dark-theme((
@@ -162,8 +132,8 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
   color-scheme: light;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Poppins", "Helvetica Neue", sans-serif; }
+*{ font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif }
+body { margin: 0 }
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -181,22 +151,18 @@ a {
 *::-webkit-scrollbar-thumb {
     background-color: var(--pw-surface-5);
     border-radius: 16px;
-    border: 4px solid var(--pw-background);
-    position: relative;
+    border: 6px solid var(--pw-background);
 }
 
 *::-webkit-scrollbar-thumb:hover {
     background-color: var(--pw-disabled-content);
+    border: 4px solid var(--pw-background);
 }
 
 *::-webkit-scrollbar-thumb:active {
     background-color: var(--pw-on-primary-container);
 }
 /*------                     scrollbar                ---------*/
-
-input, button{
-  font-family: "Poppins", "Helvetica Neue", sans-serif;
-}
 
 .app-background{
   background-color: var(--pw-background);
