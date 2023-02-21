@@ -15,7 +15,38 @@ export class WeatherService {
   private apiURL:string = 'https://api.open-meteo.com/v1/forecast?';
 
   getForecast(lat:string, lon:string):Observable <Forecast>{
-    return this.http.get<Forecast>(`${this.apiURL}hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,shortwave_radiation,surface_pressure,dewpoint_2m,windspeed_10m,winddirection_10m&daily=weathercode,temperature_2m_max,sunrise,sunset,precipitation_sum&timezone=auto&latitude=${lat.slice(0,-2)}&longitude=${lon.slice(0,-2)}`);
+    const hourlyVariables:string[] = [
+      'temperature_2m',
+      'relativehumidity_2m',
+      'precipitation',
+      'weathercode',
+      'shortwave_radiation',
+      'surface_pressure',
+      'dewpoint_2m',
+      'windspeed_10m',
+      'winddirection_10m',
+    ];
+
+    const dailyVariables:string[] = [
+      'weathercode',
+      'temperature_2m_max',
+      'sunrise',
+      'sunset',
+      'precipitation_sum',
+    ];
+
+    const timezone:string = 'auto';
+    const latitude:number = parseFloat(lat.slice(0,-2));
+    const longitude:number = parseFloat(lon.slice(0,-2));
+
+    const endpoint = this.apiURL+
+    '&hourly='+hourlyVariables+
+    '&daily='+dailyVariables+
+    '&timezone='+timezone+
+    '&latitude='+latitude+
+    '&longitude='+longitude;
+
+    return this.http.get<Forecast>(endpoint);
   }
 
   getWeatherCodeData(weatherCode:number):WeatherCode{
