@@ -1,12 +1,39 @@
-# AngularProtoweather
+# Protoweather
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+![Header image](./img/readme-header-image.png)
 
-## Development server
+Aplicación web para consultar el pronostico del tiempo hecha con Angular.
+
+[Demo](https://protoweather.vercel.app/)
+
+## Características
+
+* Consulta el clima
+* Almacena ciudad predeterminada
+* Almacena ciudades favoritas
+* Fondo animado que cambia de acuerdo a la hora y clima
+* Diseño responsive
+* SSR
+
+## TODO
+
+💡 Fondo animado para tormenta y nieve.
+
+💡 Poder ver las ciudades favoritas desde la pagina de inicio.
+
+💡 Implementar PWA.
+
+💡 Implementar localización.
+
+💡 Agregar más elementos a la pagina de inicio.
+
+💡 Agregar descripción de los terminos metereológicos en la pagina de inicio.
+
+💡 Implementar testing.
+
+## Angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
