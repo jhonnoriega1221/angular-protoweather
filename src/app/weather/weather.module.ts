@@ -8,6 +8,7 @@ import { PwSpinnerModule } from '../ui/spinner/spinner.module';
 import { PwToggleModule } from '../ui/toggle/toggle.module';
 import { PwSkeletonModule } from '../ui/skeleton/skeleton.module';
 import { PwSkyModule } from '../sky/sky.module';
+import { PwDialogModule } from '../ui/dialog/dialog.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 
 import { MatRippleModule } from '@angular/material/core';
@@ -73,6 +74,7 @@ import { AddFavoritePlaceCardComponent } from './components/favorites-page-compo
     MatAutocompleteModule,
     MatDialogModule,
     PwToggleModule,
+    PwDialogModule,
     PwSkeletonModule,
     SharedModule,
     MatSnackBarModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, EnvironmentInjector, createComponent } from '@angular/core';
 import { FavoritePlace } from '../../favorite-place';
 import { Place } from '../../models/place';
 import { PlaceService } from '../../services/place.service';
@@ -8,6 +8,8 @@ import { SetlocationAutocompleteDialogComponent } from '../../components/setloca
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { isPlatformBrowser } from '@angular/common';
+import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
+import { ConfirmDialogPwComponent } from 'src/app/shared/components/confirm-dialog-pw/confirm-dialog-pw.component';
 
 @Component({
   selector: 'app-favorites-page',
@@ -16,7 +18,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor( private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
+  constructor(private injector: EnvironmentInjector, private dialog2:PwDialog, private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
@@ -36,6 +38,15 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public deleteFavoritePlace(placeId:string){
+
+
+    const dialogExample = this.dialog2.openDialog(ConfirmDialogPwComponent, {
+      data:{
+        titulo: "Hola",
+        cuerpo: "prueba"
+      }
+    });
+
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Eliminar ciudad favorita', 
