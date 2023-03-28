@@ -1,12 +1,17 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Injectable, createComponent, ApplicationRef, EnvironmentInjector, ComponentRef } from '@angular/core';
+import { Observable } from 'rxjs';
 import { DialogContainerComponent } from '../components/dialog-container/dialog-container.component';
 import { PwDialogConfig } from '../models/pw-dialog-config';
+import { PwDialogRef } from '../models/pw-dialog-ref';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PwDialog {
+
+  private dialogContainerRef!: ComponentRef<DialogContainerComponent>;
+  private dialogContentRef!: ComponentRef<any>;
 
   constructor(
     private appRef: ApplicationRef,
@@ -14,20 +19,25 @@ export class PwDialog {
   ) { }
 
   openDialog(anyComponent:ComponentType<any>, config?:PwDialogConfig){
-    const dialogContainerRef = createComponent(DialogContainerComponent , {
+    this.dialogContainerRef = createComponent(DialogContainerComponent , {
       environmentInjector: this.injector
     });
 
-    const dialogContentRef = createComponent(anyComponent , {
+    this.dialogContentRef = createComponent(anyComponent , {
       environmentInjector: this.injector
     });
 
-    dialogContainerRef.instance.componentContent = dialogContentRef;
-    dialogContentRef.instance.data = config?.data;
+    this.dialogContainerRef.instance.componentContent = this.dialogContentRef;
+     this.dialogContentRef.instance.data = config?.data;
+     this.dialogContentRef.instance.destroyDialog.subscribe( () => this.closeDialog() );
 
-    document.body.appendChild(dialogContainerRef.location.nativeElement);
+    document.body.appendChild(this.dialogContainerRef.location.nativeElement);
 
-    this.appRef.attachView(dialogContainerRef.hostView);
+    this.appRef.attachView(this.dialogContainerRef.hostView);
 
+  }
+
+  closeDialog():void{
+    this.dialogContainerRef.destroy();
   }
 }

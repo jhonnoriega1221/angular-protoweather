@@ -13,8 +13,8 @@ export class DialogContainerComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      const view = this.vc.insert(this.componentContent.hostView);
-      const lel = this.dialogRef.nativeElement.showModal();
+      this.vc.insert(this.componentContent.hostView);
+      this.dialogRef.nativeElement.showModal();
     },0);
     
   }
