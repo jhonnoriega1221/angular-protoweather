@@ -8,12 +8,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PwButtonModule } from '../ui/button/button.module';
 import { BackTitleComponent } from './components/back-title/back-title.component';
 import { ConfirmDialogPwComponent } from './components/confirm-dialog-pw/confirm-dialog-pw.component';
+import { DialogEliminarComponent } from './components/dialog-eliminar/dialog-eliminar.component';
 @NgModule({
   declarations: [
     CardInfoComponent,
     ConfirmDialogComponent,
     BackTitleComponent,
-    ConfirmDialogPwComponent
+    ConfirmDialogPwComponent,
+    DialogEliminarComponent
   ],
   imports: [
     CommonModule,

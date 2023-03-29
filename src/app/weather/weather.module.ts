@@ -74,7 +74,6 @@ import { AddFavoritePlaceCardComponent } from './components/favorites-page-compo
     MatAutocompleteModule,
     MatDialogModule,
     PwToggleModule,
-    PwDialogModule,
     PwSkeletonModule,
     SharedModule,
     MatSnackBarModule,

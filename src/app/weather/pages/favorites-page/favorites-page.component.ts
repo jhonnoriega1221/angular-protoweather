@@ -47,6 +47,10 @@ export class FavoritesPageComponent implements OnInit {
       }
     });
 
+    dialogExample.subscribe( (result:string) => {
+      console.log(result);
+    });
+
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Eliminar ciudad favorita', 
