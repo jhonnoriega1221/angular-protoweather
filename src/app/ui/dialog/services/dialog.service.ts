@@ -48,8 +48,8 @@ export class PwDialog {
   }
 
   closeDialog(result:any):void{
-    this.dialogSubscriber.next(result);
-    this.dialogSubscriber.complete();
-    this.dialogContainerRef.destroy();
+      this.dialogSubscriber.next(result);
+      this.dialogSubscriber.complete();
+      this.dialogContainerRef.destroy();
   }
 }

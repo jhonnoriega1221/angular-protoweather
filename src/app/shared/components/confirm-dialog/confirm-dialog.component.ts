@@ -1,5 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -7,12 +6,16 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogComponent {
-  constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
-    public confirmBtnAction(): void{}
-  
-    public closeBtnAction(): void {
-      this.dialogRef.close();
+  @Input() data:any;
+  @Output() closeDialogViaComponent = new EventEmitter();
+
+  public closeDialog(result?:boolean){
+    if(result){
+      this.closeDialogViaComponent.emit(result);
+      return;
     }
+    this.closeDialogViaComponent.emit(undefined);
+  }
 
 }

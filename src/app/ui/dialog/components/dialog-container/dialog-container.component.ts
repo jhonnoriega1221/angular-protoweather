@@ -1,4 +1,5 @@
 import { Component, Input, ViewContainerRef, AfterViewInit, ViewChild, ComponentRef, ElementRef, Output, EventEmitter } from '@angular/core';
+import { trigger, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'pw-dialog-container',

@@ -7,6 +7,7 @@ import { PlaceService } from '../../../services/place.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 
 @Component({
   selector: 'app-actual-weather',
@@ -44,7 +45,7 @@ export class ActualWeatherComponent implements OnInit {
     isThunder: false
   };
 
-  constructor( private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
+  constructor(private newDialog:PwDialog, private weatherService:WeatherService, private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
     if(!this.isDefaultLocation){
@@ -67,26 +68,27 @@ export class ActualWeatherComponent implements OnInit {
         panelClass: 'app-snackbar'
       });
     } else {
-        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          data: {
-            title: 'Eliminar ciudad favorita', 
-            dialogBodyText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
-            okButtonText: 'Eliminar', 
-            cancelButtonText: 'Cancelar'
-          }
-        });
-    
-        dialogRef.afterClosed().subscribe( (result:boolean) => {
-            if(result){
-              this.placeService.deleteFavoritePlace(this.placeCode!);
-              this.checkIsFavorite();
-              this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
-                duration: 2000,
-                horizontalPosition: 'left',
-                panelClass: 'app-snackbar'
-              });
-            }
-        })
+      const deleteFavoriteDialogRef = this.newDialog.openDialog(ConfirmDialogComponent, {
+      data:{
+        titleDialogText: 'Eliminar ciudad favorita',
+        bodyDialogText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
+        okButtonText: 'Eliminar', 
+        cancelButtonText: 'Cancelar'
+      }
+    });
+
+    deleteFavoriteDialogRef.subscribe( (result:string) => {
+      if(result){
+          this.placeService.deleteFavoritePlace(this.placeCode!);
+          this.checkIsFavorite();
+          this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
+            duration: 2000,
+            horizontalPosition: 'left',
+            panelClass: 'app-snackbar'
+          });
+        }
+    });
+
     }
     this.checkIsFavorite();
   }

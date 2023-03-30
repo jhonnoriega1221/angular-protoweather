@@ -9,7 +9,6 @@ import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { isPlatformBrowser } from '@angular/common';
 import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
-import { ConfirmDialogPwComponent } from 'src/app/shared/components/confirm-dialog-pw/confirm-dialog-pw.component';
 
 @Component({
   selector: 'app-favorites-page',
@@ -18,7 +17,7 @@ import { ConfirmDialogPwComponent } from 'src/app/shared/components/confirm-dial
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor(private injector: EnvironmentInjector, private dialog2:PwDialog, private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
+  constructor(private injector: EnvironmentInjector, private newDialog:PwDialog, private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
@@ -38,30 +37,17 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public deleteFavoritePlace(placeId:string){
-
-
-    const dialogExample = this.dialog2.openDialog(ConfirmDialogPwComponent, {
+    const deleteFavoriteDialogRef = this.newDialog.openDialog(ConfirmDialogComponent, {
       data:{
-        titulo: "Hola",
-        cuerpo: "prueba"
-      }
-    });
-
-    dialogExample.subscribe( (result:string) => {
-      console.log(result);
-    });
-
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        title: 'Eliminar ciudad favorita', 
-        dialogBodyText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
+        titleDialogText: 'Eliminar ciudad favorita',
+        bodyDialogText: '¿Desea eliminar la ciudad de tu lista de ciudades favoritas?',
         okButtonText: 'Eliminar', 
         cancelButtonText: 'Cancelar'
       }
     });
 
-    dialogRef.afterClosed().subscribe( (result:boolean) => {
-        if(result){
+    deleteFavoriteDialogRef.subscribe( (result:string) => {
+      if(result){
           this.placeService.deleteFavoritePlace(placeId);
           this.getFavoritePlaces();
           this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
@@ -74,7 +60,7 @@ export class FavoritesPageComponent implements OnInit {
             this.isEditModeFavorites = false;
           }
         }
-    })
+    });
   }
 
   private getFavoritePlaces():void{
@@ -92,17 +78,17 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   public deleteDefaultPlace(){
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        title: 'Eliminar ciudad predeterminada', 
-        dialogBodyText: 'Se va a eliminar la ciudad por defecto, ¿Desea continuar?', 
+    const deleteDefaultPlaceDialogRef = this.newDialog.openDialog(ConfirmDialogComponent, {
+      data:{
+        titleDialogText: 'Eliminar ciudad predeterminada', 
+        bodyDialogText: 'Se va a eliminar la ciudad por defecto, ¿Desea continuar?', 
         okButtonText: 'Eliminar', 
         cancelButtonText: 'Cancelar'
       }
     });
 
-    dialogRef.afterClosed().subscribe( (result:boolean) => {
-        if(result){
+    deleteDefaultPlaceDialogRef.subscribe( (result:string) => {
+      if(result){
           this.placeService.deleteDefaultPlace();
           this.defaultPlaceName = this.getDefaultPlaceName();
           this.isEditModeDefault = false;
@@ -112,7 +98,7 @@ export class FavoritesPageComponent implements OnInit {
             panelClass: 'app-snackbar'
           });
         }
-    })
+    });
     
   }
   public setDefaultLocation():void{
