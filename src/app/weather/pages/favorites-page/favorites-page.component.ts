@@ -118,6 +118,13 @@ export class FavoritesPageComponent implements OnInit {
     if(isPlatformBrowser(this.platformId)){
       this.isMobile = this.setIsMobile(window.innerWidth);
     }
+
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent, {
+      
+    })
+
+    /*
+
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
       width: this.isMobile ? '100vw' : '600px',
       height: this.isMobile ? '100vh' : '100%',
@@ -146,7 +153,7 @@ export class FavoritesPageComponent implements OnInit {
         });
         this.getFavoritePlaces();
       }
-    });
+    });*/
   }
 
 }
