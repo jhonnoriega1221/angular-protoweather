@@ -4,6 +4,7 @@
 @use '@angular/material' as mat;
 @use './app/ui/button/styles/button.scss';
 @use './app/ui/toggle/styles/toggle.scss';
+@use './app/ui/autocomplete/styles/autocomplete-item.scss';
 
 @include mat.all-legacy-component-typographies();
 @include mat.legacy-core();

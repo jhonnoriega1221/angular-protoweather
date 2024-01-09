@@ -123,6 +123,27 @@ export class FavoritesPageComponent implements OnInit {
       
     })
 
+
+    newPlaceDialogRef.subscribe( (result:Place) => {
+      if(result){
+        const placeName = this.placeService.setLocationName(
+          result.address?.country,
+          result.address?.city,
+          result.address?.county,
+          result.address?.town,
+          result.address?.village,
+          undefined
+        );
+        this.placeService.saveFavoritePlace({name: placeName, placeId: ''+result.place_id});
+        this.snackBar.open('Ciudad agregada a favoritos', '' ,{
+          duration: 2000,
+          horizontalPosition: 'left',
+          panelClass: 'app-snackbar'
+        });
+        this.getFavoritePlaces();
+      }
+    });
+
     /*
 
     const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {

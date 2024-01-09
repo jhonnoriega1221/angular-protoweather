@@ -16,7 +16,7 @@ export class SetlocationAutocompleteDialogComponent {
   public getLocationSelected(place:Place){
     if(place){
       this.placeSelected = place;
-      this.closeDialog(true);
+      this.closeDialogViaComponent.emit(place);
     }
   }
 

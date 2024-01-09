@@ -3,10 +3,11 @@ import { trigger, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'pw-dialog-container',
-  template:
-  `<dialog #dialogElementRef>
-    <ng-container #vc></ng-container>
-  </dialog>`,
+  template:`
+    <dialog #dialogElementRef>
+      <ng-container #vc></ng-container>
+    </dialog>
+  `,
   styleUrls: ['./dialog-container.component.scss']
 })
 export class DialogContainerComponent implements AfterViewInit {

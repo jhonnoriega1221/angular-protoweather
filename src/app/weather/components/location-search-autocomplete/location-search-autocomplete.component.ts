@@ -65,11 +65,10 @@ export class LocationSearchAutocompleteComponent implements OnInit {
     }
   }
 
-  selectPlace(e: MatAutocompleteSelectedEvent) {
-    const place:Place = this.searchPlaceResults$[e.option.value];
+  selectPlace(value:number) {
+    const place:Place = this.searchPlaceResults$[value];
     this.searchForm.controls['searchInput'].setValue('');
     this.searchPlaceResults$ = [];
     this.locationSelected.emit(place);
   }
-
 }
