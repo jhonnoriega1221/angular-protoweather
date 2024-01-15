@@ -115,14 +115,7 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   private openSetLocationDialog(){
-    if(isPlatformBrowser(this.platformId)){
-      this.isMobile = this.setIsMobile(window.innerWidth);
-    }
-
-    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent, {
-      
-    })
-
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent);
 
     newPlaceDialogRef.subscribe( (result:Place) => {
       if(result){

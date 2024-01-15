@@ -10,7 +10,7 @@ export class PwAutocompleteItemDirective {
   constructor(private el:ElementRef){}
 
   @HostBinding('class') get classes(): string {
-    return "button text-button text-button-primary autocomplete-item"
+    return "button text-button autocomplete-item"
   }
 
   @HostListener('click', ['$event'])

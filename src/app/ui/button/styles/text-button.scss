@@ -1,10 +1,10 @@
 .text-button{
 	border: none;
-	color: var(--pw-surface-5);
+	color: var(--pw-on-background);
 	background-color: transparent;
 
 	&::after{
-		background-color: var(--pw-surface-5);
+		background-color: var(--pw-on-background);
 	}
 
 	&-primary{

@@ -15,7 +15,7 @@ export class AutocompleteDirective {
   onFocus(){
     setTimeout(() => {
       this.pwAutocomplete.show();
-    }, 1000);
+    }, 0);
   }
 
    @HostListener('blur')
@@ -23,7 +23,7 @@ export class AutocompleteDirective {
     setTimeout(() => {
       this.pwAutocomplete.hide();
 
-    }, 200);
+    }, 100);
   }
 
 }

@@ -6,6 +6,7 @@ import { Place } from '../../models/place';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 
 @Component({
   selector: 'app-nolocation-buttons',
@@ -28,7 +29,7 @@ export class NolocationButtonsComponent implements OnDestroy {
     imageURL: '../../../assets/location-error.svg'
   }
 
-  constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
+  constructor( private placeService:PlaceService, private newDialog:PwDialog, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
 
   ngOnDestroy(): void {
       this.placeSubscribe?.unsubscribe();
@@ -90,19 +91,10 @@ export class NolocationButtonsComponent implements OnDestroy {
   }
 
   public openSetLocationDialog(){
-    this.isMobile = this.setIsMobile(window.innerWidth);
-    const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
-      width: this.isMobile ? '100vw' : '600px',
-      height: this.isMobile ? '100vh' : '100%',
-      maxWidth: this.isMobile ? '100vw' : '600px',
-      maxHeight: this.isMobile ? '100vh' : '95vh',
-      minHeight: '200px',
-      disableClose: true,
-      enterAnimationDuration: '0ms'
-    })
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent);
 
-    dialogRef.afterClosed().subscribe( (result:Place) => {
-        if(result){
+    newPlaceDialogRef.subscribe( (result:Place) => {
+      if(result){
         const displayName = this.placeService.setLocationName(
           result.address?.country,
           result.address?.city,
@@ -119,7 +111,7 @@ export class NolocationButtonsComponent implements OnDestroy {
         });
         this.locationFound.emit();
         }
-    })
+    });
   }
 
 
