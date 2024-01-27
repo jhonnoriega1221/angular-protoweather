@@ -5,7 +5,7 @@
     </svg>
 
     <pw-autocomplete (optionSelected)="selectPlace($event)" #autocomplete="pwAutocomplete">
-      <pw-spinner *ngIf="isSearching" style="margin: 0 auto" color="primary"/>
+      <pw-spinner pw-autocomplete-item *ngIf="isSearching" style="margin: 0 auto" color="primary"/>
       <button type="button" pw-autocomplete-item *ngFor="let place of searchPlaceResults$; let i = index" [value]=i >
         <ng-container *ngIf="place">{{place.display_name}}
         </ng-container>

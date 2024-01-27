@@ -26,4 +26,9 @@ export class AutocompleteDirective {
     }, 100);
   }
 
+  @HostListener('input')
+  onInput(){
+    this.pwAutocomplete.show();
+  }
+
 }

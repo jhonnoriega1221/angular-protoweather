@@ -19,11 +19,7 @@ export class AutocompleteComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
       this.items.changes.subscribe( (items: QueryList<PwAutocompleteItemDirective>) => {
-        console.log(items)
-        if(items.length === 0) {
-          this.hide();
-          return;
-        }
+        this.show();
         items.forEach(item => {
           item.optionSelected.subscribe(value => {
             this.optionSelected.emit(value);
@@ -34,11 +30,15 @@ export class AutocompleteComponent implements AfterContentInit {
   
   show(){
     const autocompleteElement = this.autocompleteElementRef.nativeElement;
-    autocompleteElement.style.display= 'block';
+    if(this.items.length > 0) {
+      autocompleteElement.style.display = 'block';
+    } else {
+      this.hide();
+    }
   }
 
   hide(){
     const autocompleteElement = this.autocompleteElementRef.nativeElement;
-    autocompleteElement.style.display= 'none';
+    autocompleteElement.style.display = 'none';
   }
 }

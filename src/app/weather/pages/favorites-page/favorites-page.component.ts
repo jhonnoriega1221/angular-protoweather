@@ -3,11 +3,9 @@ import { FavoritePlace } from '../../favorite-place';
 import { Place } from '../../models/place';
 import { PlaceService } from '../../services/place.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../../components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { isPlatformBrowser } from '@angular/common';
 import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 
 @Component({
@@ -17,11 +15,10 @@ import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor(private injector: EnvironmentInjector, private newDialog:PwDialog, private placeService:PlaceService, private router:Router, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
+  constructor(private newDialog:PwDialog, private placeService:PlaceService, private router:Router, private snackBar: MatSnackBar) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
-  private isMobile = isPlatformBrowser(this.platformId) ? this.setIsMobile(window.innerWidth) : null;
   public isEditModeFavorites:boolean = false;
   public isEditModeDefault:boolean = false;
   
