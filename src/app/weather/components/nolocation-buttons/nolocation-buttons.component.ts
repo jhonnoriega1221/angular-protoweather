@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, HostListener, OnDestroy, PLATFORM_ID, 
 import { PlaceService } from '../../services/place.service';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { Place } from '../../models/place';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { PwSnackbar } from 'src/app/ui/snackbar/services/snackbar.service';
 import { Subscription } from 'rxjs';
 import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 
@@ -26,7 +26,7 @@ export class NolocationButtonsComponent implements OnDestroy {
     imageURL: '../../../assets/location-error.svg'
   }
 
-  constructor( private placeService:PlaceService, private newDialog:PwDialog, private snackBar: MatSnackBar ) { }
+  constructor( private placeService:PlaceService, private newDialog:PwDialog, private snackBar: PwSnackbar ) { }
 
   ngOnDestroy(): void {
       this.placeSubscribe?.unsubscribe();
@@ -52,11 +52,7 @@ export class NolocationButtonsComponent implements OnDestroy {
               );
               this.placeService.setDefaultPlace(v.lat, v.lon, displayName);
 
-              this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
-                duration: 2000,
-                horizontalPosition: 'left',
-                panelClass: 'app-snackbar'
-              });
+              this.snackBar.openSnackbar('Se estableció la ciudad predeterminada');
             },
             error: (e) => {
               this.isSearchingLocation = false;
@@ -97,11 +93,7 @@ export class NolocationButtonsComponent implements OnDestroy {
           undefined
         );
         this.placeService.setDefaultPlace(result.lat, result.lon, displayName);
-        this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
-          duration: 2000,
-          horizontalPosition: 'left',
-          panelClass: 'app-snackbar'
-        });
+        this.snackBar.openSnackbar('Se estableció la ciudad predeterminada');
         this.locationFound.emit();
         }
     });

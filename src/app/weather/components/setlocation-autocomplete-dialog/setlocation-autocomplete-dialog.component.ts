@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Place } from '../../models/place';
-import { MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-setlocation-autocomplete-dialog',

@@ -7,6 +7,7 @@ import { SetlocationAutocompleteDialogComponent } from '../../components/setloca
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
+import { PwSnackbar } from 'src/app/ui/snackbar/services/snackbar.service';
 
 @Component({
   selector: 'app-favorites-page',
@@ -15,7 +16,7 @@ import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  constructor(private newDialog:PwDialog, private placeService:PlaceService, private router:Router, private snackBar: MatSnackBar) { }
+  constructor(private newSnackBar: PwSnackbar, private newDialog:PwDialog, private placeService:PlaceService, private router:Router) { }
 
   public defaultPlaceName:string|undefined = '';
   public favoritePlaces:FavoritePlace[] = [];
@@ -47,11 +48,7 @@ export class FavoritesPageComponent implements OnInit {
       if(result){
           this.placeService.deleteFavoritePlace(placeId);
           this.getFavoritePlaces();
-          this.snackBar.open('Ciudad eliminada de favoritos', '' ,{
-            duration: 2000,
-            horizontalPosition: 'left',
-            panelClass: 'app-snackbar'
-          });
+          this.newSnackBar.openSnackbar('Ciudad eliminada de favoritos');
 
           if(this.placeService.getFavoritePlaces().length === 0){
             this.isEditModeFavorites = false;
@@ -89,11 +86,7 @@ export class FavoritesPageComponent implements OnInit {
           this.placeService.deleteDefaultPlace();
           this.defaultPlaceName = this.getDefaultPlaceName();
           this.isEditModeDefault = false;
-          this.snackBar.open('Se eliminó la ciudad predeterminada', '' ,{
-            duration: 2000,
-            horizontalPosition: 'left',
-            panelClass: 'app-snackbar'
-          });
+          this.newSnackBar.openSnackbar('Se eliminó la ciudad predeterminada');
         }
     });
     
@@ -131,11 +124,7 @@ export class FavoritesPageComponent implements OnInit {
           undefined
         );
         this.placeService.saveFavoritePlace({name: placeName, placeId: ''+result.place_id});
-        this.snackBar.open('Ciudad agregada a favoritos', '' ,{
-          duration: 2000,
-          horizontalPosition: 'left',
-          panelClass: 'app-snackbar'
-        });
+        this.newSnackBar.openSnackbar('Ciudad agregada a favoritos');
         this.getFavoritePlaces();
       }
     });
