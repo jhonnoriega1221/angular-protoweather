@@ -77,7 +77,13 @@ export class NolocationButtonsComponent implements OnDestroy {
   }
 
   public openSetLocationDialog(){
-    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent);
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent, {
+      width: '95%',
+      height: '100%',
+      maxWidth: '600px',
+      maxHeight: '95vh',
+      minHeight: '200px'
+    });
 
     newPlaceDialogRef.subscribe( (result:Place) => {
       if(result){

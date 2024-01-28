@@ -17,14 +17,13 @@ export class AutocompleteDirective {
       this.pwAutocomplete.show();
     }, 0);
   }
-
+/*
    @HostListener('blur')
-  onBlur(){
-    setTimeout(() => {
+  onBlur(){   
       this.pwAutocomplete.hide();
 
     }, 100);
-  }
+  } */
 
   @HostListener('input')
   onInput(){

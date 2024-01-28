@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef, AfterViewInit, ViewChild, ComponentRef, ElementRef, Output, EventEmitter } from '@angular/core';
-import { trigger, transition, animate, style } from '@angular/animations';
+import {PwDialogConfig} from '../../models/pw-dialog-config'
 
 @Component({
   selector: 'pw-dialog-container',
@@ -17,7 +17,35 @@ export class DialogContainerComponent implements AfterViewInit {
   @Input() dialogContentRef!:ComponentRef<any>;
   @Output() closeDialogViaEsc = new EventEmitter();
 
+  @Input() config?:PwDialogConfig;
+
   ngAfterViewInit(): void {
+
+    //Configura los estilos del Popup
+    //TODO: Opimize this with a for
+    if(this.config?.width){
+      this.dialogElementRef.nativeElement.style.width = this.config.width
+    }
+
+    if(this.config?.height){
+      this.dialogElementRef.nativeElement.style.height = this.config.height
+    }
+
+    if(this.config?.maxHeight){
+      this.dialogElementRef.nativeElement.style.maxHeight = this.config.maxHeight
+    }
+
+    if(this.config?.maxWidth){
+      this.dialogElementRef.nativeElement.style.maxWidth = this.config.maxWidth
+    }
+
+    if(this.config?.minHeight){
+      this.dialogElementRef.nativeElement.style.minHeight = this.config.minHeight
+    }
+
+    if(this.config?.minWidth){
+      this.dialogElementRef.nativeElement.style.minWidth = this.config.minWidth
+    }
 
     //Se coloca el contenido del componente en el dialogo y se muestra el dialogo en pantalla
     setTimeout(() => {

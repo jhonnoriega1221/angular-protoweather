@@ -32,6 +32,7 @@ export class PwDialog {
 
     //Se pasa la información y ajustes a los componentes instanciados
     this.dialogContainerRef.instance.dialogContentRef = this.dialogContentRef;
+    this.dialogContainerRef.instance.config = config;
     this.dialogContentRef.instance.data = config?.data;
 
     //Se suscriben a los eventos que indican el cierre del dialogo

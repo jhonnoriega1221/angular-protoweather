@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ConfirmDialogComponent {
 
+  //TODO: set data "any" type
   @Input() data:any;
   @Output() closeDialogViaComponent = new EventEmitter();
 

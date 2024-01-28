@@ -112,7 +112,13 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   private openSetLocationDialog(){
-    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent);
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent, {
+      width: '95%',
+      height: '100%',
+      maxWidth: '600px',
+      maxHeight: '95vh',
+      minHeight: '200px'
+    });
 
     newPlaceDialogRef.subscribe( (result:Place) => {
       if(result){
