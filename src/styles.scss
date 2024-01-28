@@ -136,10 +136,13 @@ a {
 *::-webkit-scrollbar {
     background-color: var(--pw-background);
     width: 16px;
+    border-radius: 12px;
 } 
 
 *::-webkit-scrollbar-track {
     background-color: var(--pw-background);
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 *::-webkit-scrollbar-thumb {
