@@ -5,7 +5,6 @@ import { PlaceService } from '../../services/place.service';
 import { Router } from '@angular/router';
 import { SetlocationAutocompleteDialogComponent } from '../../components/setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 import { PwSnackbar } from 'src/app/ui/snackbar/services/snackbar.service';
 

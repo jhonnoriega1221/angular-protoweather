@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { Place } from '../../models/place';
-import { MatAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 

@@ -1,43 +1,13 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
 @use './app/ui/button/styles/button.scss';
 @use './app/ui/toggle/styles/toggle.scss';
 @use './app/ui/autocomplete/styles/autocomplete-item.scss';
 
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
 @font-face {
   font-family: "Poppins";
   src: url(./assets/fonts/Poppins/Poppins-Regular.woff2);
   unicode-range: U+00-7F, U+80-FF;
 }
-
-$angular-protoweather-primary: mat.define-palette(mat.$indigo-palette);
-$angular-protoweather-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$angular-protoweather-warn: mat.define-palette(mat.$red-palette);
-
-$angular-protoweather-theme: mat.define-light-theme((
-  color: (
-    primary: $angular-protoweather-primary,
-    accent: $angular-protoweather-accent,
-    warn: $angular-protoweather-warn,
-  )
-));
-
-@include mat.all-legacy-component-themes($angular-protoweather-theme);
-
-$angular-protoweather-dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $angular-protoweather-primary,
-    accent: $angular-protoweather-accent,
-    warn: $angular-protoweather-warn,
-  )
-));
-
-/* You can add global styles to this file, and also import other style files */
-
 
 [data-theme="light"] {
   color-scheme: light !important;
@@ -69,7 +39,6 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 }
 
 [data-theme="dark"]{
-  @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark !important;
   --pw-primary: #9fcaff !important;
   --pw-on-primary: #003259 !important;
@@ -98,7 +67,6 @@ $angular-protoweather-dark-theme: mat.define-dark-theme((
 }
 
 [data-theme="black"]{
-  @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
   color-scheme: dark !important;
   --pw-primary: #9fcaff !important;
   --pw-on-primary: #2c2c2c !important;
@@ -210,7 +178,6 @@ a {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include mat.all-legacy-component-colors($angular-protoweather-dark-theme);
     color-scheme: dark;
     --pw-primary: #9fcaff;
     --pw-on-primary: #003259;

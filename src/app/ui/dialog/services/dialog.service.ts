@@ -1,4 +1,3 @@
-import { ComponentType } from '@angular/cdk/portal';
 import { Injectable, createComponent, ApplicationRef, EnvironmentInjector, ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DialogContainerComponent } from '../components/dialog-container/dialog-container.component';
@@ -18,7 +17,7 @@ export class PwDialog {
     private injector: EnvironmentInjector
   ) { }
 
-  openDialog(anyComponent:ComponentType<any>, config?:PwDialogConfig){
+  openDialog(anyComponent:any, config?:PwDialogConfig){
 
     //Se instancia el componente que manejará la funcionalidad del dialogo
     this.dialogContainerRef = createComponent(DialogContainerComponent , {
