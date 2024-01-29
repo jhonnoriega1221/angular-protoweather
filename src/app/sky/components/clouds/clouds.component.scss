@@ -43,7 +43,7 @@ $large-cloud-2-start: -755px;
     &-thin{
         width: 853px;
         height: 310px;
-        background-image: url('../../../../assets/weather_backgrounds/thin-cloud.png');
+        background-image: url('../../../../assets/weather_backgrounds/thin-cloud.webp');
         animation-name: thinCloudMovement;
 
         &-1{
@@ -70,7 +70,7 @@ $large-cloud-2-start: -755px;
     &-normal{
         width: 363px;
         height: 190px;
-        background-image: url('../../../../assets/weather_backgrounds/cloud.png');
+        background-image: url('../../../../assets/weather_backgrounds/cloud.webp');
         animation-name: cloudMovement;
 
         &-1{
@@ -97,7 +97,7 @@ $large-cloud-2-start: -755px;
     &-large{
         width: 853px;
         height: 310px;
-        background-image: url('../../../../assets/weather_backgrounds/long-cloud.png');
+        background-image: url('../../../../assets/weather_backgrounds/long-cloud.webp');
         animation-name: largeCloudMovement;
 
         &-1{
