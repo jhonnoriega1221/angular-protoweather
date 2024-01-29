@@ -1,11 +1,10 @@
 import { Component, Output, EventEmitter, HostListener, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
-import { MatDialog } from '@angular/material/dialog';
 import { SetlocationAutocompleteDialogComponent } from '../setlocation-autocomplete-dialog/setlocation-autocomplete-dialog.component';
 import { Place } from '../../models/place';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { PwSnackbar } from 'src/app/ui/snackbar/services/snackbar.service';
 import { Subscription } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
+import { PwDialog } from 'src/app/ui/dialog/services/dialog.service';
 
 @Component({
   selector: 'app-nolocation-buttons',
@@ -18,7 +17,6 @@ export class NolocationButtonsComponent implements OnDestroy {
   @Output() locationFound: EventEmitter<any> = new EventEmitter();
 
   public isSearchingLocation:boolean = false;
-  private isMobile = isPlatformBrowser(this.platformId) ? this.setIsMobile(window.innerWidth) : null;
 
   private placeSubscribe?:Subscription;
 
@@ -28,21 +26,10 @@ export class NolocationButtonsComponent implements OnDestroy {
     imageURL: '../../../assets/location-error.svg'
   }
 
-  constructor( private placeService:PlaceService, public dialog:MatDialog, private snackBar: MatSnackBar, @Inject(PLATFORM_ID) private platformId:any ) { }
+  constructor( private placeService:PlaceService, private newDialog:PwDialog, private snackBar: PwSnackbar ) { }
 
   ngOnDestroy(): void {
       this.placeSubscribe?.unsubscribe();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event:any) {
-    const innerWidth:number = event.target.innerWidth;
-    this.isMobile = this.setIsMobile(innerWidth);
-  }
-
-  private setIsMobile(innerWidth: number): boolean {
-    const isMobile = innerWidth <= 600 ? true : false
-    return isMobile;
   }
 
   public getLocation():void{
@@ -54,7 +41,7 @@ export class NolocationButtonsComponent implements OnDestroy {
         this.placeSubscribe = this.placeService.getPlace(latitude, longitude).subscribe(
           {
             next: (v:Place) => {
-              
+              //TODO: meter esto dentro de una funcion
               const displayName = this.placeService.setLocationName(
                 v.address?.country,
                 v.address?.city,
@@ -65,11 +52,7 @@ export class NolocationButtonsComponent implements OnDestroy {
               );
               this.placeService.setDefaultPlace(v.lat, v.lon, displayName);
 
-              this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
-                duration: 2000,
-                horizontalPosition: 'left',
-                panelClass: 'app-snackbar'
-              });
+              this.snackBar.openSnackbar('Se estableció la ciudad predeterminada');
             },
             error: (e) => {
               this.isSearchingLocation = false;
@@ -80,29 +63,27 @@ export class NolocationButtonsComponent implements OnDestroy {
         );
         
       }, (error) => {
-        console.log(error);
+        console.error(error);
         this.isSearchingLocation = false;
         this.errorLocation.emit(this.errorMessage);
       });
     } else {
-      console.log("No support for geolocation");
+      console.error("No support for geolocation");
     }
   }
 
   public openSetLocationDialog(){
-    this.isMobile = this.setIsMobile(window.innerWidth);
-    const dialogRef = this.dialog.open(SetlocationAutocompleteDialogComponent,  {
-      width: this.isMobile ? '100vw' : '600px',
-      height: this.isMobile ? '100vh' : '100%',
-      maxWidth: this.isMobile ? '100vw' : '600px',
-      maxHeight: this.isMobile ? '100vh' : '95vh',
-      minHeight: '200px',
-      disableClose: true,
-      enterAnimationDuration: '0ms'
-    })
+    const newPlaceDialogRef = this.newDialog.openDialog(SetlocationAutocompleteDialogComponent, {
+      width: '95%',
+      height: '100%',
+      maxWidth: '600px',
+      maxHeight: '95vh',
+      minHeight: '200px'
+    });
 
-    dialogRef.afterClosed().subscribe( (result:Place) => {
-        if(result){
+    newPlaceDialogRef.subscribe( (result:Place) => {
+      if(result){
+        //TODO: meter esto dentro de una función
         const displayName = this.placeService.setLocationName(
           result.address?.country,
           result.address?.city,
@@ -112,15 +93,9 @@ export class NolocationButtonsComponent implements OnDestroy {
           undefined
         );
         this.placeService.setDefaultPlace(result.lat, result.lon, displayName);
-        this.snackBar.open('Se estableció la ciudad predeterminada', '' ,{
-          duration: 2000,
-          horizontalPosition: 'left',
-          panelClass: 'app-snackbar'
-        });
+        this.snackBar.openSnackbar('Se estableció la ciudad predeterminada');
         this.locationFound.emit();
         }
-    })
+    });
   }
-
-
 }

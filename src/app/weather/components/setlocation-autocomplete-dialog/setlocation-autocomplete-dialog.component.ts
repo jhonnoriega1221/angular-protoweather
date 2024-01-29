@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Place } from '../../models/place';
-import { MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-setlocation-autocomplete-dialog',
@@ -9,29 +8,19 @@ import { MatDialogRef} from '@angular/material/dialog';
 })
 export class SetlocationAutocompleteDialogComponent {
 
+  @Output() closeDialogViaComponent = new EventEmitter();
+
   public placeSelected?:Place;
-
-  public isDisabledSelectButton:boolean = true;
-
-  constructor(public dialogRef: MatDialogRef<SetlocationAutocompleteDialogComponent>) {
-    if (!("virtualKeyboard" in navigator)) {
-      console.log('VIRTUALKEYBOARD API NOT SUPPORTED');
-    }
-  }
 
   public getLocationSelected(place:Place){
     if(place){
       this.placeSelected = place;
-      this.isDisabledSelectButton = false;
-
-      this.dialogRef.close(this.placeSelected);
-    } else {
-      this.isDisabledSelectButton = true;
+      this.closeDialogViaComponent.emit(place);
     }
   }
 
-  public closeDialog(): void {
-    this.dialogRef.close();
+  public closeDialog(result?:boolean): void {
+    this.closeDialogViaComponent.emit(undefined);
   }
 
 }

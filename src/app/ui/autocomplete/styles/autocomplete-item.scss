@@ -1,0 +1,13 @@
+.autocomplete-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0px;
+}
+
+.autocomplete-item::after {
+    border-radius: 0px;
+}

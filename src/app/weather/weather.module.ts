@@ -8,12 +8,8 @@ import { PwSpinnerModule } from '../ui/spinner/spinner.module';
 import { PwToggleModule } from '../ui/toggle/toggle.module';
 import { PwSkeletonModule } from '../ui/skeleton/skeleton.module';
 import { PwSkyModule } from '../sky/sky.module';
+import { PwAutocompleteModule } from '../ui/autocomplete/autocomplete.module';
 import { WeatherRoutingModule } from './weather-routing.module';
-
-import { MatRippleModule } from '@angular/material/core';
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { WeatherLayoutComponent } from './layouts/weather-layout/weather-layout.component';
 import { WeatherNavbarComponent } from './components/navbar-components/weather-navbar/weather-navbar.component';
@@ -69,13 +65,10 @@ import { AddFavoritePlaceCardComponent } from './components/favorites-page-compo
     CommonModule,
     FormsModule,
     WeatherRoutingModule,
-    MatRippleModule,
-    MatAutocompleteModule,
-    MatDialogModule,
+    PwAutocompleteModule,
     PwToggleModule,
     PwSkeletonModule,
     SharedModule,
-    MatSnackBarModule,
     PwButtonModule,
     PwSpinnerModule,
     ReactiveFormsModule,

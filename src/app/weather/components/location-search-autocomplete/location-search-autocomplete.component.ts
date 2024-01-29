@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { PlaceService } from '../../services/place.service';
 import { Place } from '../../models/place';
-import { MatAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -65,11 +64,10 @@ export class LocationSearchAutocompleteComponent implements OnInit {
     }
   }
 
-  selectPlace(e: MatAutocompleteSelectedEvent) {
-    const place:Place = this.searchPlaceResults$[e.option.value];
+  selectPlace(value:number) {
+    const place:Place = this.searchPlaceResults$[value];
     this.searchForm.controls['searchInput'].setValue('');
     this.searchPlaceResults$ = [];
     this.locationSelected.emit(place);
   }
-
 }

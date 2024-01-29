@@ -7,7 +7,7 @@
     <div class="recent-searches" *ngIf="!(historySearch.length == 0)">
         <p class="recent-title">Búsquedas recientes</p>
         <ul class="list">
-            <div class="list-item-wrapper" mat-ripple *ngFor="let historySearchItem of historySearch">
+            <div class="list-item-wrapper" *ngFor="let historySearchItem of historySearch">
                 <i class="fa-solid fa-history recent-icon"></i>
                 <a [routerLink]="['/forecast/cartagena']" class="list-item" [routerLink]="['/forecast/', historySearchItem.placeId]" >
                     {{historySearchItem.name}}
