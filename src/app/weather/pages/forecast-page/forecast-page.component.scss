@@ -1,5 +1,7 @@
 .container{
+    max-width: 1262px;
     padding: 18px 0 83px 0;
+    margin: auto;
 }
 
 .wrapper{
@@ -113,11 +115,5 @@
 
     .sunset-info{
         grid-area: 1/2/3/2;
-    }
-}
-
-@media (min-width: 1880px){
-    .forecast-info-grid{
-        grid-template-columns: repeat(3, 1fr);
     }
 }
