@@ -1,12 +1,12 @@
-<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1 cloud-thin-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2 cloud-thin-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1 cloud-normal-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2 cloud-normal-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1 cloud-large-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
-<div *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2 cloud-large-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-1 cloud-thin-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 1" class="cloud cloud-thin cloud-thin-2 cloud-thin-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 2" class="cloud cloud-normal cloud-normal-1 cloud-normal-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 3" class="cloud cloud-normal cloud-normal-2 cloud-normal-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 4" class="cloud cloud-large cloud-large-1 cloud-large-1-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>
+<div #imageLoader *ngIf="cloudsLevel >= 5" class="cloud cloud-large cloud-large-2 cloud-large-2-loop" [ngClass]=" isCloudy ? 'cloud-cloudy' : 'cloud-'+actualHour"></div>

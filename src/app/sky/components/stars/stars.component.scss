@@ -5,11 +5,8 @@
     width: 200%;
     height: 100%;
     background-size: 326px;
-    background-image: url('../../../../assets/weather_backgrounds/stars.png');
-    animation-name: starsMove;
-    animation-duration: 200s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    background-image: url('/assets/weather_backgrounds/stars.webp');
+    animation: fadeIn 500ms 1 linear, starsMove 200s infinite linear;
 
     &-6{
         filter: opacity(60%);
@@ -18,4 +15,14 @@
 @keyframes starsMove {
     from { transform: translate3d(0, 0, 0); }
     to { transform: translate3d(-326px, 0, 0); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
