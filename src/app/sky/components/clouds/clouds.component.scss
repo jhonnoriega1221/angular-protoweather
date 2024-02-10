@@ -9,10 +9,14 @@ $large-cloud-2-start: -755px;
 
 .cloud{
     position: absolute;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
     background-size: contain;
     background-repeat: no-repeat;
+    opacity: 0;
+
+    &.loaded {
+        opacity: 1;
+        animation: fadeIn 500ms 1 linear, cloudMovement 120s infinite linear;
+    }
 
     &-0{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
     &-1{filter: brightness(60%) sepia(70%) hue-rotate(550deg);}
@@ -43,13 +47,11 @@ $large-cloud-2-start: -755px;
     &-thin{
         width: 853px;
         height: 310px;
-        background-image: url('/assets/weather_backgrounds/thin-cloud.webp');
-        animation-name: thinCloudMovement;
+        background-image: url('/assets/weather_backgrounds/cloud-thin.webp');
 
         &-1{
             top: -101px;
             left: $thin-cloud-1-start;
-            animation-duration: 120s;
 
             &-loop{
                 left: $thin-cloud-1-start + $container-width;
@@ -59,7 +61,6 @@ $large-cloud-2-start: -755px;
         &-2{
             top: -69px;
             left: $thin-cloud-2-start;
-            animation-duration: 120s;
 
             &-loop{
                 left: $thin-cloud-2-start + $container-width;
@@ -70,13 +71,11 @@ $large-cloud-2-start: -755px;
     &-normal{
         width: 363px;
         height: 190px;
-        background-image: url('/assets/weather_backgrounds/cloud.webp');
-        animation-name: cloudMovement;
+        background-image: url('/assets/weather_backgrounds/cloud-normal.webp');
 
         &-1{
             top: 9px;
             left: $normal-cloud-1-start;
-            animation-duration: 118s;
 
             &-loop{
                 left: $normal-cloud-1-start + $container-width;
@@ -86,7 +85,6 @@ $large-cloud-2-start: -755px;
         &-2{
             top: -71px;
             left: $normal-cloud-2-start;
-            animation-duration: 121s;
 
             &-loop{
                 left: $normal-cloud-2-start + $container-width;
@@ -97,13 +95,11 @@ $large-cloud-2-start: -755px;
     &-large{
         width: 853px;
         height: 310px;
-        background-image: url('/assets/weather_backgrounds/long-cloud.webp');
-        animation-name: largeCloudMovement;
+        background-image: url('/assets/weather_backgrounds/cloud-large.webp');
 
         &-1{
             top: -81px;
             left: $large-cloud-1-start;
-            animation-duration: 120s;
 
             &-loop{
                 left: $large-cloud-1-start + $container-width;
@@ -112,7 +108,6 @@ $large-cloud-2-start: -755px;
         &-2{
             top: -90px;
             left: $large-cloud-2-start;
-            animation-duration: 120s;
 
             &-loop{
                 left: $large-cloud-2-start + $container-width;
@@ -121,32 +116,22 @@ $large-cloud-2-start: -755px;
     }
 }
 
-@keyframes thinCloudMovement {
-    from{
-        transform: translate3d(-853px, 0px, 0px); 
-    }
-
-    to{
-        transform: translate3d(-853px + $container-width, 0px, 0px);
-    }
-}
-
 @keyframes cloudMovement {
     from{
-        transform: translate3d(-363px, 0px, 0px); 
-    }
-
-    to{
-        transform: translate3d(-363px + $container-width, 0px, 0px);
-    }
-}
-
-@keyframes largeCloudMovement {
-    from{
         transform: translate3d(-853px, 0px, 0px); 
     }
 
     to{
         transform: translate3d(-853px + $container-width, 0px, 0px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
