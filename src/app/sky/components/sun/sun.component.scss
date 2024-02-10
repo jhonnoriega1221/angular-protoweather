@@ -10,4 +10,20 @@
     background-position-y: -179px;
     filter: brightness(110%);
     height: 100%;
+    opacity: 0;
+    
+    &.loaded {
+        opacity: 1;
+        animation: fadeIn 500ms 1 linear;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
